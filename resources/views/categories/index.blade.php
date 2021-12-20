@@ -1,5 +1,21 @@
 @extends('layouts.dashboard')
 @section('content')
+    @if(Session::has('stocategosuccess'))
+        <div class="alert alert-success" role="alert">
+            {{ Session::get('stocategosuccess') }}
+        </div>
+    @endif
+    @if(Session::has('updacategosuccess'))
+        <div class="alert alert-success" role="alert">
+            {{ Session::get('updacategosuccess') }}
+        </div>
+    @endif
+    @if(Session::has('delecategosuccess'))
+        <div class="alert alert-success" role="alert">
+            {{ Session::get('delecategosuccess') }}
+        </div>
+    @endif
+
 <div class="card">
     <div class="card-header">
         Categorías
@@ -22,8 +38,8 @@
                                 @foreach($categories as $category)
                                 <tr>
                                     <td style="text-align: center; padding:10px;">
-                                        <a class="magnific" href="https://miel.robotschool.co/storage/category_images/{{$category->id.'.png'}}">
-                                            <img style="width:200px" class="img-thumbnail" src="https://miel.robotschool.co/storage/category_images/{{$category->id.'.png'}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
+                                        <a class="magnific" href="https://miel.robotschool.co/{{$category->icon_url}}">
+                                            <img style="width:200px" class="img-thumbnail" src="https://miel.robotschool.co/{{$category->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
                                         </a>
                                     </td>
                                     <td style="text-align: center; padding:10px;">{{$category->name}}</td>
@@ -37,9 +53,9 @@
                                             </div>
                                             <form method="POST" action="/categories/delete">
                                                 @csrf
-                                                <input type="hidden" name="school_id" value={{ $category->id }}>
+                                                <input type="hidden" name="category_id" value={{ $category->id }}>
                                                     <div style="display: inline-block !important;">
-                                                        <button style="margin:4px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este colegio?');"><i class="fas fa-exclamation-triangle"></i></button>
+                                                        <button style="margin:4px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar esta categoría?');"><i class="fas fa-exclamation-triangle"></i></button>
                                                     </div>
                                             </form>
                                         </div>

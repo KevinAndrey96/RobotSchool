@@ -41,8 +41,8 @@
                                     @foreach($schools as $school)
                                         <tr style="text-align: center; padding:10px;">
                                             <td>
-                                                <a class="magnific" href="https://miel.robotschool.co/storage/school_logos/{{substr($school->icon_url,20)}}">
-                                                    <img style="width:200px" class="img-thumbnail" src="https://miel.robotschool.co/storage/school_logos/{{substr($school->icon_url,20)}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
+                                                <a class="magnific" href="https://miel.robotschool.co/{{$school->icon_url}}">
+                                                    <img style="width:200px" class="img-thumbnail" src="https://miel.robotschool.co/{{$school->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
                                                 </a>
                                             </td>
                                             <td>{{$school->name}}</td>

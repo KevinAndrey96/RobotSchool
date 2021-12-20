@@ -4,27 +4,17 @@ namespace App\Http\Controllers\Categories;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\UseCases\Contracts\Schools\StoreSchoolsUseCaseInterface;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Request as RequestAlias;
 
-/**
- *
- */
-class CategoriesStoreController extends Controller
+class CategoriesUpdateController extends Controller
 {
-    /**
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
-    public function store(Request $request)
+    public function update(Request $request)
     {
-        $category = new Category();
+        $category = Category::find($request->input('category_id'));
         $category->name = $request->input('name');
-        $category->icon_url = '';
         $category->description = $request->input('description');
         $category->save();
         if ($request->hasFile('icon_url')) {
@@ -48,10 +38,11 @@ class CategoriesStoreController extends Controller
                     ]
                 ]
             ]);
-            $category->icon_url = '/storage/category_images/' . $category->id . '.png';
+            $category->icon_url = 'storage/category_images/'.$category->id.'.png';
             $category->save();
         }
+        $category->save();
 
-        return redirect('/categories')->with('stocategosuccess', 'Categoría agregada');
+        return redirect('/categories')->with('updacategosuccess','Categoría modificada');
     }
 }

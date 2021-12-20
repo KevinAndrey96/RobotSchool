@@ -12,6 +12,5 @@ class CategoriesEditController extends Controller
     {
         $category = Category::find($id);
         return view('categories.edit', compact('category'));
-
     }
 }
