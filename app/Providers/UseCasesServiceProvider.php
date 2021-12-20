@@ -6,7 +6,7 @@ use App\UseCases\Contracts\Schools\StoreSchoolsUseCaseInterface;
 use App\UseCases\Schools\StoreSchoolsUseCase;
 use Illuminate\Support\ServiceProvider;
 
-class UseCasesServicesProvider extends ServiceProvider
+class UseCasesServiceProvider extends ServiceProvider
 {
     /**
      * Register services.

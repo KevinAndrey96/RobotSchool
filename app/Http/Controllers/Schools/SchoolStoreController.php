@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Schools;
 
 use App\Http\Controllers\Controller;
 use App\Models\School;
+use App\UseCases\Contracts\Schools\StoreSchoolsUseCaseInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\RedirectResponse;
@@ -20,43 +21,34 @@ class SchoolStoreController extends Controller
 {
     /**
      * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    private StoreSchoolsUseCaseInterface $storeSchoolsUseCase;
+
+    /**
+     * @param StoreSchoolsUseCaseInterface $storeSchoolsUseCase
+     */
+    public function __construct(StoreSchoolsUseCaseInterface $storeSchoolsUseCase)
+    {
+        $this->storeSchoolsUseCase = $storeSchoolsUseCase;
+    }
+
+    /**
+     * @param Request $request
      * @return RedirectResponse
      * @throws GuzzleException
      */
     public function store(Request $request)
     {
-        $school = new School();
-        $school->name = $request->input('name');
-        $school->address = $request->input('address');
-        $school->city = $request->input('city');
-        $school->country = $request->input('country');
-        $school->is_enable = true;
-        $school->save();
-        if ($request->hasFile('icon_url')) {
-            $pathName = Sprintf('school_logos/%s.png', $school->id);
-            Storage::disk('public')->put($pathName, file_get_contents($request->file('icon_url')));
-            $client = new Client();
-            $url = "https://miel.robotschool.co/upload.php";
-            $client->request(RequestAlias::METHOD_POST, $url, [
-                'multipart' => [
-                    [
-                        'name' => 'image',
-                        'contents' => fopen(
-                            Storage::disk('public')
-                                ->getDriver()
-                                ->getAdapter()
-                                ->getPathPrefix() . 'school_logos/' . $school->id . '.png', 'r'),
-                    ],
-                    [
-                        'name' => 'path',
-                        'contents' => 'school_logos'
-                    ]
-                ]
-            ]);
-            $school->icon_url = '/storage/school_logos/' . $school->id . '.png';
-            $school->save();
-        }
-
+        $this->storeSchoolsUseCase->handle(
+            $request->input('name'),
+            $request->input('address'),
+            $request->input('city'),
+            $request->input('country'),
+            true,
+            $request->file('icon_url')
+        );
         return redirect('/schools')->with('storeschoolsuccess','Colegio agregado');
     }
 }
