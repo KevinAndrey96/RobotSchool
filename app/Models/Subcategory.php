@@ -5,24 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * @property mixed $id
- * @property mixed $name
- * @property mixed $description
- */
-class Category extends Model
+class Subcategory extends Model
 {
     use HasFactory;
-
 
     protected $fillable = [
         'name',
         'description',
-        'icon_url'
+        'icon_url',
+        'category_id'
     ];
 
-    public function subcategories()
+    public function category()
     {
-        return $this->hasMany(Subcategory::class);
+        return $this->belongsTo(Category::class);
     }
+
 }

@@ -47,17 +47,20 @@
                                         {{$category->description}}
                                     </td>
                                     <td style="text-align: center;">
-                                        <div style="display: inline-block" class="row" class="btn-group" role="group">
-                                            <div style="display: inline-block !important">
-                                                <a href="/categories/edit/{{$category->id}}" style="margin:4px; width:40px;" alt="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
+                                        <div style="display: inline-block" class="" class="btn-group" role="group">
+                                            <div style="display: inline-block">
+                                                <a href="/subcategories/{{$category->id}}" style="margin:3px; width:40px;" alt="Subcategorías" class="btn btn-block btn-success form-control"><i style="width:30px" class="fab fa-stripe-s"></i></a>
                                             </div>
+                                            <div style="display: inline-block">
+                                                <a href="/categories/edit/{{$category->id}}" style="margin:3px; width:40px;" alt="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
+                                            </div>
+                                            <div style="display: inline-block">
                                             <form method="POST" action="/categories/delete">
                                                 @csrf
                                                 <input type="hidden" name="category_id" value={{ $category->id }}>
-                                                    <div style="display: inline-block !important;">
-                                                        <button style="margin:4px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar esta categoría?');"><i class="fas fa-exclamation-triangle"></i></button>
-                                                    </div>
+                                                <button style="margin:3px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar esta categoría?');"><i class="fas fa-exclamation-triangle"></i></button>
                                             </form>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>
