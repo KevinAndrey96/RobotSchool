@@ -23,8 +23,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //ADMINISTRATORS
-Route::get('/schools/create', [App\Http\Controllers\Schools\SchoolCreateController::class, 'create'])
-    ->middleware('auth');
+Route::get('/schools/create', [App\Http\Controllers\Schools\SchoolCreateController::class, 'create'])->middleware('auth');
 Route::post('/schools/store', [App\Http\Controllers\Schools\SchoolStoreController::class, 'store'])->middleware('auth');
 Route::get('/schools', [App\Http\Controllers\Schools\SchoolIndexController::class, 'index'])->middleware('auth');
 Route::post('/changeStatusSchool', [App\Http\Controllers\Schools\SchoolChangeStatusController::class, 'changeStatusSchool'])->middleware('auth');
@@ -58,4 +57,9 @@ Route::get('/subcategories/{id}', [App\Http\Controllers\Subcategories\Subcategor
 Route::get('/subcategories/edit/{id}', [App\Http\Controllers\Subcategories\SubcategoriesEditController::class, 'edit'])->middleware('auth');
 Route::post('/subcategories/update', [App\Http\Controllers\Subcategories\SubcategoriesUpdateController::class, 'update'])->middleware('auth');
 Route::post('/subcategories/delete', [App\Http\Controllers\Subcategories\SubcategoriesDeleteController::class, 'delete'])->middleware('auth');
+
+//TEACHERS
+Route::get('/teachers/create', [App\Http\Controllers\Teachers\TeachersCreateController::class, 'create'])->middleware('auth');
+Route::post('/teachers/store', [App\Http\Controllers\Teachers\TeachersStoreController::class, 'store'])->middleware('auth');
+Route::get('/teachers', [App\Http\Controllers\Teachers\TeachersIndexController::class, 'index'])->middleware('auth');
 

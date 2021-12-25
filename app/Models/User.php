@@ -10,6 +10,14 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * @property mixed|string $email
+ * @property mixed|string $name
+ * @property mixed|string $phone
+ * @property bool|mixed $is_enable
+ * @property mixed|string $role
+ * @property mixed|string $password
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -47,6 +55,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    /**
+     * @var mixed|string
+     */
+
 
     public function coordinator()
     {

@@ -1,12 +1,11 @@
 @extends('layouts.dashboard')
 @section('content')
-
     <div class="card">
         <div class="card-header">
-            Crear coordinador
+            Crear profesor
         </div>
         <div class="card-body">
-            <form action="/coordinators/store" method="POST" enctype="multipart/form-data">
+            <form action="/teachers/store" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label for="name">Nombre:  </label>
@@ -23,7 +22,7 @@
                 <div class="form-group">
                     <label for="school_id">Seleccione el colegio:</label>
                     <select class="form-control" name="school_id" id="school_id" required>
-                        @foreach($freeSchools as $school)
+                        @foreach ($schools as $school)
                             <option value="{{$school->id }}">{{$school->name}}</option>
                         @endforeach
                     </select>

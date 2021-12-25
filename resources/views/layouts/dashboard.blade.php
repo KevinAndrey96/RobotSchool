@@ -74,6 +74,7 @@
             </div><!--//app-branding-->
 
             <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
+                @hasrole('Administrator')
                 <ul class="app-menu list-unstyled accordion" id="menu-accordion">
                     <li class="nav-item has-submenu">
                         <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
@@ -138,6 +139,27 @@
                             </ul>
                         </div>
                     </li><!--//nav-item-->
+                    <li class="nav-item has-submenu">
+                        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                        <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-4" aria-expanded="false" aria-controls="submenu-4">
+						        <span class="nav-icon">
+						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+						        <i style="width:30px" class="fab fa-product-hunt"></i>
+						         </span>
+                            <span class="nav-link-text">Proyectos</span>
+                            <span class="submenu-arrow">
+		                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+	</svg>
+	                             </span><!--//submenu-arrow-->
+                        </a><!--//nav-link-->
+                        <div id="submenu-4" class="collapse submenu submenu-4" data-bs-parent="#menu-accordion">
+                            <ul class="submenu-list list-unstyled">
+                                <li class="submenu-item"><a class="submenu-link" href="/categories/create">Crear proyecto</a></li>
+                                <li class="submenu-item"><a class="submenu-link" href="/categories">Ver proyectos</a></li>
+                            </ul>
+                        </div>
+                    </li><!--//nav-item-->
 
 
                     <!--<li class="nav-item">
@@ -152,7 +174,36 @@
                             <span class="nav-link-text">Help</span>
                         </a>
                     </li>-->
-                </ul><!--//app-menu-->
+                </ul>
+                @endhasrole<!--//app-menu-->
+                @hasrole('Coordinator')
+                <ul class="app-menu list-unstyled accordion" id="menu-accordion">
+                    <li class="nav-item has-submenu">
+                        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                        <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-1" aria-expanded="false" aria-controls="submenu-1">
+						        <span class="nav-icon">
+						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+						        <i class="fas fa-chalkboard-teacher"></i>
+						         </span>
+                            <span class="nav-link-text">Profesores</span>
+                            <span class="submenu-arrow">
+		                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+	</svg>
+	                             </span><!--//submenu-arrow-->
+                        </a><!--//nav-link-->
+                        <div id="submenu-1" class="collapse submenu submenu-1" data-bs-parent="#menu-accordion">
+                            <ul class="submenu-list list-unstyled">
+                                <li class="submenu-item"><a class="submenu-link" href="/teachers/create">Crear profesor</a></li>
+                                <li class="submenu-item"><a class="submenu-link" href="/teachers">Ver profesores</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                </ul>
+
+                @endhasrole
+
             </nav><!--//app-nav-->
 
 

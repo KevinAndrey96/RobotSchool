@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\UseCases\Contracts\Schools\StoreSchoolsUseCaseInterface;
+use App\UseCases\Contracts\Teachers\StoreTeachersUseCaseInterface;
 use App\UseCases\Schools\StoreSchoolsUseCase;
+use App\UseCases\Teachers\StoreTeachersUseCase;
 use Illuminate\Support\ServiceProvider;
 
 class UseCasesServiceProvider extends ServiceProvider
@@ -14,7 +16,8 @@ class UseCasesServiceProvider extends ServiceProvider
      * @return void
      */
     protected $classes = [
-        StoreSchoolsUseCaseInterface::class => StoreSchoolsUseCase::class
+        StoreSchoolsUseCaseInterface::class => StoreSchoolsUseCase::class,
+        StoreTeachersUseCaseInterface::class => StoreTeachersUseCase::class
     ];
 
     public function register()

@@ -22,5 +22,6 @@ class AdministratorSeeder extends Seeder
         $user->is_enable = 1;
         $user->password = bcrypt('admin');
         $user->save();
+        $user->assignRole('Administrator');
     }
 }

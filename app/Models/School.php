@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
@@ -39,5 +40,11 @@ class School extends Model
     {
         return $this->hasOne(Coordinator::class);
     }
+
+    public function teachers(): HasMany
+    {
+        return $this->hasMany(Teacher::class);
+    }
+
 }
 
