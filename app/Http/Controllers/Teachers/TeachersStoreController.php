@@ -26,7 +26,7 @@ class TeachersStoreController extends Controller
            true
        );
 
-           return back();
+           return redirect('/teachers')->with('storeteachersuccess', 'Profesor agregado');
 
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Schools;
 
 use App\Http\Controllers\Controller;
 use App\Models\School;
+use App\UseCases\Contracts\Teachers\ChangeStatusTeachersUseCaseInterface;
 use Illuminate\Http\Request;
 
 class SchoolChangeStatusController extends Controller

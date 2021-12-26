@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Http\Controllers\Teachers;
+
+use App\Http\Controllers\Controller;
+use App\UseCases\Contracts\Teachers\UpdateTeachersUseCaseInterface;
+use Illuminate\Http\Request;
+
+class TeachersUpdateController extends Controller
+{
+    private UpdateTeachersUseCaseInterface $updateTeachersUseCase;
+
+    public function __construct(UpdateTeachersUseCaseInterface $updateTeachersUseCase)
+    {
+        $this->updateTeachersUseCase = $updateTeachersUseCase;
+    }
+    public function update(Request $request)
+    {
+        $this->updateTeachersUseCase->handle(
+            $request->input('name'),
+            $request->input('email'),
+            $request->input('phone'),
+            $request->input('password'),
+            $request->input('user_id'),
+            $request->input('school_id'),
+        );
+        return redirect('/teachers')->with('updateachsuccess', 'Profesor modificado');
+    }
+}

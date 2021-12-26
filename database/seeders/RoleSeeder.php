@@ -31,7 +31,7 @@ class RoleSeeder extends Seeder
         Permission::create(['name'=> 'seeSubcategory'])->assignRole($roleAdmin);
         Permission::create(['name'=> 'editSubcategory'])->assignRole($roleAdmin);
 
-        //Permissions of teachers
+        //Permissions of coordinators
         Permission::create(['name'=>'createTeachers'])->assignRole($roleCoord);
         Permission::create(['name'=> 'seeTeachers'])->assignRole($roleCoord);
         Permission::create(['name'=> 'editTeachers'])->assignRole($roleCoord);

@@ -17,6 +17,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property bool|mixed $is_enable
  * @property mixed|string $role
  * @property mixed|string $password
+ * @method static find(int $id)
  */
 class User extends Authenticatable
 {
@@ -60,8 +61,13 @@ class User extends Authenticatable
      */
 
 
-    public function coordinator()
+    public function coordinator(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(Coordinator::class);
+    }
+
+    public function teacher(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Teacher::class);
     }
 }

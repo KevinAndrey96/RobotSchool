@@ -62,4 +62,7 @@ Route::post('/subcategories/delete', [App\Http\Controllers\Subcategories\Subcate
 Route::get('/teachers/create', [App\Http\Controllers\Teachers\TeachersCreateController::class, 'create'])->middleware('auth');
 Route::post('/teachers/store', [App\Http\Controllers\Teachers\TeachersStoreController::class, 'store'])->middleware('auth');
 Route::get('/teachers', [App\Http\Controllers\Teachers\TeachersIndexController::class, 'index'])->middleware('auth');
-
+Route::post('/changeStatusTeacher', [App\Http\Controllers\Teachers\TeachersChangeStatusController::class, 'changeStatusTeacher'])->middleware('auth');
+Route::get('/teachers/edit/{id}', [App\Http\Controllers\Teachers\TeachersEditController::class, 'edit'])->middleware('auth');
+Route::post('/teachers/update', [App\Http\Controllers\Teachers\TeachersUpdateController::class, 'update'])->middleware('auth');
+Route::post('/teachers/delete', [App\Http\Controllers\Teachers\TeachersDeleteController::class, 'delete'])->middleware('auth');
