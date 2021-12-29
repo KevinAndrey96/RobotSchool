@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Repositories\Classrooms\ClassroomRepository;
 use App\Repositories\Contracts\Schools\SchoolRepositoryInterface;
+use App\Repositories\Contracts\Classrooms\ClassroomRepositoryInterface;
 use App\Repositories\Contracts\Teachers\TeachersRepositoryInterface;
 use App\Repositories\Schools\SchoolRepository;
 use App\Repositories\Teachers\TeachersRepository;
@@ -19,7 +21,8 @@ class RepositoriesServiceProvider extends ServiceProvider
      */
     protected $classes = [
         SchoolRepositoryInterface::class => SchoolRepository::class,
-        TeachersRepositoryInterface::class => TeachersRepository::class
+        TeachersRepositoryInterface::class => TeachersRepository::class,
+        ClassroomRepositoryInterface::class => ClassroomRepository::class
     ];
 
     public function register()

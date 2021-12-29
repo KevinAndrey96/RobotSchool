@@ -2,14 +2,14 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            Editar profesor
+            Editar estudiante
         </div>
         <div class="card-body">
-            <form action="/teachers/update" method="POST" enctype="multipart/form-data">
+            <form action="/students/update" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label for="name">Nombre:  </label>
-                    <input class="form-control" type="text" name="name" id="name" value="{{$user->name}}"required>
+                    <input class="form-control" type="text" name="name" id="name" value="{{$user->name}}" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:  </label>
@@ -20,15 +20,14 @@
                     <input class="form-control" type="text" name="phone" id="phone" value="{{$user->phone}}" required>
                 </div>
                 <div class="form-group">
-                    <label for="school_id">Seleccione el colegio:</label>
-                    <select class="form-control" name="school_id" id="school_id" required>
-                        @foreach ($schools as $school)
-                            @if($user->teacher->school_id == $school->id)
-                                <option value="{{$school->id }}" selected >{{$school->name}}</option>
+                    <label for="classroom_id">Aula:</label>
+                    <select class="form-control" name="classroom_id">
+                        @foreach ($classrooms as $classroom)
+                            @if ($user->student->classroom_id == $classroom->id)
+                                <option value="{{$classroom->id}}" selected>{{$classroom->name}}</option>
                             @else
-                                <option value="{{$school->id }}">{{$school->name}}</option>
+                                <option value="{{$classroom->id}}">{{$classroom->name}}</option>
                             @endif
-
                         @endforeach
                     </select>
                 </div>

@@ -2,6 +2,12 @@
 
 namespace App\Providers;
 
+use App\UseCases\Classrooms\DeleteClassroomsUseCase;
+use App\UseCases\Classrooms\StoreClassroomsUseCase;
+use App\UseCases\Classrooms\UpdateClassroomsUseCase;
+use App\UseCases\Contracts\Classrooms\DeleteClassroomsUseCaseInterface;
+use App\UseCases\Contracts\Classrooms\StoreClassroomsUseCaseInterface;
+use App\UseCases\Contracts\Classrooms\UpdateClassroomsUseCaseInterface;
 use App\UseCases\Contracts\Schools\StoreSchoolsUseCaseInterface;
 use App\UseCases\Contracts\Teachers\ChangeStatusTeachersUseCaseInterface;
 use App\UseCases\Contracts\Teachers\DeleteTeachersUseCaseInterface;
@@ -26,7 +32,10 @@ class UseCasesServiceProvider extends ServiceProvider
         StoreTeachersUseCaseInterface::class => StoreTeachersUseCase::class,
         ChangeStatusTeachersUseCaseInterface::class => ChangeStatusTeachersUseCase::class,
         UpdateTeachersUseCaseInterface::class => UpdateTeachersUseCase::class,
-        DeleteTeachersUseCaseInterface::class => DeleteTeachersUseCase::class
+        DeleteTeachersUseCaseInterface::class => DeleteTeachersUseCase::class,
+        StoreClassroomsUseCaseInterface::class => StoreClassroomsUseCase::class,
+        UpdateClassroomsUseCaseInterface::class => UpdateClassroomsUseCase::class,
+        DeleteClassroomsUseCaseInterface::class => DeleteClassroomsUseCase::class
     ];
 
     public function register()

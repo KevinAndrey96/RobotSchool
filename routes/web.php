@@ -66,3 +66,20 @@ Route::post('/changeStatusTeacher', [App\Http\Controllers\Teachers\TeachersChang
 Route::get('/teachers/edit/{id}', [App\Http\Controllers\Teachers\TeachersEditController::class, 'edit'])->middleware('auth');
 Route::post('/teachers/update', [App\Http\Controllers\Teachers\TeachersUpdateController::class, 'update'])->middleware('auth');
 Route::post('/teachers/delete', [App\Http\Controllers\Teachers\TeachersDeleteController::class, 'delete'])->middleware('auth');
+
+//CLASSROOMS
+Route::get('/classrooms/create', [App\Http\Controllers\Classrooms\ClassroomsCreateController::class, 'create'])->middleware('auth');
+Route::post('/classrooms/store', [App\Http\Controllers\Classrooms\ClassroomsStoreController::class, 'store'])->middleware('auth');
+Route::get('/classrooms', [App\Http\Controllers\Classrooms\ClassroomsIndexController::class, 'index'])->middleware('auth');
+Route::get('/classrooms/edit/{id}', [App\Http\Controllers\Classrooms\ClassroomsEditController::class, 'edit'])->middleware('auth');
+Route::post('/classrooms/update', [App\Http\Controllers\Classrooms\ClassroomsUpdateController::class, 'update'])->middleware('auth');
+Route::post('/classrooms/delete', [App\Http\Controllers\Classrooms\ClassroomsDeleteController::class, 'delete'])->middleware('auth');
+
+//STUDENTS
+Route::get('/students/create', [App\Http\Controllers\Students\StudentsCreateController::class, 'create'])->middleware('auth');
+Route::post('/students/store', [App\Http\Controllers\Students\StudentsStoreController::class, 'store'])->middleware('auth');
+Route::post('/students/finalSave', [App\Http\Controllers\Students\StudentsFinalStoreController::class, 'finalStore'])->middleware('auth');
+Route::get('/students', [App\Http\Controllers\Students\StudentsIndexController::class, 'index'])->middleware('auth');
+Route::get('/students/edit/{id}', [App\Http\Controllers\Students\StudentsEditController::class, 'edit'])->middleware('auth');
+Route::post('/students/update', [App\Http\Controllers\Students\StudentsUpdateController::class, 'update'])->middleware('auth');
+Route::post('/students/delete', [App\Http\Controllers\Students\StudentsDeleteController::class, 'delete'])->middleware('auth');

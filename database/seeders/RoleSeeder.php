@@ -18,6 +18,7 @@ class RoleSeeder extends Seeder
         $roleAdmin = Role::create(['name'=>'Administrator']);
         $roleCoord = Role::create(['name'=>'Coordinator']);
         $roleTeacher = Role::create(['name'=>'Teacher']);
+        $roleStudent = Role::create(['name'=>'Student']);
         Permission::create(['name'=>'createSchool'])->assignRole($roleAdmin);
         Permission::create(['name'=> 'seeSchools'])->assignRole($roleAdmin);
         Permission::create(['name'=> 'editSchools'])->assignRole($roleAdmin);
@@ -35,5 +36,8 @@ class RoleSeeder extends Seeder
         Permission::create(['name'=>'createTeachers'])->assignRole($roleCoord);
         Permission::create(['name'=> 'seeTeachers'])->assignRole($roleCoord);
         Permission::create(['name'=> 'editTeachers'])->assignRole($roleCoord);
+        Permission::create(['name'=>'createStudents'])->assignRole($roleCoord);
+        Permission::create(['name'=> 'seeStudents'])->assignRole($roleCoord);
+        Permission::create(['name'=> 'editStudents'])->assignRole($roleCoord);
     }
 }
