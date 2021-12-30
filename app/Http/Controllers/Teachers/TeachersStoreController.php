@@ -21,7 +21,6 @@ class TeachersStoreController extends Controller
            $request->input('name'),
            $request->input('email'),
            $request->input('phone'),
-           $request->input('school_id'),
            $request->input('password'),
            true
        );

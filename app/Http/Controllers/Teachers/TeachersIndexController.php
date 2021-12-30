@@ -17,8 +17,9 @@ class TeachersIndexController extends Controller
             /**
              * @var TYPE_NAME $teachers
              */
+            $coordinator = User::find(Auth::user()->id);
             $teachers = User::where('role', 'like', 'Teacher')->get();
-            return view('teachers.index', compact('teachers'));
+            return view('teachers.index', compact('teachers', 'coordinator'));
         }
         abort(403);
     }

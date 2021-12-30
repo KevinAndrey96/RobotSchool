@@ -16,7 +16,7 @@ class StoreTeachersUseCase implements StoreTeachersUseCaseInterface
     }
 
 
-    public function handle(string $name, string $email, string $phone, int $school_id, string $password, bool $is_enable): bool
+    public function handle(string $name, string $email, string $phone, string $password, bool $is_enable): bool
     {
         $user = new User();
         $user->name = $name;
@@ -25,7 +25,7 @@ class StoreTeachersUseCase implements StoreTeachersUseCaseInterface
         $user->is_enable = $is_enable;
         $user->role = 'Teacher';
         $user->password = bcrypt($password);
-        $this->teachersRepository->saveTeacher($user,$school_id);
+        $this->teachersRepository->saveTeacher($user);
         return true;
 
 

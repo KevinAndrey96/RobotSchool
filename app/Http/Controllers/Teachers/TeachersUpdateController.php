@@ -22,7 +22,6 @@ class TeachersUpdateController extends Controller
             $request->input('phone'),
             $request->input('password'),
             $request->input('user_id'),
-            $request->input('school_id'),
         );
         return redirect('/teachers')->with('updateachsuccess', 'Profesor modificado');
     }

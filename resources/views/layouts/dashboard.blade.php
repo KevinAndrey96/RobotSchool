@@ -238,6 +238,7 @@
                             <ul class="submenu-list list-unstyled">
                                 <li class="submenu-item"><a class="submenu-link" href="/students/create">Crear estudiante</a></li>
                                 <li class="submenu-item"><a class="submenu-link" href="/students">Ver estudiantes</a></li>
+                                <li class="submenu-item"><a class="submenu-link" href="/transfers">Traslados de aula</a></li>
                             </ul>
                         </div>
                     </li>

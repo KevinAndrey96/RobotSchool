@@ -14,10 +14,10 @@ class UpdateTeachersUseCase implements UpdateTeachersUseCaseInterface
         $this->teachersRepository = $teachersRepository;
     }
 
-    public function handle(string $name, string $email, string $phone, $password, int $user_id, int $school_id): bool
+    public function handle(string $name, string $email, string $phone, $password, int $user_id): bool
     {
 
-        $this->teachersRepository->updateTeacher($name, $email, $phone, $password, $user_id, $school_id);
+        $this->teachersRepository->updateTeacher($name, $email, $phone, $password, $user_id);
         return true;
     }
 }

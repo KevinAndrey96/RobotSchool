@@ -20,19 +20,6 @@
                     <input class="form-control" type="text" name="phone" id="phone" value="{{$user->phone}}" required>
                 </div>
                 <div class="form-group">
-                    <label for="school_id">Seleccione el colegio:</label>
-                    <select class="form-control" name="school_id" id="school_id" required>
-                        @foreach ($schools as $school)
-                            @if($user->teacher->school_id == $school->id)
-                                <option value="{{$school->id }}" selected >{{$school->name}}</option>
-                            @else
-                                <option value="{{$school->id }}">{{$school->name}}</option>
-                            @endif
-
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
                     <label for="password">Contraseña:</label>
                     <input class="form-control" type="password" name="password" id="password">
                 </div>

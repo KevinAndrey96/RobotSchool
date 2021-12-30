@@ -38,6 +38,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach($teachers as $teacher)
+                                    @if($teacher->teacher->school_id == $coordinator->coordinator->school_id)
                                     <tr style="text-align: center; padding:10px;">
                                         <td>{{$teacher->name}}</td>
                                         <td>{{$teacher->teacher->school->name}}</td>
@@ -71,6 +72,7 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    @endif  
                                 @endforeach
                                 </tbody>
 

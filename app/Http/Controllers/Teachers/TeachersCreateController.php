@@ -12,8 +12,7 @@ class TeachersCreateController extends Controller
     public function create()
     {
         if (Auth::user()->can('createTeachers') ) {
-            $schools = School::all();
-            return view('teachers.create', compact('schools'));
+            return view('teachers.create');
         }
         abort(403);
     }
