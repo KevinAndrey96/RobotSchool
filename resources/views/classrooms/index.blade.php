@@ -34,31 +34,36 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($classrooms as $classroom)
-                                    <tr style="text-align: center; padding:10px;">
-                                        <td>{{$classroom->name}}</td>
-                                        <td>{{$classroom->code}}</td>
-                                        <td>{{$classroom->user->name}}</td>
-                                        <td>
-                                            <div class="justify-content-center" class="btn-group" role="group">
-                                                <!--
-                                                <div style="display: inline-block" >
-                                                    <a href="/coordinators/edit/{{$classroom->id}}" style="margin:3px; width:40px;" title="Intercambiar estudiantes" class="btn btn-block btn-primary form-control"><i class="fas fa-exchange-alt"></i></a>
+                                @foreach ($classrooms as $classroom)
+                                        <tr style="text-align: center; padding:10px;">
+                                            <td>{{$classroom->name}}</td>
+                                            <td>{{$classroom->code}}</td>
+                                            <td>{{$classroom->user->name}}</td>
+                                            <td>
+                                                <div class="justify-content-center" class="btn-group" role="group">
+                                                    <!--
+                                                    <div style="display: inline-block" >
+                                                        <a href="/coordinators/edit/{{$classroom->id}}" style="margin:3px; width:40px;" title="Intercambiar estudiantes" class="btn btn-block btn-primary form-control"><i class="fas fa-exchange-alt"></i></a>
+                                                    </div>
+                                                    -->
+                                                        <div style="display: inline-block" >
+                                                            <a href="/students/{{$classroom->id}}" style="margin:3px; width:40px;" title="Estudiantes" class="btn btn-block btn-primary form-control"><i class="fas fa-users"></i></a>
+                                                        </div>
+
+                                                        <div style="display: inline-block" >
+                                                            <a href="/classrooms/edit/{{$classroom->id}}" style="margin:3px; width:40px;" title="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
+                                                        </div>
+
+                                                    <div style="display: inline-block">
+                                                        <form method="POST" action="/classrooms/delete">
+                                                            @csrf
+                                                            <input type="hidden" name="classroom_id" value={{$classroom->id }}>
+                                                            <button style="margin:3px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar esta aula?');"><i class="fas fa-exclamation-triangle"></i></button>
+                                                        </form>
+                                                    </div>
                                                 </div>
-                                                -->
-                                                <div style="display: inline-block" >
-                                                    <a href="/classrooms/edit/{{$classroom->id}}" style="margin:3px; width:40px;" title="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
-                                                </div>
-                                                <div style="display: inline-block">
-                                                    <form method="POST" action="/classrooms/delete">
-                                                        @csrf
-                                                        <input type="hidden" name="classroom_id" value={{$classroom->id }}>
-                                                        <button style="margin:3px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar esta aula?');"><i class="fas fa-exclamation-triangle"></i></button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
                                 @endforeach
                                 </tbody>
 

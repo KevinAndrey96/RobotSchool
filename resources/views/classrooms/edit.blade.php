@@ -19,10 +19,12 @@
                     <label for="user_id">Profesor a cargo: </label>
                     <select class="form-control" name="user_id" required>
                         @foreach ($teachers as $teacher)
-                            @if($classroom->user_id == $teacher->id)
-                                <option value="{{$teacher->id}}" selected>{{$teacher->name}}</option>
-                            @else
-                                <option value="{{$teacher->id}}">{{$teacher->name}}</option>
+                            @if ($teacher->teacher->school_id == $coordinator->coordinator->school_id)
+                                @if ($classroom->user_id == $teacher->id)
+                                    <option value="{{$teacher->id}}" selected>{{$teacher->name}}</option>
+                                @else
+                                    <option value="{{$teacher->id}}">{{$teacher->name}}</option>
+                                @endif
                             @endif
                         @endforeach
                     </select>

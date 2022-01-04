@@ -20,10 +20,10 @@
                     <input class="form-control" type="text" name="phone" id="phone" required>
                 </div>
                 <div class="form-group">
-                    <label for="school_id">Seleccione el colegio:</label>
-                    <select class="form-control" name="school_id" id="school_id" required>
-                        @foreach($schools as $school)
-                            <option value="{{$school->id }}">{{$school->name}}</option>
+                    <label for="classroom_id">Aulas</label>
+                    <select class="form-control" name="classroom_id">
+                        @foreach ($classrooms as $classroom)
+                            <option value="{{$classroom->id}}">{{$classroom->name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -31,7 +31,7 @@
                     <label for="password">Contraseña:</label>
                     <input class="form-control" type="password" name="password" id="password" required>
                 </div>
-                <input type="submit" style="width:160px; color: white; margin-top:20px; float:right;" class="btn btn-primary" value="Siguiente">
+                <input type="submit" style="width:160px; color: white; margin-top:20px; float:right;" class="btn btn-primary" value="Crear">
             </form>
         </div>
     </div>

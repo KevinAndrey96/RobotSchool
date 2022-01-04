@@ -237,8 +237,8 @@
                         <div id="submenu-3" class="collapse submenu submenu-3" data-bs-parent="#menu-accordion">
                             <ul class="submenu-list list-unstyled">
                                 <li class="submenu-item"><a class="submenu-link" href="/students/create">Crear estudiante</a></li>
-                                <li class="submenu-item"><a class="submenu-link" href="/students">Ver estudiantes</a></li>
-                                <li class="submenu-item"><a class="submenu-link" href="/transfers">Traslados de aula</a></li>
+                                <li class="submenu-item"><a class="submenu-link" href="/students/all">Ver estudiantes</a></li>
+                                <li class="submenu-item"><a class="submenu-link" href="/students/transfers">Traslados de aula</a></li>
                             </ul>
                         </div>
                     </li>

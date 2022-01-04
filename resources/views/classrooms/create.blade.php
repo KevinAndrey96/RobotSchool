@@ -20,9 +20,10 @@
                     <label for="user_id">Profesor a cargo: </label>
                     <select class="form-control" name="user_id" required>
                         @foreach ($teachers as $teacher)
-                            <option value="{{$teacher->id}}">{{$teacher->name}}</option>
+                            @if ($teacher->teacher->school_id == $coordinator->coordinator->school_id)
+                                <option value="{{$teacher->id}}">{{$teacher->name}}</option>
+                            @endif
                         @endforeach
-
                     </select>
                 </div>
                 <input style="width:160px; color: white; margin-top:20px; float:right;" class="btn btn-primary" type="submit" value="Crear">

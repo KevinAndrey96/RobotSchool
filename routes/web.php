@@ -79,7 +79,10 @@ Route::post('/classrooms/delete', [App\Http\Controllers\Classrooms\ClassroomsDel
 Route::get('/students/create', [App\Http\Controllers\Students\StudentsCreateController::class, 'create'])->middleware('auth');
 Route::post('/students/store', [App\Http\Controllers\Students\StudentsStoreController::class, 'store'])->middleware('auth');
 Route::post('/students/finalSave', [App\Http\Controllers\Students\StudentsFinalStoreController::class, 'finalStore'])->middleware('auth');
-Route::get('/students', [App\Http\Controllers\Students\StudentsIndexController::class, 'index'])->middleware('auth');
+Route::get('/students/{id}', [App\Http\Controllers\Students\StudentsIndexController::class, 'index'])->middleware('auth');
 Route::get('/students/edit/{id}', [App\Http\Controllers\Students\StudentsEditController::class, 'edit'])->middleware('auth');
 Route::post('/students/update', [App\Http\Controllers\Students\StudentsUpdateController::class, 'update'])->middleware('auth');
 Route::post('/students/delete', [App\Http\Controllers\Students\StudentsDeleteController::class, 'delete'])->middleware('auth');
+Route::get('/students/transfers', [App\Http\Controllers\Students\StudentsTransfersIndexController::class, 'transfers'])->middleware('auth');
+Route::post('/studentsClassroomUpdate', [App\Http\Controllers\Students\StudentsClassroomUpdateController::class, 'classroomUpdate'])->middleware('auth');
+

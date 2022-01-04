@@ -7,19 +7,27 @@ use App\Models\Classroom;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StudentsStoreController extends Controller
 {
-
     public function store(Request $request)
     {
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $phone = $request->input('phone');
-        $password = bcrypt($request->input('password'));
-        $school_id = $request->input('school_id');
-        $classrooms = Classroom::where('school_id', '=', $school_id)->get();
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->phone = $request->input('phone');
+        $user->is_enable = 1;
+        $user->role = 'Student';
+        $user->password = bcrypt($request->input('password'));
+        $user->save();
+        $student = new Student();
+        $student->user_id = $user->id;
+        $coordinator = User::find(Auth::user()->id);
+        $student->school_id = $coordinator->coordinator->school_id;
+        $student->classroom_id = $request->input('classroom_id');
+        $student->save();
 
-        return view('students.chooseClassroom', compact('name', 'email', 'phone', 'password', 'school_id', 'classrooms'));
+        return redirect('/students')->with('StoreStudentSuccess', 'Estudiante agregado');
     }
 }

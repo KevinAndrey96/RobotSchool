@@ -17,7 +17,9 @@ use Spatie\Permission\Traits\HasRoles;
  * @property bool|mixed $is_enable
  * @property mixed|string $role
  * @property mixed|string $password
+ * @property mixed $id
  * @method static find(int $id)
+ * @method static where(string $string, string $string1, string $string2)
  */
 class User extends Authenticatable
 {

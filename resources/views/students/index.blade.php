@@ -15,10 +15,17 @@
             {{ Session::get('StoreStudentSuccess') }}
         </div>
     @endif
+    @if(Session::has('transfersSuccess'))
+        <div class="alert alert-success" role="alert">
+            {{ Session::get('transfersSuccess') }}
+        </div>
+    @endif
 
     <div class="card">
         <div class="card-header">
+            @hasrole('Coordinator')
             Estudiantes
+            @endhasrole
         </div>
         <div class="card-body container-fluid">
             <div class="justify-content-center" >
@@ -38,7 +45,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($students as $student)
+                                @foreach ($students as $student)
                                     <tr style="text-align: center; padding:10px;">
                                         <td>{{$student->name}}</td>
                                         <td>{{$student->student->school->name}}</td>

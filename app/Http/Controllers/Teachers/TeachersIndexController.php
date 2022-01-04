@@ -19,6 +19,12 @@ class TeachersIndexController extends Controller
              */
             $coordinator = User::find(Auth::user()->id);
             $teachers = User::where('role', 'like', 'Teacher')->get();
+            foreach ($teachers as $index => $teacher) {
+                if ($teacher->teacher->school_id != $coordinator->coordinator->school_id) {
+                    $teachers->pull($index);
+                }
+            }
+
             return view('teachers.index', compact('teachers', 'coordinator'));
         }
         abort(403);

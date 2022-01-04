@@ -15,7 +15,7 @@ class StudentsUpdateController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->phone = $request->input('phone');
-        if ($request->has('password')) {
+        if (isset($request->password)) {
             $user->password = bcrypt($request->input('password'));
         }
         $user->save();

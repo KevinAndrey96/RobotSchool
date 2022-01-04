@@ -12,8 +12,9 @@ class ClassroomsCreateController extends Controller
     public function create()
     {
         if (Auth::user()->can('createClassrooms')) {
+            $coordinator = User::find(Auth::user()->id);
             $teachers = User::where('role', 'like', 'Teacher')->get();
-            return view('classrooms.create', compact('teachers'));
+            return view('classrooms.create', compact('teachers', 'coordinator'));
         }
         abort(403);
     }
