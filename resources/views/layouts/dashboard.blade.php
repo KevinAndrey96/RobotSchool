@@ -238,13 +238,37 @@
                             <ul class="submenu-list list-unstyled">
                                 <li class="submenu-item"><a class="submenu-link" href="/students/create">Crear estudiante</a></li>
                                 <li class="submenu-item"><a class="submenu-link" href="/students/all">Ver estudiantes</a></li>
-                                <li class="submenu-item"><a class="submenu-link" href="/students/transfers">Traslados de aula</a></li>
+                                <li class="submenu-item"><a class="submenu-link" href="/transfers">Traslados de aula</a></li>
                             </ul>
                         </div>
                     </li>
 
                 </ul>
 
+                @endhasrole
+                @hasrole('Teacher')
+                <ul class="app-menu list-unstyled accordion" id="menu-accordion">
+                    <li class="nav-item has-submenu">
+                        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                        <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-2" aria-expanded="false" aria-controls="submenu-2">
+						        <span class="nav-icon">
+						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                                    <i style="width:30px" class="fab fa-angular"></i>
+						         </span>
+                            <span class="nav-link-text">Aulas</span>
+                            <span class="submenu-arrow">
+		                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+	</svg>
+	                             </span><!--//submenu-arrow-->
+                        </a><!--//nav-link-->
+                        <div id="submenu-2" class="collapse submenu submenu-2" data-bs-parent="#menu-accordion">
+                            <ul class="submenu-list list-unstyled">
+                                <li class="submenu-item"><a class="submenu-link" href="/classrooms">Mis aulas</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
                 @endhasrole
 
             </nav><!--//app-nav-->

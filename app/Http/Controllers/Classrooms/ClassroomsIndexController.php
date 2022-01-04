@@ -13,15 +13,20 @@ class ClassroomsIndexController extends Controller
     public function index()
     {
         if (Auth::user()->can('seeClassrooms')) {
+            if (Auth::user()->role == 'Coordinator') {
             $coordinator = User::find(Auth::user()->id);
             $classrooms = Classroom::all();
-            foreach ($classrooms as $index => $classroom) {
-                if ($classroom->school_id != $coordinator->coordinator->school_id) {
-                    $classrooms->pull($index);
+                foreach ($classrooms as $index => $classroom) {
+                    if ($classroom->school_id != $coordinator->coordinator->school_id) {
+                        $classrooms->pull($index);
+                    }
                 }
-            }
 
             return view('classrooms.index', compact('classrooms', 'coordinator'));
+            }
+            $teacher = User::find(Auth::user()->id);
+            $classrooms = Classroom::where('user_id', '=', $teacher->id)->get();
+
         }
         abort(403);
     }

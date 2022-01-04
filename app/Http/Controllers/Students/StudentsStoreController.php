@@ -28,6 +28,6 @@ class StudentsStoreController extends Controller
         $student->classroom_id = $request->input('classroom_id');
         $student->save();
 
-        return redirect('/students')->with('StoreStudentSuccess', 'Estudiante agregado');
+        return redirect('/students/all')->with('StoreStudentSuccess', 'Estudiante agregado');
     }
 }

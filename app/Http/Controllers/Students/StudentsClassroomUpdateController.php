@@ -24,6 +24,6 @@ class StudentsClassroomUpdateController extends Controller
            $student->save();
         }
 
-        return redirect('/students')->with('transfersSuccess', 'Transferencias exitosas');
+        return redirect('/students/all')->with('transfersSuccess', 'Transferencias exitosas');
     }
 }

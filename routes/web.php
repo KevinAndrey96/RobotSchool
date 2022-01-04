@@ -83,6 +83,6 @@ Route::get('/students/{id}', [App\Http\Controllers\Students\StudentsIndexControl
 Route::get('/students/edit/{id}', [App\Http\Controllers\Students\StudentsEditController::class, 'edit'])->middleware('auth');
 Route::post('/students/update', [App\Http\Controllers\Students\StudentsUpdateController::class, 'update'])->middleware('auth');
 Route::post('/students/delete', [App\Http\Controllers\Students\StudentsDeleteController::class, 'delete'])->middleware('auth');
-Route::get('/students/transfers', [App\Http\Controllers\Students\StudentsTransfersIndexController::class, 'transfers'])->middleware('auth');
+Route::get('/transfers', [App\Http\Controllers\Students\StudentsTransfersIndexController::class, 'transfers'])->middleware('auth');
 Route::post('/studentsClassroomUpdate', [App\Http\Controllers\Students\StudentsClassroomUpdateController::class, 'classroomUpdate'])->middleware('auth');
 

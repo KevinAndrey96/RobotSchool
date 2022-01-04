@@ -23,10 +23,23 @@ class CoordinatorSeeder extends Seeder
         $user->role = 'Coordinator';
         $user->is_enable = 1;
         $user->save();
-        $user = User::where('email', 'like', 'coordinator@coordinator.com')->first();
         $coordinator = new Coordinator();
         $coordinator->user_id = $user->id;
         $coordinator->school_id = 1;
+        $coordinator->save();
+        $user->assignrole('Coordinator');
+
+        $user = new User();
+        $user->name = 'Alfonso Gutierrez';
+        $user->email = 'alfonsogu@gmail.com';
+        $user->phone = '5464567';
+        $user->password = bcrypt('alfonsogu');
+        $user->role = 'Coordinator';
+        $user->is_enable = 1;
+        $user->save();
+        $coordinator = new Coordinator();
+        $coordinator->user_id = $user->id;
+        $coordinator->school_id = 2;
         $coordinator->save();
         $user->assignrole('Coordinator');
     }

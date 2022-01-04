@@ -37,10 +37,14 @@ class RoleSeeder extends Seeder
         Permission::create(['name'=> 'seeTeachers'])->assignRole($roleCoord);
         Permission::create(['name'=> 'editTeachers'])->assignRole($roleCoord);
         Permission::create(['name'=>'createStudents'])->assignRole($roleCoord);
-        Permission::create(['name'=> 'seeStudents'])->assignRole($roleCoord);
+        $see_students = Permission::create(['name'=> 'seeStudents'])->assignRole($roleCoord);
         Permission::create(['name'=> 'editStudents'])->assignRole($roleCoord);
         Permission::create(['name'=>'createClassrooms'])->assignRole($roleCoord);
-        Permission::create(['name'=> 'seeClassrooms'])->assignRole($roleCoord);
+        $see_classrooms = Permission::create(['name'=> 'seeClassrooms'])->assignRole($roleCoord);
         Permission::create(['name'=> 'editClassrooms'])->assignRole($roleCoord);
+
+        //Permissions of teachers
+        $roleTeacher->givePermissionTo($see_classrooms);
+        $roleTeacher->givePermissionTo($see_students);
     }
 }
