@@ -26,6 +26,9 @@
             @hasrole('Coordinator')
             Estudiantes
             @endhasrole
+            @hasrole('Teacher')
+            Estudiantes de {{$classroom->name}}
+            @endhasrole
         </div>
         <div class="card-body container-fluid">
             <div class="justify-content-center" >
@@ -36,11 +39,17 @@
                                 <thead class="thead-light">
                                 <tr>
                                     <th style="text-align: center; padding:10px;">Nombre</th>
+                                    <!--
                                     <th style="text-align: center; padding:10px;">Colegio</th>
+                                    -->
+                                    @hasrole('Coordinator')
                                     <th style="text-align: center; padding:10px;">Aula</th>
+                                    @endhasrole
                                     <th style="text-align: center; padding:10px;">Email</th>
                                     <th style="text-align: center; padding:10px;">Teléfono</th>
+                                    @hasrole('Coordinator')
                                     <th style="text-align: center; padding:10px;">Estado</th>
+                                    @endhasrole
                                     <th style="text-align: center; padding:10px;">Acción</th>
                                 </tr>
                                 </thead>
@@ -48,10 +57,15 @@
                                 @foreach ($students as $student)
                                     <tr style="text-align: center; padding:10px;">
                                         <td>{{$student->name}}</td>
+                                        <!--
                                         <td>{{$student->student->school->name}}</td>
+                                        -->
+                                        @hasrole('Coordinator')
                                         <td>{{$student->student->classroom->name}}</td>
+                                        @endhasrole
                                         <td>{{$student->email}}</td>
                                         <td>{{$student->phone}}</td>
+                                        @hasrole('Coordinator')
                                         <td>
                                             @if($student->is_enable == 1)
                                                 Habilitado
@@ -59,8 +73,10 @@
                                                 Deshabilitado
                                             @endif
                                         </td>
+                                        @endhasrole
 
                                         <td>
+                                            @hasrole('Coordinator')
                                             <div style="display:block !important; margin-bottom: 3px;" class="row checkbox">
                                                 @if($student->is_enable == 1)
                                                     <input style="width: 50px; height:30px;" data-toggle="toggle"
@@ -78,6 +94,17 @@
                                                     <button style="margin:4px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este estudiante?');"><i class="fas fa-exclamation-triangle"></i></button>
                                                 </form>
                                             </div>
+                                            @endhasrole
+                                            @hasrole('Teacher')
+                                            <div style="display: inline-block" class="row justify-content-center" class="btn-group" role="group">
+                                                <form method="POST" action="/homeworks">
+                                                    @csrf
+                                                    <input type="hidden" name="user_id" value={{ $student->id }}>
+                                                    <button style="margin:4px; width:40px !important;" class="btn btn-block btn-success form-control" title="Tareas" type="submit"><i class="fas fa-tasks"></i></button>
+                                                </form>
+                                            </div>
+
+                                            @endhasrole
                                         </td>
                                     </tr>
                                 @endforeach

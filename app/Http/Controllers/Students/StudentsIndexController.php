@@ -14,10 +14,10 @@ class StudentsIndexController extends Controller
     public function index($id)
     {
         if (Auth::user()->can('seeStudents')) {
-
-            $coordinator = User::find(Auth::user()->id);
             $students = User::where('role', 'like', 'Student')->get();
-
+            $classroom = Classroom::find($id);
+            if(Auth::user()->role == 'Coordinator') {
+            $coordinator = User::find(Auth::user()->id);
             if ($id == 'all') {
                 foreach ($students as $index => $student) {
                     if ($student->student->school_id != $coordinator->coordinator->school_id) {
@@ -27,7 +27,7 @@ class StudentsIndexController extends Controller
 
                 return view('students.index', compact('students', 'coordinator'));
             }
-            $classroom = Classroom::find($id);
+
             foreach ($students as $index => $student) {
                 if ($student->student->school_id != $coordinator->coordinator->school_id
                     || $student->student->classroom_id != $classroom->id) {
@@ -36,6 +36,14 @@ class StudentsIndexController extends Controller
             }
 
             return view('students.index', compact('students', 'coordinator'));
+            }
+
+            foreach ($students as $index => $student) {
+                if ($student->student->classroom_id != $id) {
+                    $students->pull($index);
+                }
+            }
+            return view('students.index', compact('students', 'classroom'));
         }
         abort(403);
     }

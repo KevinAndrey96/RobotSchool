@@ -86,3 +86,5 @@ Route::post('/students/delete', [App\Http\Controllers\Students\StudentsDeleteCon
 Route::get('/transfers', [App\Http\Controllers\Students\StudentsTransfersIndexController::class, 'transfers'])->middleware('auth');
 Route::post('/studentsClassroomUpdate', [App\Http\Controllers\Students\StudentsClassroomUpdateController::class, 'classroomUpdate'])->middleware('auth');
 
+//HOMEWORKS
+Route::get('/homeworks/create', [App\Http\Controllers\Homeworks\HomeworksCreateController::class, 'create'])->middleware('auth');

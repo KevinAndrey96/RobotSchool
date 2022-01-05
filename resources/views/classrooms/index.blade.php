@@ -29,7 +29,9 @@
                                 <tr>
                                     <th style="text-align: center; padding:10px;">Nombre</th>
                                     <th style="text-align: center; padding:10px;">Código</th>
+                                    @hasrole('Coordinator')
                                     <th style="text-align: center; padding:10px;">Profesor</th>
+                                    @endhasrole
                                     <th style="text-align: center; padding:10px;">Acción</th>
                                 </tr>
                                 </thead>
@@ -38,7 +40,9 @@
                                         <tr style="text-align: center; padding:10px;">
                                             <td>{{$classroom->name}}</td>
                                             <td>{{$classroom->code}}</td>
+                                            @hasrole('Coordinator')
                                             <td>{{$classroom->user->name}}</td>
+                                            @endhasrole
                                             <td>
                                                 <div class="justify-content-center" class="btn-group" role="group">
                                                     <!--
@@ -49,7 +53,7 @@
                                                         <div style="display: inline-block" >
                                                             <a href="/students/{{$classroom->id}}" style="margin:3px; width:40px;" title="Estudiantes" class="btn btn-block btn-primary form-control"><i class="fas fa-users"></i></a>
                                                         </div>
-
+                                                        @hasrole('Coordinator')
                                                         <div style="display: inline-block" >
                                                             <a href="/classrooms/edit/{{$classroom->id}}" style="margin:3px; width:40px;" title="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
                                                         </div>
@@ -61,6 +65,7 @@
                                                             <button style="margin:3px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar esta aula?');"><i class="fas fa-exclamation-triangle"></i></button>
                                                         </form>
                                                     </div>
+                                                    @endhasrole
                                                 </div>
                                             </td>
                                         </tr>

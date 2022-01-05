@@ -26,6 +26,7 @@ class ClassroomsIndexController extends Controller
             }
             $teacher = User::find(Auth::user()->id);
             $classrooms = Classroom::where('user_id', '=', $teacher->id)->get();
+            return view('classrooms.index', compact('classrooms'));
 
         }
         abort(403);
