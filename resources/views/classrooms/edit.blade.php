@@ -2,7 +2,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            Editar aula
+            Editar curso
         </div>
         <div class="card-body">
             <form method="POST" action="/classrooms/update">

@@ -17,7 +17,7 @@
     @endif
     <div class="card">
         <div class="card-header">
-            Aulas
+            Cursos
         </div>
         <div class="card-body container-fluid">
             <div class="justify-content-center" >
@@ -53,6 +53,11 @@
                                                         <div style="display: inline-block" >
                                                             <a href="/students/{{$classroom->id}}" style="margin:3px; width:40px;" title="Estudiantes" class="btn btn-block btn-primary form-control"><i class="fas fa-users"></i></a>
                                                         </div>
+                                                        @hasrole('Teacher')
+                                                        <div style="display: inline-block" >
+                                                            <a href="/homeworks/{{$classroom->id}}" style="margin:3px; width:40px;" title="Tareas" class="btn btn-block btn-success form-control"><i class="fas fa-thumbtack"></i></i></a>
+                                                        </div>
+                                                        @endhasrole
                                                         @hasrole('Coordinator')
                                                         <div style="display: inline-block" >
                                                             <a href="/classrooms/edit/{{$classroom->id}}" style="margin:3px; width:40px;" title="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
@@ -62,7 +67,7 @@
                                                         <form method="POST" action="/classrooms/delete">
                                                             @csrf
                                                             <input type="hidden" name="classroom_id" value={{$classroom->id }}>
-                                                            <button style="margin:3px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar esta aula?');"><i class="fas fa-exclamation-triangle"></i></button>
+                                                            <button style="margin:3px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este curso?');"><i class="fas fa-exclamation-triangle"></i></button>
                                                         </form>
                                                     </div>
                                                     @endhasrole
@@ -71,7 +76,6 @@
                                         </tr>
                                 @endforeach
                                 </tbody>
-
                             </table>
                         </div>
                     </div>

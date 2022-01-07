@@ -87,4 +87,11 @@ Route::get('/transfers', [App\Http\Controllers\Students\StudentsTransfersIndexCo
 Route::post('/studentsClassroomUpdate', [App\Http\Controllers\Students\StudentsClassroomUpdateController::class, 'classroomUpdate'])->middleware('auth');
 
 //HOMEWORKS
-Route::get('/homeworks/create', [App\Http\Controllers\Homeworks\HomeworksCreateController::class, 'create'])->middleware('auth');
+Route::get('/homeworks/create/{id}', [App\Http\Controllers\Homeworks\HomeworksCreateController::class, 'create'])->middleware('auth');
+Route::post('/homeworks/store', [App\Http\Controllers\Homeworks\HomeworksStoreController::class, 'store'])->middleware('auth');
+Route::get('/homeworks/{id}', [App\Http\Controllers\Homeworks\HomeworksIndexController::class, 'index'])->middleware('auth');
+Route::get('/homeworks/edit/{id}', [App\Http\Controllers\Homeworks\HomeworksEditController::class, 'edit'])->middleware('auth');
+Route::post('/homeworks/update', [App\Http\Controllers\Homeworks\HomeworksUpdateController::class, 'update'])->middleware('auth');
+Route::post('/homeworks/delete', [App\Http\Controllers\Homeworks\HomeworksDeleteController::class, 'delete'])->middleware('auth');
+
+

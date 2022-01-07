@@ -3,7 +3,7 @@
 
     <div class="card">
         <div class="card-header">
-            Crear aula
+            Crear curso
         </div>
         <div class="card-body">
             <form method="POST" action="/classrooms/store">

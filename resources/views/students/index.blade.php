@@ -97,11 +97,7 @@
                                             @endhasrole
                                             @hasrole('Teacher')
                                             <div style="display: inline-block" class="row justify-content-center" class="btn-group" role="group">
-                                                <form method="POST" action="/homeworks">
-                                                    @csrf
-                                                    <input type="hidden" name="user_id" value={{ $student->id }}>
-                                                    <button style="margin:4px; width:40px !important;" class="btn btn-block btn-success form-control" title="Tareas" type="submit"><i class="fas fa-tasks"></i></button>
-                                                </form>
+                                                <a href="/homeworks/{{$student->id}}" style="margin:4px; width:40px;" title="Tareas" class="btn btn-block btn-success form-control"><i class="fas fa-tasks"></i></a>
                                             </div>
 
                                             @endhasrole
