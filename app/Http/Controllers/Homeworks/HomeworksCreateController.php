@@ -12,9 +12,12 @@ class HomeworksCreateController extends Controller
 {
     public function create($id)
     {
-        $user = User::find(Auth::user()->id);
-        //$classrooms = Classroom::where('user_id', '=', $user->id)->get();
+        if (Auth::user()->can('createHomeworks')) {
+            $user = User::find(Auth::user()->id);
+            //$classrooms = Classroom::where('user_id', '=', $user->id)->get();
 
-        return view('homeworks.create', compact( 'id'));
+            return view('homeworks.create', compact('id'));
+        }
+        abort(403);
     }
 }

@@ -27,7 +27,6 @@ class StudentsIndexController extends Controller
 
                 return view('students.index', compact('students', 'coordinator'));
             }
-
             foreach ($students as $index => $student) {
                 if ($student->student->school_id != $coordinator->coordinator->school_id
                     || $student->student->classroom_id != $classroom->id) {
@@ -37,12 +36,12 @@ class StudentsIndexController extends Controller
 
             return view('students.index', compact('students', 'coordinator'));
             }
-
             foreach ($students as $index => $student) {
                 if ($student->student->classroom_id != $id) {
                     $students->pull($index);
                 }
             }
+
             return view('students.index', compact('students', 'classroom'));
         }
         abort(403);

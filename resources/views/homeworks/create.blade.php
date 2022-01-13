@@ -18,6 +18,25 @@
                 </textarea>
                 </div>
                 <div class="form-group">
+                    <label for="percent">Porcentaje(%):</label>
+                    <input class="form-control" type="number" name="percent" id="percent" min="1"required>
+                </div>
+                <div class="form-group">
+                    <label for="requiredFile">¿Requiere subir un archivo?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="requiredFile" id="requiredFile1" value="yes" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Si
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="requiredFile" id="requiredFile2" value="no">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="due_date">Fecha de entrega:  </label>
                     <input class="form-control" type="date" name="due_date" id="due_date" required>
                 </div>

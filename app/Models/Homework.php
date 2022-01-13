@@ -12,6 +12,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed $due_time
  * @property mixed $id
  * @property mixed $classroom_id
+ * @property mixed $percent
+ * @property mixed $requiredFile
+ * @method static where(string $string, mixed $input)
+ * @method static find(mixed $input)
  */
 class Homework extends Model
 {
@@ -20,6 +24,8 @@ class Homework extends Model
     protected $fillable = [
         'title',
         'description',
+        'percent',
+        'requiredFile',
         'due_date',
         'due_time',
         'classroom_id'

@@ -46,5 +46,8 @@ class RoleSeeder extends Seeder
         //Permissions of teachers
         $roleTeacher->givePermissionTo($see_classrooms);
         $roleTeacher->givePermissionTo($see_students);
+        Permission::create(['name'=> 'seeHomeworks'])->assignRole($roleTeacher);
+        Permission::create(['name'=> 'editHomeworks'])->assignRole($roleTeacher);
+        Permission::create(['name'=> 'createHomeworks'])->assignRole($roleTeacher);
     }
 }

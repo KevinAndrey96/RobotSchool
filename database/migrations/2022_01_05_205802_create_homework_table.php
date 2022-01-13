@@ -17,6 +17,8 @@ class CreateHomeworkTable extends Migration
             $table->id();
             $table->string('title');
             $table->longText('description');
+            $table->integer('percent');
+            $table->string('requiredFile');
             $table->date('due_date');
             $table->time('due_time');
             $table->unsignedBigInteger('classroom_id');

@@ -15,6 +15,11 @@
             {{ Session::get('DeleHomeworkSuccess') }}
         </div>
     @endif
+    @if(Session::has('PercentHomeworkError'))
+        <div class="alert alert-danger" role="alert">
+            {{ Session::get('PercentHomeworkError') }}
+        </div>
+    @endif
 
     <div class="card">
         <div class="card-header">
@@ -30,6 +35,7 @@
                                 <thead>
                                     <tr style="text-align: center; padding:10px;">
                                         <th>Título</th>
+                                        <th>Porcentaje</th>
                                         <th>Fecha</th>
                                         <th>Hora</th>
                                         <th>Acción</th>
@@ -39,12 +45,13 @@
                                     @foreach ($homeworks as $homework)
                                     <tr style="text-align: center; padding:10px;">
                                         <td>{{$homework->title}}</td>
+                                        <td>{{$homework->percent}}%</td>
                                         <td>{{$homework->due_date}}</td>
                                         <td>{{$homework->due_time}}</td>
                                         <td>
                                             <div class="justify-content-center" class="btn-group" role="group">
                                                 <div style="display: inline-block">
-                                                    <a href="/homeworks/edit/{{$homework->id}}" style="margin:3px; width:40px;" alt="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
+                                                    <a href="/homeworks/edit/{{$homework->id}}/{{$classroom->id}}" style="margin:3px; width:40px;" alt="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
                                                 </div>
                                                 <div style="display: inline-block">
                                                     <form method="POST" action="/homeworks/delete">

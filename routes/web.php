@@ -90,8 +90,12 @@ Route::post('/studentsClassroomUpdate', [App\Http\Controllers\Students\StudentsC
 Route::get('/homeworks/create/{id}', [App\Http\Controllers\Homeworks\HomeworksCreateController::class, 'create'])->middleware('auth');
 Route::post('/homeworks/store', [App\Http\Controllers\Homeworks\HomeworksStoreController::class, 'store'])->middleware('auth');
 Route::get('/homeworks/{id}', [App\Http\Controllers\Homeworks\HomeworksIndexController::class, 'index'])->middleware('auth');
-Route::get('/homeworks/edit/{id}', [App\Http\Controllers\Homeworks\HomeworksEditController::class, 'edit'])->middleware('auth');
+Route::get('/homeworks/edit/{id}/{classroom_id}', [App\Http\Controllers\Homeworks\HomeworksEditController::class, 'edit'])->middleware('auth');
 Route::post('/homeworks/update', [App\Http\Controllers\Homeworks\HomeworksUpdateController::class, 'update'])->middleware('auth');
 Route::post('/homeworks/delete', [App\Http\Controllers\Homeworks\HomeworksDeleteController::class, 'delete'])->middleware('auth');
+
+//UPLOADED_HOMEWORKS
+Route::get('/uploadedHomeworks/{id}', [App\Http\Controllers\UploadedHomeworks\UploadedHomeworksIndexController::class, 'index'])->middleware('auth');
+Route::post('/uploadedHomeworks/changeScores', [App\Http\Controllers\UploadedHomeworks\UploadedHomeworksChangeScoresController::class, 'changeScores'])->middleware('auth');
 
 

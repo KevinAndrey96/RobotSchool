@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Student;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class StudentSeeder extends Seeder
@@ -13,6 +15,60 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
+        $user = new User();
+        $user->name = 'Andrea Ospina';
+        $user->email = 'andreaos@gmail.com';
+        $user->phone = '5674314';
+        $user->is_enable = 1;
+        $user->role = 'Student';
+        $user->password = bcrypt('andreaos');
+        $user->save();
+        $student = new Student();
+        $student->user_id = $user->id;
+        $student->school_id = 1;
+        $student->classroom_id = 1;
+        $student->save();
 
+        $user = new User();
+        $user->name = 'Fernando Hurtado';
+        $user->email = 'fernandohu@gmail.com';
+        $user->phone = '4672356';
+        $user->is_enable = 1;
+        $user->role = 'Student';
+        $user->password = bcrypt('fernandohu');
+        $user->save();
+        $student = new Student();
+        $student->user_id = $user->id;
+        $student->school_id = 1;
+        $student->classroom_id = 1;
+        $student->save();
+
+        $user = new User();
+        $user->name = 'Diana Guzman';
+        $user->email = 'dianagu@gmail.com';
+        $user->phone = '6782397';
+        $user->is_enable = 1;
+        $user->role = 'Student';
+        $user->password = bcrypt('dianagu');
+        $user->save();
+        $student = new Student();
+        $student->user_id = $user->id;
+        $student->school_id = 1;
+        $student->classroom_id = 1;
+        $student->save();
+
+        $user = new User();
+        $user->name = 'Marcos Portilla';
+        $user->email = 'marcospo@gmail.com';
+        $user->phone = '5688346';
+        $user->is_enable = 1;
+        $user->role = 'Student';
+        $user->password = bcrypt('marcospo');
+        $user->save();
+        $student = new Student();
+        $student->user_id = $user->id;
+        $student->school_id = 1;
+        $student->classroom_id = 1;
+        $student->save();
     }
 }

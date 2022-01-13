@@ -18,6 +18,27 @@
                     </textarea>
                 </div>
                 <div class="form-group">
+                    <label for="percent">Porcentaje(%):</label>
+                    <input class="form-control" type="number" name="percent" id="percent" value="{{$homework->percent}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="requiredFile">¿Requiere subir un archivo?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="requiredFile" id="requiredFileYes" value="yes"
+                                @if ($homework->requiredFile == 'yes') checked @endif>
+                        <label class="form-check-label" for="requiredFile1">
+                            Si
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="requiredFile" id="requiredFileNo" value="no"
+                               @if ($homework->requiredFile == 'no') checked @endif>
+                        <label class="form-check-label" for="requiredFile2">
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="due_date">Fecha de entrega:  </label>
                     <input class="form-control" type="date" name="due_date" id="due_date" value="{{$homework->due_date}}" required>
                 </div>
@@ -26,7 +47,7 @@
                     <input class="form-control" type="time" name="due_time" id="due_time" value="{{$homework->due_time}}" required>
                 </div>
                 <input type="hidden" name="homework_id" value="{{$homework->id}}">
-                <input type="hidden" name="classroom_id" value="{{$id}}">
+                <input type="hidden" name="classroom_id" value="{{$classroom_id}}">
                 <input type="submit" style="width:160px; color: white; margin-top:20px; float:right;" class="btn btn-primary" value="Modificar">
             </form>
         </div>

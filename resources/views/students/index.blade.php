@@ -97,9 +97,8 @@
                                             @endhasrole
                                             @hasrole('Teacher')
                                             <div style="display: inline-block" class="row justify-content-center" class="btn-group" role="group">
-                                                <a href="/homeworks/{{$student->id}}" style="margin:4px; width:40px;" title="Tareas" class="btn btn-block btn-success form-control"><i class="fas fa-tasks"></i></a>
+                                                <a href="/uploadedHomeworks/{{$student->id}}" style="margin:4px; width:40px;" title="Tareas" class="btn btn-block btn-success form-control"><i class="fas fa-tasks"></i></a>
                                             </div>
-
                                             @endhasrole
                                         </td>
                                     </tr>
