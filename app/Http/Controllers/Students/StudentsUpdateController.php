@@ -22,7 +22,7 @@ class StudentsUpdateController extends Controller
         $student = Student::where('user_id', '=', $user->id)->first();
         $student->classroom_id = $request->input('classroom_id');
         $student->save();
-        return redirect('/students')->with('UpdaStudentSuccess', 'Estudiante modificado');
+        return redirect('/students/all')->with('UpdaStudentSuccess', 'Estudiante modificado');
 
     }
 }

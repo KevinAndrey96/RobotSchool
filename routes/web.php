@@ -97,5 +97,8 @@ Route::post('/homeworks/delete', [App\Http\Controllers\Homeworks\HomeworksDelete
 //UPLOADED_HOMEWORKS
 Route::get('/uploadedHomeworks/{id}', [App\Http\Controllers\UploadedHomeworks\UploadedHomeworksIndexController::class, 'index'])->middleware('auth');
 Route::post('/uploadedHomeworks/changeScores', [App\Http\Controllers\UploadedHomeworks\UploadedHomeworksChangeScoresController::class, 'changeScores'])->middleware('auth');
+Route::get('/myHomeworks', [App\Http\Controllers\UploadedHomeworks\MyHomeworksUploadedHomeworksController::class, 'myHomeworks'])->middleware('auth');
+Route::get('/detailMyHomework/{id}', [App\Http\Controllers\UploadedHomeworks\DetailMyHomeworksUploadedHomeworksController::class, 'detailMyHomework'])->middleware('auth');
+Route::post('/uploadMyHomework', [App\Http\Controllers\UploadedHomeworks\UploadMyHomeworkUploadedHomeworksController::class, 'uploadMyHomework'])->middleware('auth');
 
 

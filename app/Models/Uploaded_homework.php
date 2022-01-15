@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed $homework_id
  * @property mixed $user_id
  * @method static where(string $string, string $string1, $id)
+ * @method static find($id)
  */
 class Uploaded_homework extends Model
 {

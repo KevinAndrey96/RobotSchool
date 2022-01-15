@@ -27,6 +27,7 @@ class StudentsStoreController extends Controller
         $student->school_id = $coordinator->coordinator->school_id;
         $student->classroom_id = $request->input('classroom_id');
         $student->save();
+        $user->assignRole('Student');
 
         return redirect('/students/all')->with('StoreStudentSuccess', 'Estudiante agregado');
     }

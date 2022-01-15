@@ -36,14 +36,26 @@ class StudentsIndexController extends Controller
 
             return view('students.index', compact('students', 'coordinator'));
             }
-            foreach ($students as $index => $student) {
-                if ($student->student->classroom_id != $id) {
-                    $students->pull($index);
-                }
-            }
+            if(Auth::user()->role == 'Teacher') {
+                $user = User::find(Auth::user()->id);
+                if ($id == 'all') {
+                    foreach ($students as $index => $student) {
+                        if ($student->student->classroom->user->id != Auth::user()->id){
+                            $students->pull($index);
+                        }
+                    }
 
-            return view('students.index', compact('students', 'classroom'));
-        }
+                    return view('students.index', compact('students'));
+                }
+                foreach ($students as $index => $student) {
+                    if ($student->student->classroom_id != $id) {
+                        $students->pull($index);
+                    }
+                }
+
+                return view('students.index', compact('students'));
+            }
+            }
         abort(403);
     }
 }

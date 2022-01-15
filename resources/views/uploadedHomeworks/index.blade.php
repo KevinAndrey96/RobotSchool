@@ -20,7 +20,7 @@
                                     <thead>
                                         <tr style="text-align: center; padding:10px;">
                                             <th>Título</th>
-                                            <th>Archivo</th>
+                                            <th>Entregable</th>
                                             <th>Calificación</th>
                                             <th>Calificar</th>
                                         </tr>
@@ -29,7 +29,23 @@
                                         @foreach ($uploaded_homeworks as $uphomework)
                                             <tr style="text-align: center; padding:10px;">
                                                 <td>{{$uphomework->homework->title}}</td>
-                                                <td>Archivo</td>
+                                                <td>
+                                                    @if (! is_null($uphomework->path))
+                                                        <a href="https://miel.robotschool.co/{{$uphomework->path}}" target="_blank">
+                                                            @if (strpos($uphomework->path, '.pdf'))
+                                                                <img style="width:50px" src="https://miel.robotschool.co/assets/images/fileTypes/pdf.png">
+                                                            @elseif (strpos($uphomework->path, '.docx'))
+                                                                <img style="width:100px" src="https://miel.robotschool.co/assets/images/fileTypes/docx.png">
+                                                            @elseif (strpos($uphomework->path, '.rar'))
+                                                                <img style="width:100px" src="https://miel.robotschool.co/assets/images/fileTypes/rar.png">
+                                                            @endif
+                                                        </a>
+                                                    @elseif ($uphomework->homework->requiredFile == 'no')
+                                                        No requiere
+                                                    @else
+                                                        No subida
+                                                    @endif
+                                                </td>
                                                 <td>{{$uphomework->score}}</td>
                                                 <td>
                                                     <div class="form-group">

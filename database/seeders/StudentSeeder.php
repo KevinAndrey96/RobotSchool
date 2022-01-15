@@ -28,6 +28,7 @@ class StudentSeeder extends Seeder
         $student->school_id = 1;
         $student->classroom_id = 1;
         $student->save();
+        $user->assignRole('Student');
 
         $user = new User();
         $user->name = 'Fernando Hurtado';
@@ -42,6 +43,7 @@ class StudentSeeder extends Seeder
         $student->school_id = 1;
         $student->classroom_id = 1;
         $student->save();
+        $user->assignRole('Student');
 
         $user = new User();
         $user->name = 'Diana Guzman';
@@ -56,6 +58,7 @@ class StudentSeeder extends Seeder
         $student->school_id = 1;
         $student->classroom_id = 1;
         $student->save();
+        $user->assignRole('Student');
 
         $user = new User();
         $user->name = 'Marcos Portilla';
@@ -70,5 +73,6 @@ class StudentSeeder extends Seeder
         $student->school_id = 1;
         $student->classroom_id = 1;
         $student->save();
+        $user->assignRole('Student');
     }
 }

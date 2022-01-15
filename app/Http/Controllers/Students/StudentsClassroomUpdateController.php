@@ -14,7 +14,7 @@ class StudentsClassroomUpdateController extends Controller
         $ids = explode(',',$request->input('cart'));
 
         if ($ids[0] == "") {
-            return redirect('/students/transfers')->with('transfersError', 'No selecciono ningun estudiante');
+            return redirect('/transfers')->with('transfersError', 'No selecciono ningun estudiante');
         }
 
         foreach($ids as $id){

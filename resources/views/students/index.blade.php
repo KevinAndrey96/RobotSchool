@@ -23,12 +23,7 @@
 
     <div class="card">
         <div class="card-header">
-            @hasrole('Coordinator')
             Estudiantes
-            @endhasrole
-            @hasrole('Teacher')
-            Estudiantes de {{$classroom->name}}
-            @endhasrole
         </div>
         <div class="card-body container-fluid">
             <div class="justify-content-center" >

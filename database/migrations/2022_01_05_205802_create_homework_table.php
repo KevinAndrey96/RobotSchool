@@ -16,7 +16,7 @@ class CreateHomeworkTable extends Migration
         Schema::create('homework', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->integer('percent');
             $table->string('requiredFile');
             $table->date('due_date');

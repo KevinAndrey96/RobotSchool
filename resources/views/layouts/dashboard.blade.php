@@ -155,8 +155,8 @@
                         </a><!--//nav-link-->
                         <div id="submenu-4" class="collapse submenu submenu-4" data-bs-parent="#menu-accordion">
                             <ul class="submenu-list list-unstyled">
-                                <li class="submenu-item"><a class="submenu-link" href="/categories/create">Crear proyecto</a></li>
-                                <li class="submenu-item"><a class="submenu-link" href="/categories">Ver proyectos</a></li>
+                                <li class="submenu-item"><a class="submenu-link" href="/proyect/create">Crear proyecto</a></li>
+                                <li class="submenu-item"><a class="submenu-link" href="/proyects">Ver proyectos</a></li>
                             </ul>
                         </div>
                     </li><!--//nav-item-->
@@ -268,6 +268,47 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item has-submenu">
+                        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                        <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-2" aria-expanded="false" aria-controls="submenu-2">
+						        <span class="nav-icon">
+						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                                    <i style="width:30px" class="fas fa-child"></i>
+						         </span>
+                            <span class="nav-link-text">Estudiantes</span>
+                            <span class="submenu-arrow">
+		                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+	</svg>
+	                             </span><!--//submenu-arrow-->
+                        </a><!--//nav-link-->
+                        <div id="submenu-2" class="collapse submenu submenu-2" data-bs-parent="#menu-accordion">
+                            <ul class="submenu-list list-unstyled">
+                                <li class="submenu-item"><a class="submenu-link" href="/students/all">Mis estudiantes</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                        <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-3" aria-expanded="false" aria-controls="submenu-3">
+						        <span class="nav-icon">
+						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+						        <i style="width:30px" class="fab fa-product-hunt"></i>
+						         </span>
+                            <span class="nav-link-text">Proyectos</span>
+                            <span class="submenu-arrow">
+		                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+	</svg>
+	                             </span><!--//submenu-arrow-->
+                        </a><!--//nav-link-->
+                        <div id="submenu-3" class="collapse submenu submenu-3" data-bs-parent="#menu-accordion">
+                            <ul class="submenu-list list-unstyled">
+                                <li class="submenu-item"><a class="submenu-link" href="/proyect/create">Crear proyecto</a></li>
+                                <li class="submenu-item"><a class="submenu-link" href="/proyects">Ver proyectos</a></li>
+                            </ul>
+                        </div>
+                    </li>
                     <!--
                     <li class="nav-item has-submenu">
 
@@ -290,6 +331,28 @@
                         </div>
                     </li>-->
                 </ul>
+                @endhasrole
+                @hasrole('Student')
+                <li class="nav-item has-submenu">
+
+                    <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-2" aria-expanded="false" aria-controls="submenu-2">
+						        <span class="nav-icon">
+
+                                    <i style="width:30px" class="fas fa-tasks"></i>
+						         </span>
+                        <span class="nav-link-text">Tareas</span>
+                        <span class="submenu-arrow">
+		                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+	</svg>
+	                             </span>
+                    </a>
+                    <div id="submenu-2" class="collapse submenu submenu-2" data-bs-parent="#menu-accordion">
+                        <ul class="submenu-list list-unstyled">
+                            <li class="submenu-item"><a class="submenu-link" href="/myHomeworks">Mis tareas</a></li>
+                        </ul>
+                    </div>
+                </li>
                 @endhasrole
 
             </nav><!--//app-nav-->
