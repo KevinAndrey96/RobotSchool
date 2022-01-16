@@ -43,7 +43,7 @@
                                                     @elseif ($uphomework->homework->requiredFile == 'no')
                                                         No requiere
                                                     @else
-                                                        No subida
+                                                        No subido
                                                     @endif
                                                 </td>
                                                 <td>{{$uphomework->score}}</td>
