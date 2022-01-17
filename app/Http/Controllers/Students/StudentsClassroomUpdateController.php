@@ -17,7 +17,7 @@ class StudentsClassroomUpdateController extends Controller
         if ($ids[0] == "") {
             return redirect('/transfers')->with('transfersError', 'No selecciono ningun estudiante');
         }
-        foreach ($ids as $id){
+        foreach ($ids as $id) {
             $uploadedHomeworks = Uploaded_homework::where('user_id', $id)->get();
             foreach ($uploadedHomeworks as $uphomework) {
                 Uploaded_homework::destroy($uphomework->id);

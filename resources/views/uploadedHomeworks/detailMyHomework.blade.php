@@ -1,5 +1,15 @@
 @extends('layouts.dashboard')
 @section('content')
+    @if(Session::has('upMyHomeworkSuccess'))
+        <div class="alert alert-success" role="alert">
+            {{ Session::get('upMyHomeworkSuccess') }}
+        </div>
+    @endif
+    @if(Session::has('extensionError'))
+        <div class="alert alert-danger" role="alert">
+            {{ Session::get('extensionError') }}
+        </div>
+    @endif
     <div class="card">
         <div class="card-header">
             Detalle de tarea
@@ -12,11 +22,11 @@
                             <h2><p  class="text-center">{{$homework->title}}</p></h2>
                             <h4><p style="margin-top:50px">Descripción:</p></h4>
                             <p style="text-align:justify">{{$homework->description}}</p>
-                            @if($homework->requiredFile == 'yes')
+                            @if ($homework->requiredFile == 'yes')
                                 <form method="POST" action="/uploadMyHomework" enctype="multipart/form-data">
                                     @csrf
                                     <h4><p style="text-align:justify">Añadir entrega:</p></h4>
-                                    <p style="text-align:justify">Por favor seleccione un archivo:</p>
+                                    <p style="text-align:justify">Por favor seleccione un archivo (las extensiones permitidad son .pdf, .docx y .rar):</p>
                                     <input class="form-control" type="file" name="homeworkFile" required>
                                     <input type="hidden" name="uploadedHomework_id" value="{{$uploadedHomework->id}}">
                                     <input style="width:160px; color: white; margin-top:20px; float:right;" class="btn btn-primary" type="submit" value="Subir entrega">
