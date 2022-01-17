@@ -51,6 +51,7 @@ class CategoriesStoreController extends Controller
             $category->icon_url = '/storage/category_images/' . $category->id . '.png';
             $category->save();
         }
+        unlink(storage_path('app/public/category_images/'.$category->id.'.png'));
 
         return redirect('/categories')->with('stocategosuccess', 'Categoría agregada');
     }

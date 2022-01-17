@@ -43,6 +43,7 @@ class SubcategoriesStoreController extends Controller
             $subcategory->icon_url = 'storage/subcategory_images/' . $subcategory->id . '.png';
             $subcategory->save();
         }
+        unlink(storage_path('app/public/subcategory_images/'.$subcategory->id.'.png'));
 
         return redirect('/subcategories/'.$subcategory->category_id)->with('storesubcasuccess', 'Subcategoría agregada');
     }
