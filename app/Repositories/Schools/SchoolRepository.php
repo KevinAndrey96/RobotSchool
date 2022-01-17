@@ -37,11 +37,10 @@ class SchoolRepository implements SchoolRepositoryInterface
             ]);
             $school->icon_url = 'storage/school_logos/' . $school->id . '.png';
             $school->save();
-
-
-
         }
+        unlink(storage_path('app/public/school_logos/'.$school->id.'.png'));
     }
+
 
 
 
