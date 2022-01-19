@@ -101,4 +101,11 @@ Route::get('/myHomeworks', [App\Http\Controllers\UploadedHomeworks\MyHomeworksUp
 Route::get('/detailMyHomework/{id}', [App\Http\Controllers\UploadedHomeworks\DetailMyHomeworksUploadedHomeworksController::class, 'detailMyHomework'])->middleware('auth');
 Route::post('/uploadMyHomework', [App\Http\Controllers\UploadedHomeworks\UploadMyHomeworkUploadedHomeworksController::class, 'uploadMyHomework'])->middleware('auth');
 
-
+//PROJECTS
+Route::get('/myCategories', [App\Http\Controllers\Projects\MyCategoriesProjectsController::class, 'myCategories'])->middleware('auth');
+Route::get('/mySubcategories/{id}', [App\Http\Controllers\Projects\MySubcategoriesProjectsController::class, 'mySubcategories'])->middleware('auth');
+Route::get('/project/create/{id}', [App\Http\Controllers\Projects\CreateProjectsController::class, 'create'])->middleware('auth');
+Route::post('/project/store', [App\Http\Controllers\Projects\StoreProjectsController::class, 'store'])->middleware('auth');
+Route::get('/projects', [App\Http\Controllers\Projects\indexProjectsController::class, 'index'])->middleware('auth');
+Route::get('/detailProject/{id}', [App\Http\Controllers\Projects\DetailProjectProjectsController::class, 'detailProject'])->middleware('auth');
+Route::get('/showDocument/{id}', [App\Http\Controllers\Projects\ShowDocumentProjectsController::class, 'showDocument'])->middleware('auth');

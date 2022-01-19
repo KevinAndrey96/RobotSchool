@@ -45,7 +45,7 @@
                     <input class="form-control" type="time" name="due_time" id="due_time" required>
                 </div>
                 <input type="hidden" name="classroom_id" value="{{$id}}">
-                    <input type="submit" style="width:160px; color: white; margin-top:20px; float:right;" class="btn btn-primary" value="Crear">
+                <input type="submit" style="width:160px; color: white; margin-top:20px; float:right;" class="btn btn-primary" value="Crear">
             </form>
         </div>
 
