@@ -9,10 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class indexProjectsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->input('id') == 'all') {
+            $projects = Project::all();
+            return view('projects.index', compact('projects'));
+        }
         $projects = Project::where('user_id', Auth::user()->id)->get();
-
         return view('projects.index', compact('projects'));
     }
 }

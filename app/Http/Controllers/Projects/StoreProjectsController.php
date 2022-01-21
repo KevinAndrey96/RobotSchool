@@ -18,6 +18,7 @@ class StoreProjectsController extends Controller
         $project = new Project();
         $project->name = $request->input('name');
         $project->description = $request->input('description');
+        $project->theme_type = $request->input('theme_type');
         $project->icon_url = '';
         $project->is_enable = 0;
         $project->user_id = Auth::user()->id;

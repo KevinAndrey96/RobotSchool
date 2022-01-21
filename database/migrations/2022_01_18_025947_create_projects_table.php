@@ -18,6 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->string('icon_url');
             $table->longText('description');
+            $table->string('theme_type');
             $table->boolean('is_enable');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('subcategory_id');

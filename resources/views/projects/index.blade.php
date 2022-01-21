@@ -2,7 +2,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            Proyectos
+            Temas
         </div>
         <div class="card-body container-fluid">
             <div class="justify-content-center">
@@ -53,10 +53,13 @@
 
                                     </tr>
                                 @endforeach
-
                                 </tbody>
-
                             </table>
+                            <form id="form-status" name="form-status" method="POST" action="/changeStatusProject">
+                                @csrf
+                                <input type="hidden" name="id" id="id">
+                                <input type="hidden" name="status" id="status">
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -64,7 +67,22 @@
 
 
         </div>
-
+        <script>
+            function getStatus(id)
+            {
+                var toggle = document.getElementById("togglestatus"+id);
+                var status = document.getElementById("status");
+                var form = document.getElementById("form-status");
+                var project_id = document.getElementById("id");
+                if (toggle.checked == true) {
+                status.value = 1;
+                } else {
+                status.value = 0;
+                }
+                project_id.value = id;
+                form.submit();
+            }
+        </script>
     </div>
 
 @endsection

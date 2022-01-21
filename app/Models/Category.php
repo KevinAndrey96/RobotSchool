@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed $id
  * @property mixed $name
  * @property mixed $description
+ * @method static paginate(int $int)
  */
 class Category extends Model
 {

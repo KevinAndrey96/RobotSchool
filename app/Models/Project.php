@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed $subcategory_id
  * @property mixed $id
  * @property mixed|string $icon_url
+ * @property mixed $theme_type
  */
 class Project extends Model
 {
@@ -23,6 +24,7 @@ class Project extends Model
         'icon_url',
         'description',
         'is_enable',
+        'theme_type',
         'user_id',
         'subcategory_id',
     ];

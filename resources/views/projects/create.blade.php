@@ -2,7 +2,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            Crear proyecto
+            Crear tema
         </div>
         <div class="card-body">
             <form method="POST" action="/project/store" enctype="multipart/form-data">
@@ -11,6 +11,15 @@
                     <label for="name"><p style="font-weight:bold">Nombre:</p></label>
                     <input class="form-control" type="text" name="name" id="name" required>
                 </div>
+                @if (Auth::user()->role == 'Administrator')
+                <div style="margin-top:20px" class="form-group">
+                    <label for="theme_type"><p style="font-weight:bold">Tipo:</p></label>
+                    <select class="form-control" name="theme_type">
+                        <option value="theme">Tema</option>
+                        <option value="project">Proyecto</option>
+                    </select>
+                </div>
+                @endif
                 <div style="margin-top:20px" class="form-group">
                     <label for="image"><p style="font-weight:bold">Seleccione una imagen:</p></label>
                     <input class="form-control" type="file" name="image" id="image" required>
