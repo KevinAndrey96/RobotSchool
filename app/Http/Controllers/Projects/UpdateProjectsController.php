@@ -10,23 +10,17 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Request as RequestAlias;
 
-class StoreProjectsController extends Controller
+class UpdateProjectsController extends Controller
 {
-    public function store(Request $request)
+    public function update(Request $request)
     {
-        //return $request;
-        $project = new Project();
+        $project = Project::find($request->input('project_id'));
         $project->name = $request->input('name');
         $project->description = $request->input('description');
-        $project->theme_type = 'project';
+        $project->theme_type = "project";
         if (Auth::user()->role == 'Administrator') {
             $project->theme_type = $request->input('theme_type');
         }
-        $project->icon_url = '';
-        $project->is_enable = 0;
-        $project->user_id = Auth::user()->id;
-        $project->subcategory_id = $request->input('subcategory_id');
-        $project->save();
         if ($request->hasFile('image')) {
             $pathName = Sprintf('project_images/%s.png', $project->id);
             Storage::disk('public')->put($pathName, file_get_contents($request->file('image')));
@@ -48,12 +42,10 @@ class StoreProjectsController extends Controller
                     ]
                 ]
             ]);
-            $project->icon_url = '/storage/project_images/' . $project->id . '.png';
-            $project->save();
             unlink(storage_path('app/public/project_images/'.$project->id.'.png'));
-
-            return redirect('/projects')->with('StoreProjectSuccess', 'Tema agregado');
         }
+        $project->save();
 
+        return redirect('/projects')->with('UpdaProjectSuccess', 'Tema modificado');
     }
 }

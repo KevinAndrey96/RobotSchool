@@ -11,11 +11,12 @@ class indexProjectsController extends Controller
 {
     public function index(Request $request)
     {
-        if ($request->input('id') == 'all') {
+        $id = $request->input('id');
+        if ($id == 'all') {
             $projects = Project::all();
-            return view('projects.index', compact('projects'));
+            return view('projects.index', compact('projects', 'id'));
         }
         $projects = Project::where('user_id', Auth::user()->id)->get();
-        return view('projects.index', compact('projects'));
+        return view('projects.index', compact('projects','id'));
     }
 }

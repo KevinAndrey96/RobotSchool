@@ -1,8 +1,27 @@
 @extends('layouts.dashboard')
 @section('content')
+    @if(Session::has('StoreProjectSuccess'))
+        <div class="alert alert-success" role="alert">
+            {{ Session::get('StoreProjectSuccess') }}
+        </div>
+    @endif
+    @if(Session::has('UpdaProjectSuccess'))
+        <div class="alert alert-success" role="alert">
+            {{ Session::get('UpdaProjectSuccess') }}
+        </div>
+    @endif
+    @if(Session::has('DeleProjectSuccess'))
+        <div class="alert alert-success" role="alert">
+            {{ Session::get('DeleProjectSuccess') }}
+        </div>
+    @endif
     <div class="card">
         <div class="card-header">
-            Temas
+            @if (isset($id))
+                Temas
+            @else
+                Mis temas
+            @endif
         </div>
         <div class="card-body container-fluid">
             <div class="justify-content-center">
@@ -35,6 +54,7 @@
                                             @endif
                                         </td>
                                         <td>
+                                            @if (isset($id))
                                             <div style="display:block !important; margin-bottom: 3px;" class="row checkbox">
                                                 @if ($project->is_enable == 1)
                                                     <input style="width: 50px; height:30px;" data-toggle="toggle"
@@ -44,10 +64,23 @@
                                                            id="togglestatus{{$project->id}}"  class="form-check-input" type="checkbox" onchange="getStatus({{$project->id}})">
                                                 @endif
                                             </div>
-                                            <div style="display: inline-block" class="row justify-content-center" class="btn-group" role="group">
+                                            @endif
+                                            <div style="display: inline-block" class="justify-content-center" class="btn-group" role="group">
                                                 <div style="display:inline-block">
                                                     <a href="detailProject/{{$project->id}}" class="btn btn-success" title="Detalle" style="margin:4px; width:40px;"><i class="fas fa-plus"></i></a>
                                                 </div>
+                                                @if (! isset($id))
+                                                    <div style="display: inline-block">
+                                                        <a href="/project/edit/{{$project->id}}" style="margin:3px; width:40px;" alt="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
+                                                    </div>
+                                                    <div style="display: inline-block">
+                                                        <form method="POST" action="/project/delete">
+                                                            @csrf
+                                                            <input type="hidden" name="project_id" value={{ $project->id }}>
+                                                            <button style="margin:3px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este tema?');"><i class="fas fa-exclamation-triangle"></i></button>
+                                                        </form>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </td>
 

@@ -110,3 +110,7 @@ Route::get('/projects', [App\Http\Controllers\Projects\indexProjectsController::
 Route::get('/detailProject/{id}', [App\Http\Controllers\Projects\DetailProjectProjectsController::class, 'detailProject'])->middleware('auth');
 Route::get('/showDocument/{id}', [App\Http\Controllers\Projects\ShowDocumentProjectsController::class, 'showDocument'])->middleware('auth');
 Route::post('/changeStatusProject', [App\Http\Controllers\Projects\ChangeStatusProjectsController::class, 'changeStatus'])->middleware('auth');
+Route::get('/project/edit/{id}', [App\Http\Controllers\Projects\EditProjectsController::class, 'edit'])->middleware('auth');
+Route::post('/project/update', [App\Http\Controllers\Projects\UpdateProjectsController::class, 'update'])->middleware('auth');
+Route::post('/project/delete', [App\Http\Controllers\Projects\DeleteProjectsController::class, 'delete'])->middleware('auth');
+
