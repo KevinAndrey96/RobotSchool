@@ -55,7 +55,10 @@
                                                         </div>
                                                         @hasrole('Teacher')
                                                         <div style="display: inline-block" >
-                                                            <a href="/homeworks/{{$classroom->id}}" style="margin:3px; width:40px;" title="Tareas" class="btn btn-block btn-success form-control"><i class="fas fa-thumbtack"></i></i></a>
+                                                            <a href="/homeworks/{{$classroom->id}}" style="margin:3px; width:40px;" title="Tareas" class="btn btn-block btn-success form-control"><i class="fas fa-thumbtack"></i></a>
+                                                        </div>
+                                                        <div style="display: inline-block" >
+                                                            <a href="/syllabus?classroom_id={{$classroom->id}}" style="margin:3px; width:40px; color:white;" title="Syllabus" class="btn btn-block btn-dark form-control"><i class="fas fa-atlas"></i></a>
                                                         </div>
                                                         @endhasrole
                                                         @hasrole('Coordinator')

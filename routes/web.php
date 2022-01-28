@@ -114,3 +114,10 @@ Route::get('/project/edit/{id}', [App\Http\Controllers\Projects\EditProjectsCont
 Route::post('/project/update', [App\Http\Controllers\Projects\UpdateProjectsController::class, 'update'])->middleware('auth');
 Route::post('/project/delete', [App\Http\Controllers\Projects\DeleteProjectsController::class, 'delete'])->middleware('auth');
 
+//SYLLABUS
+Route::get('/syllabus', [App\Http\Controllers\Syllabuses\IndexSyllabusesController::class, 'index'])->middleware('auth');
+Route::get('/syllabus/create', [App\Http\Controllers\Syllabuses\CreateSyllabusesController::class, 'create'])->middleware('auth');
+Route::post('/syllabus/store', [App\Http\Controllers\Syllabuses\StoreSyllabusesController::class, 'store'])->middleware('auth'); //NO COMPLETO AUN
+
+//SCORES
+Route::get('/scores', [App\Http\Controllers\Scores\IndexScoresController::class, 'index'])->middleware('auth');

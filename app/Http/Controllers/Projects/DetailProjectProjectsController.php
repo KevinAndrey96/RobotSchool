@@ -11,7 +11,6 @@ class DetailProjectProjectsController extends Controller
     public function detailProject($id)
     {
         $project = Project::find($id);
-
         return view('projects.detailProject', compact('project'));
     }
 }

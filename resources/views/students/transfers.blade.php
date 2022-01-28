@@ -56,7 +56,6 @@
     </div>
     <script type="text/javascript">
         var ids = new Array();
-
         function getIDS(studentID)
         {
             var box = document.getElementById("studentCheck" + studentID);
