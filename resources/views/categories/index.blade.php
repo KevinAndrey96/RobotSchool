@@ -30,7 +30,6 @@
                             <tr>
                                 <th style="text-align: center; padding:10px;">Imagen</th>
                                 <th style="text-align: center; padding:10px;">Nombre</th>
-                                <th style="text-align: center; padding:10px; width:500px;">Descripción</th>
                                 <th style="text-align: center; padding:10px;">Acción</th>
                             </tr>
                             </thead>
@@ -43,11 +42,11 @@
                                         </a>
                                     </td>
                                     <td style="text-align: center; padding:10px;">{{$category->name}}</td>
-                                    <td style="max-width: 500px; word-wrap: break-word; white-space: normal !important; text-align: justify;">
-                                        {{$category->description}}
-                                    </td>
                                     <td style="text-align: center;">
-                                        <div style="display: inline-block" class="" class="btn-group" role="group">
+                                        <div style="display: inline-block" class="btn-group" role="group">
+                                            <div style="display: inline-block">
+                                                <a href="/categories/description/{{$category->id}}" style="margin:3px; width:40px;" title="Descripción" class="btn btn-block btn-primary form-control"><i class="fas fa-plus"></i></a>
+                                            </div>
                                             <div style="display: inline-block">
                                                 <a href="/subcategories/{{$category->id}}" style="margin:3px; width:40px;" alt="Subcategorías" class="btn btn-block btn-success form-control"><i style="width:30px" class="fab fa-stripe-s"></i></a>
                                             </div>

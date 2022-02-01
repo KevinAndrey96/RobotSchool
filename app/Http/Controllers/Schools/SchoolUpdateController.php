@@ -7,6 +7,7 @@ use App\Models\School;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\Request as RequestAlias;
 
 class SchoolUpdateController extends Controller
 {
@@ -17,31 +18,36 @@ class SchoolUpdateController extends Controller
        $school->address = $request->input('address');
        $school->city = $request->input('city');
        $school->country = $request->input('country');
+       $school->save();
 
        if ($request->hasFile('icon_url')) {
-           $school->icon_url = $request->icon_url->store('public/school_logos');
-           $image_name = substr($school->icon_url, 20);
+           $pathName = Sprintf('school_logos/%s.png', $school->id);
+           Storage::disk('public')->put($pathName, file_get_contents($request->file('icon_url')));
            $client = new Client();
            $url = "https://miel.robotschool.co/upload.php";
-           print(Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix().'/school_logos/'.$request->file('icon_url')->getClientOriginalName());
-           $response = $client->request('POST', $url, [
+           $client->request(RequestAlias::METHOD_POST, $url, [
                'multipart' => [
                    [
                        'name' => 'image',
-                       'contents' => fopen(Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix().'school_logos/'.$image_name, 'r'),
+                       'contents' => fopen(
+                           Storage::disk('public')
+                               ->getDriver()
+                               ->getAdapter()
+                               ->getPathPrefix() . 'school_logos/' . $school->id . '.png', 'r'),
                    ],
                    [
-                       'name'=>'path',
+                       'name' => 'path',
                        'contents' => 'school_logos'
                    ]
                ]
            ]);
-           dd($response);
+           $school->icon_url = 'storage/school_logos/'.$school->id.'.png';
            $school->save();
-           unlink(storage_path('app/public/school_logos/'.$image_name));
+           unlink(storage_path('app/public/school_logos/'.$school->id.'.png'));
+       
            return redirect('/schools')->with('updaschoolsuccess', 'Colegio modificado');
        }
-       $school->save();
+
        return redirect('/schools')->with('updaschoolsuccess', 'Colegio modificado');
     }
 }

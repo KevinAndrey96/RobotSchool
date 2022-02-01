@@ -13,8 +13,7 @@ class ShowDocumentProjectsController extends Controller
     {
         $project = Project::find($id);
         $pdf = PDF::loadView('projects.showDocument',compact('project'));
-        return $pdf->stream('theme'.$id.'.pdf');
 
-        //return view('projects.showDocument', compact('project'));
+        return $pdf->stream('theme'.$id.'.pdf');
     }
 }

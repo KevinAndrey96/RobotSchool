@@ -9,15 +9,15 @@
             <form method="POST" action="/classrooms/store">
                 @csrf
                 <div class="form-group">
-                    <label for="name">Nombre:</label>
+                    <label for="name"><p style="font-weight:bold">Nombre:</p></label>
                     <input class="form-control" type="text" name="name" id="name" required>
                 </div>
-                <div class="form-group">
-                    <label for="name">Código:</label>
+                <div style="margin-top:20px" class="form-group">
+                    <label for="name"><p style="font-weight:bold">Código:</p></label>
                     <input class="form-control" type="text" name="code" id="code" required>
                 </div>
-                <div class="form-group">
-                    <label for="user_id">Profesor a cargo: </label>
+                <div style="margin-top:20px" class="form-group">
+                    <label for="user_id"><p style="font-weight:bold">Profesor a cargo: </p></label>
                     <select class="form-control" name="user_id" required>
                         @foreach ($teachers as $teacher)
                             @if ($teacher->teacher->school_id == $coordinator->coordinator->school_id)

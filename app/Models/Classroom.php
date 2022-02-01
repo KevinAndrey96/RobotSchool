@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed|string $code
  * @property int|mixed $user_id
  * @property mixed $school_id
+ * @method static find($id)
  */
 class Classroom extends Model
 {

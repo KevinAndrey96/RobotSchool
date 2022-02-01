@@ -31,7 +31,6 @@
                                 <tr>
                                     <th style="text-align: center; padding:10px;">Imagen</th>
                                     <th style="text-align: center; padding:10px;">Nombre</th>
-                                    <th style="text-align: center; padding:10px; width:500px;">Descripción</th>
                                     <th style="text-align: center; padding:10px;">Acción</th>
                                 </tr>
                                 </thead>
@@ -44,11 +43,11 @@
                                             </a>
                                         </td>
                                         <td style="text-align: center; padding:10px;">{{$subcategory->name}}</td>
-                                        <td style="max-width: 500px; word-wrap: break-word; white-space: normal !important; text-align: justify;">
-                                            {{$subcategory->description}}
-                                        </td>
                                         <td style="text-align: center;">
-                                            <div style="display: inline-block" class="row" class="btn-group" role="group">
+                                            <div class="btn-group" role="group">
+                                                <div style="display: inline-block">
+                                                    <a href="/subcategories/description/{{$subcategory->id}}" style="margin:3px; width:40px;" title="Descripción" class="btn btn-block btn-primary form-control"><i class="fas fa-plus"></i></a>
+                                                </div>
                                                 <div style="display: inline-block !important">
                                                     <a href="/subcategories/edit/{{$subcategory->id}}" style="margin:4px; width:40px;" alt="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
                                                 </div>
