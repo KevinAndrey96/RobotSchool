@@ -14,7 +14,7 @@ class CreateUploadedHomeworksTable extends Migration
     public function up()
     {
         Schema::create('uploaded_homeworks', function (Blueprint $table) {
-            //$table->engine = 'InnoDB';
+            $table->engine = 'InnoDB';
             $table->id();
             $table->string('path')->nullable();
             $table->integer('score');

@@ -15,6 +15,11 @@
             {{ Session::get('storeclasssuccess') }}
         </div>
     @endif
+    @if(Session::has('RefreshSuccess'))
+        <div class="alert alert-success" role="alert">
+            {{ Session::get('RefreshSuccess') }}
+        </div>
+    @endif
     <div class="card">
         <div class="card-header">
             Cursos
@@ -64,6 +69,9 @@
                                                         @hasrole('Coordinator')
                                                         <div style="display: inline-block" >
                                                             <a href="/classrooms/edit/{{$classroom->id}}" style="margin:3px; width:40px;" title="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
+                                                        </div>
+                                                        <div style="display: inline-block" >
+                                                            <a href="/classrooms/refresh/{{$classroom->id}}" style="margin:3px; width:40px;" title="Resetear" class="btn btn-block btn-success form-control" onclick="return confirm('¿Está seguro que quiere reiniciar este curso? Si lo hace todos los estudiantes pertenecientes a este quedaran sin curso');"><i class="fas fa-sync"></i></a>
                                                         </div>
 
                                                     <div style="display: inline-block">

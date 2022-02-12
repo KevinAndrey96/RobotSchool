@@ -31,7 +31,11 @@
                                                     <input class="form-check-input" type="checkbox" name="studentCheck[]" id="studentCheck{{$student->id}}" value="{{$student->id}}" onclick="getIDS({{$student->id}})">
                                                 </td>
                                                 <td>{{$student->name}}</td>
-                                                <td>{{$student->student->classroom->name}}</td>
+                                                @if (isset($student->student->classroom))
+                                                    <td>{{$student->student->classroom->name}}</td>
+                                                @else
+                                                    <td></td>
+                                                @endif
                                             </tr>
                                     @endforeach
                                     </tbody>

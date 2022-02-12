@@ -26,8 +26,8 @@ class UploadMyHomeworkUploadedHomeworksController extends Controller
                 $pathName = Sprintf('homework_files/%s.pdf', $randomString);
             } elseif ($extension == 'docx') {
                 $pathName = Sprintf('homework_files/%s.docx', $randomString);
-            } elseif ($extension == 'rar') {
-                $pathName = Sprintf('homework_files/%s.rar', $randomString);
+            } elseif ($extension == 'zip') {
+                $pathName = Sprintf('homework_files/%s.zip', $randomString);
             } else {
                 return back()->with('extensionError', 'Archivo con extensión no permitida');
             }
@@ -72,7 +72,7 @@ class UploadMyHomeworkUploadedHomeworksController extends Controller
                 ]);
                 $uploadedHomework->path = 'storage/homework_files/' . $randomString . '.docx';
                 $uploadedHomework->save();
-            } elseif ($extension == 'rar') {
+            } elseif ($extension == 'zip') {
                 $client->request(RequestAlias::METHOD_POST, $url, [
                     'multipart' => [
                         [
@@ -81,7 +81,7 @@ class UploadMyHomeworkUploadedHomeworksController extends Controller
                                 Storage::disk('public')
                                     ->getDriver()
                                     ->getAdapter()
-                                    ->getPathPrefix() . 'homework_files/' . $randomString . '.rar', 'r'),
+                                    ->getPathPrefix() . 'homework_files/' . $randomString . '.zip', 'r'),
                         ],
                         [
                             'name' => 'path',
@@ -89,7 +89,7 @@ class UploadMyHomeworkUploadedHomeworksController extends Controller
                         ]
                     ]
                 ]);
-                $uploadedHomework->path = 'storage/homework_files/' . $randomString . '.rar';
+                $uploadedHomework->path = 'storage/homework_files/' . $randomString . '.zip';
                 $uploadedHomework->save();
             }
             $path = substr($uploadedHomework->path, 8);

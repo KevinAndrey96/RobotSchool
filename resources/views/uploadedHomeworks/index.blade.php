@@ -36,8 +36,8 @@
                                                                 <img style="width:50px" src="https://miel.robotschool.co/assets/images/fileTypes/pdf.png">
                                                             @elseif (strpos($uphomework->path, '.docx'))
                                                                 <img style="width:100px" src="https://miel.robotschool.co/assets/images/fileTypes/docx.png">
-                                                            @elseif (strpos($uphomework->path, '.rar'))
-                                                                <img style="width:100px" src="https://miel.robotschool.co/assets/images/fileTypes/rar.png">
+                                                            @elseif (strpos($uphomework->path, '.zip'))
+                                                                <img style="width:100px" src="https://miel.robotschool.co/assets/images/fileTypes/zip.png">
                                                             @endif
                                                         </a>
                                                     @elseif ($uphomework->homework->requiredFile == 'no')

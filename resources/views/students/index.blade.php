@@ -34,11 +34,8 @@
                                 <thead class="thead-light">
                                 <tr>
                                     <th style="text-align: center; padding:10px;">Nombre</th>
-                                    <!--
-                                    <th style="text-align: center; padding:10px;">Colegio</th>
-                                    -->
                                     @hasrole('Coordinator')
-                                    <th style="text-align: center; padding:10px;">Aula</th>
+                                    <th style="text-align: center; padding:10px;">Curso</th>
                                     @endhasrole
                                     <th style="text-align: center; padding:10px;">Email</th>
                                     <th style="text-align: center; padding:10px;">Teléfono</th>
@@ -56,7 +53,11 @@
                                         <td>{{$student->student->school->name}}</td>
                                         -->
                                         @hasrole('Coordinator')
-                                        <td>{{$student->student->classroom->name}}</td>
+                                        @if (isset($student->student->classroom))
+                                            <td>{{$student->student->classroom->name}}</td>
+                                        @else
+                                            <td></td>
+                                        @endif
                                         @endhasrole
                                         <td>{{$student->email}}</td>
                                         <td>{{$student->phone}}</td>
@@ -69,7 +70,6 @@
                                             @endif
                                         </td>
                                         @endhasrole
-
                                         <td>
                                             @hasrole('Coordinator')
                                             <div style="display:block !important; margin-bottom: 3px;" class="row checkbox">
@@ -81,13 +81,20 @@
                                                            id="togglestatus{{$student->id}}"  class="form-check-input" type="checkbox" onchange="getStatus({{$student->id}})">
                                                 @endif
                                             </div>
-                                            <div style="display: inline-block" class="row justify-content-center" class="btn-group" role="group">
-                                                <a href="/students/edit/{{$student->id}}" style="margin:4px; width:40px;" alt="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
-                                                <form method="POST" action="/students/delete">
-                                                    @csrf
-                                                    <input type="hidden" name="user_id" value={{ $student->id }}>
-                                                    <button style="margin:4px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este estudiante?');"><i class="fas fa-exclamation-triangle"></i></button>
-                                                </form>
+                                            <div style="display: inline-block" class="justify-content-center btn-group" role="group">
+                                                <div style="display: inline-block" >
+                                                    <a href="/academicHistories/{{$student->id}}" style="margin:3px; width:40px;" title="Historial académico" class="btn btn-block btn-success form-control"><i class='fas fa-h-square'></i></a>
+                                                </div>
+                                                <div style="display: inline-block" >
+                                                    <a href="/students/edit/{{$student->id}}" style="margin:3px; width:40px;" title="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
+                                                </div>
+                                                <div style="display: inline-block">
+                                                    <form method="POST" action="/students/delete">
+                                                        @csrf
+                                                        <input type="hidden" name="user_id" value={{ $student->id }}>
+                                                        <button style="margin:3px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este estudiante?');"><i class="fas fa-exclamation-triangle"></i></button>
+                                                    </form>
+                                                </div>
                                             </div>
                                             @endhasrole
                                             @hasrole('Teacher')

@@ -88,7 +88,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Uploaded_homework::class);
     }
-
-
+    /*
+    public function academicHistories()
+    {
+        return $this->hasMany(AcademicHistory::class);
+    }
+    */
 
 }

@@ -17,20 +17,21 @@ class ShowSyllabusesController extends Controller
         $classroom = Classroom::find($id);
         $syllabus = Syllabus::where('classroom_id', $id)->get();
         foreach ($syllabus as $value) {
+            $i=0;
             $mysubcategory = $value->project->subcategory;
-            if (empty($subcategories)) {
-                array_push($subcategories, $mysubcategory);
-            } else {
                 foreach ($subcategories as $subcategory) {
                     if ($subcategory->id == $mysubcategory->id) {
-                        break;
+                        $i++;
                     }
+                }
+                if ($i == 0) {
                     array_push($subcategories, $mysubcategory);
                 }
             }
-            return $subcategories;
-        }
-        //$pdf = PDF::loadView('syllabus.show',compact('classroom', 'syllabus' ));
-        //return $pdf->stream('theme'.$id.'.pdf');
+        $pdf = PDF::loadView('syllabuses.show',compact('classroom', 'syllabus', 'subcategories'));
+
+        return $pdf->stream('theme'.$id.'.pdf');
     }
+
+
 }

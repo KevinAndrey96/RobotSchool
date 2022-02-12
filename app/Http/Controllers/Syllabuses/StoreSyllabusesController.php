@@ -16,11 +16,8 @@ class StoreSyllabusesController extends Controller
         }
         $syllabus = Syllabus::where('classroom_id', $request->input('classroom_id'))->first();
         if (! is_null($syllabus)) {
-            return back()->with('SyllabusExists', 'El syllabus para este curso ya esta creado');
+            return back()->with('SyllabusExists', 'El plan de estudios para este curso ya esta creado');
         }
-
-
-
         foreach ($ids as $id) {
             $syllabus = new Syllabus();
             $syllabus->classroom_id = $request->input('classroom_id');
@@ -28,6 +25,7 @@ class StoreSyllabusesController extends Controller
             $syllabus->save();
         }
         $syllabus = Syllabus::where('classroom_id', $request->input('classroom_id'))->get();
-        return $syllabus;
+
+        return redirect('/syllabus?classroom_id='.$request->input('classroom_id'))->with('StoreSyllabusSuccess', 'Plan de estudios agregado');
     }
 }

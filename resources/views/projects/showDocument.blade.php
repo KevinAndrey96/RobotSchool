@@ -4,7 +4,9 @@
     <meta charset="utf-8">
 </head>
 <body>
-{!! $project->description !!}
+<div style="display:block; width: 85%; margin: 0px auto;">
+    {!! $project->description !!}
+</div>
 </body>
 </html>
 

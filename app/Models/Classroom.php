@@ -33,4 +33,9 @@ class Classroom extends Model
         return $this->hasMany(Student::class);
     }
 
+    public function syllabus()
+    {
+        return $this->hasMany(Syllabus::class);
+    }
+
 }

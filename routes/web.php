@@ -76,6 +76,7 @@ Route::get('/classrooms', [App\Http\Controllers\Classrooms\ClassroomsIndexContro
 Route::get('/classrooms/edit/{id}', [App\Http\Controllers\Classrooms\ClassroomsEditController::class, 'edit'])->middleware('auth');
 Route::post('/classrooms/update', [App\Http\Controllers\Classrooms\ClassroomsUpdateController::class, 'update'])->middleware('auth');
 Route::post('/classrooms/delete', [App\Http\Controllers\Classrooms\ClassroomsDeleteController::class, 'delete'])->middleware('auth');
+Route::get('/classrooms/refresh/{id}', [App\Http\Controllers\Classrooms\ClassroomsRefreshController::class, 'refresh'])->middleware('auth');
 
 //STUDENTS
 Route::get('/students/create', [App\Http\Controllers\Students\StudentsCreateController::class, 'create'])->middleware('auth');
@@ -119,8 +120,11 @@ Route::post('/project/delete', [App\Http\Controllers\Projects\DeleteProjectsCont
 //SYLLABUS
 Route::get('/syllabus', [App\Http\Controllers\Syllabuses\IndexSyllabusesController::class, 'index'])->middleware('auth');
 Route::get('/syllabus/create', [App\Http\Controllers\Syllabuses\CreateSyllabusesController::class, 'create'])->middleware('auth');
-Route::post('/syllabus/store', [App\Http\Controllers\Syllabuses\StoreSyllabusesController::class, 'store'])->middleware('auth'); //NO COMPLETO AUN
+Route::post('/syllabus/store', [App\Http\Controllers\Syllabuses\StoreSyllabusesController::class, 'store'])->middleware('auth');
 Route::get('/syllabus/show/{id}', [App\Http\Controllers\Syllabuses\ShowSyllabusesController::class, 'show'])->middleware('auth');
+Route::post('/syllabus/delete', [App\Http\Controllers\Syllabuses\DeleteSyllabusesController::class, 'delete'])->middleware('auth');
+Route::get('/showStudentSyllabus', [App\Http\Controllers\Syllabuses\StudentSyllabusesController::class, 'showStudentSyllabus'])->middleware('auth');
 
 //SCORES
 Route::get('/scores', [App\Http\Controllers\Scores\IndexScoresController::class, 'index'])->middleware('auth');
+Route::get('/academicHistories/{id}', [App\Http\Controllers\Scores\AcademicHistoriesScoresController::class, 'academicHistories'])->middleware('auth');

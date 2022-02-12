@@ -40,7 +40,7 @@ class StudentsIndexController extends Controller
                 $user = User::find(Auth::user()->id);
                 if ($id == 'all') {
                     foreach ($students as $index => $student) {
-                        if ($student->student->classroom->user->id != Auth::user()->id){
+                        if (is_null($student->student->classroom) || $student->student->classroom->user->id != Auth::user()->id) {
                             $students->pull($index);
                         }
                     }
@@ -55,7 +55,7 @@ class StudentsIndexController extends Controller
 
                 return view('students.index', compact('students'));
             }
-            }
+        }
         abort(403);
     }
 }
