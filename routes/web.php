@@ -128,3 +128,7 @@ Route::get('/showStudentSyllabus', [App\Http\Controllers\Syllabuses\StudentSylla
 //SCORES
 Route::get('/scores', [App\Http\Controllers\Scores\IndexScoresController::class, 'index'])->middleware('auth');
 Route::get('/academicHistories/{id}', [App\Http\Controllers\Scores\AcademicHistoriesScoresController::class, 'academicHistories'])->middleware('auth');
+
+//IMPORTS AND EXPORTS
+Route::get('/chooseUserList', [App\Http\Controllers\Users\ChooseListUsersController::class, 'chooseList'])->middleware('auth');
+Route::get('/exportUsers/{id}', [App\Http\Controllers\Users\ExportUsersController::class, 'export'])->middleware('auth');
