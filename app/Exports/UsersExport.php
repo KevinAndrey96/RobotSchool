@@ -11,6 +11,9 @@ use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx\Worksheet;
 
+/**
+ * @property $id
+ */
 class UsersExport implements FromCollection, WithHeadings, WithTitle, WithColumnWidths, WithStyles
 {
     /**
@@ -21,6 +24,7 @@ class UsersExport implements FromCollection, WithHeadings, WithTitle, WithColumn
         $this->id = $id;
     }
 
+
     public function title(): string
     {
         return 'Lista de usuarios';
@@ -29,14 +33,15 @@ class UsersExport implements FromCollection, WithHeadings, WithTitle, WithColumn
     public function columnWidths(): array
     {
         return [
-            'A' => 10,
+            'A' => 40,
             'B' => 40,
-            'C' => 40,
-            'D' => 20,
-            'E' => 10,
-            'F' => 30,
+            'C' => 20,
+            'D' => 10,
+            'E' => 30,
+            'F' => 40,
             'G' => 40,
             'H' => 40,
+            'I' => 40,
         ];
     }
 
@@ -51,19 +56,16 @@ class UsersExport implements FromCollection, WithHeadings, WithTitle, WithColumn
     {
         if ($this->id == 'coord' || $this->id == 'teach') {
             return [
-                'ID',
                 'NOMBRE',
                 'EMAIL',
                 'TELÉFONO',
                 'ESTADO',
                 'ROL',
                 'COLEGIO',
-                'CONTRASEÑA',
             ];
         }
         if ($this->id == 'stud') {
             return [
-                'ID',
                 'NOMBRE',
                 'EMAIL',
                 'TELÉFONO',
@@ -71,19 +73,25 @@ class UsersExport implements FromCollection, WithHeadings, WithTitle, WithColumn
                 'ROL',
                 'COLEGIO',
                 'CURSO',
-                'CONTRASEÑA',
             ];
         }
     }
 
     public function collection()
     {
-        $coordinators = Array();
-        if ($this->id == 'coord') {
-            $users = User::where('role', 'like', 'Coordinator')->get();
+        $coorTeach = Array();
+        $coorTeach = collect($coorTeach);
+        $students = Array();
+        $students = collect($students);
+        if ($this->id == 'coord' || $this->id == 'teach') {
+            if ($this->id == 'coord') {
+                $users = User::where('role', 'like', 'Coordinator')->get();
+            } else {
+                $users = User::where('role', 'like', 'Teacher')->get();
+            }
+            if ($this->id == 'coord') {
             foreach ($users as $user) {
                 $asocArray = [
-                    'id' => $user->id,
                     'name'=> $user->name,
                     'email'=> $user->email,
                     'phone'=> $user->phone,
@@ -92,11 +100,51 @@ class UsersExport implements FromCollection, WithHeadings, WithTitle, WithColumn
                     'school' => $user->coordinator->school->name
                     ];
                 $coordinator = json_decode(json_encode($asocArray));
-                $coordinators = collect($coordinators);
-                $coordinators->push($coordinator);
+                $coorTeach->push($coordinator);
             }
 
-            return $coordinators;
+            return $coorTeach;
+            }
+            if ($this->id == "teach") {
+                foreach ($users as $user) {
+                    $asocArray = [
+                        'name'=> $user->name,
+                        'email'=> $user->email,
+                        'phone'=> $user->phone,
+                        'is_enable' => $user->is_enable,
+                        'role' => $user->role,
+                        'school' => $user->teacher->school->name
+                    ];
+                    $teacher = json_decode(json_encode($asocArray));
+                    $coorTeach->push($teacher);
+                }
+
+                return $coorTeach;
+            }
+
+        }
+        if ($this->id == "stud") {
+            $users = User::where('role', 'like', 'Student')->get();
+            foreach ($users as $user) {
+                if (isset($user->student->classroom)){
+                    $className = $user->student->classroom->name;
+                } else {
+                    $className = '';
+                }
+                $asocArray = [
+                    'name'=> $user->name,
+                    'email'=> $user->email,
+                    'phone'=> $user->phone,
+                    'is_enable' => $user->is_enable,
+                    'role' => $user->role,
+                    'school' => $user->student->school->name,
+                    'classroom' => $className
+                ];
+                $student = json_decode(json_encode($asocArray));
+                $students->push($student);
+            }
+
+            return $students;
         }
     }
 }

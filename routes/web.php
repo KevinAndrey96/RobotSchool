@@ -132,3 +132,4 @@ Route::get('/academicHistories/{id}', [App\Http\Controllers\Scores\AcademicHisto
 //IMPORTS AND EXPORTS
 Route::get('/chooseUserList', [App\Http\Controllers\Users\ChooseListUsersController::class, 'chooseList'])->middleware('auth');
 Route::get('/exportUsers/{id}', [App\Http\Controllers\Users\ExportUsersController::class, 'export'])->middleware('auth');
+Route::post('/importUsers', [App\Http\Controllers\Users\ImportUsersController::class, 'import'])->middleware('auth');
