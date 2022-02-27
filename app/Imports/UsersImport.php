@@ -49,12 +49,14 @@ class UsersImport implements ToModel, WithStartRow
                     $coordinator->user_id = $user->id;
                     $coordinator->school_id = $school->id;
                     $coordinator->save();
+                    $user->assignRole('Coordinator');
                 }
                 if ($row[4] == 'Teacher') {
                     $teacher = new Teacher();
                     $teacher->user_id = $user->id;
                     $teacher->school_id = $school->id;
                     $teacher->save();
+                    $user->assignRole('Teacher');
                 }
             }
         }
@@ -82,6 +84,7 @@ class UsersImport implements ToModel, WithStartRow
                 $student->school_id = $school->id;
                 $student->classroom_id = $classroom->id;
                 $student->save();
+                $user->assignRole('Student');
             }
         }
     }

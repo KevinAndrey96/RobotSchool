@@ -133,3 +133,8 @@ Route::get('/academicHistories/{id}', [App\Http\Controllers\Scores\AcademicHisto
 Route::get('/chooseUserList', [App\Http\Controllers\Users\ChooseListUsersController::class, 'chooseList'])->middleware('auth');
 Route::get('/exportUsers/{id}', [App\Http\Controllers\Users\ExportUsersController::class, 'export'])->middleware('auth');
 Route::post('/importUsers', [App\Http\Controllers\Users\ImportUsersController::class, 'import'])->middleware('auth');
+
+//USERS
+Route::get('/changePassword', [App\Http\Controllers\Users\ChangePasswordUsersController::class, 'changePassword'])->middleware('auth');
+Route::post('/updatePassword', [App\Http\Controllers\Users\UpdatePasswordUsersController::class, 'updatePassword'])->middleware('auth');
+

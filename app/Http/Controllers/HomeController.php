@@ -36,12 +36,6 @@ class HomeController extends Controller
         if (Auth::user()->role=='Student') {
             return redirect('/myHomeworks');
         }
-
-
-
-
-            //return view('home');
-
-
+        //return view('home');
     }
 }

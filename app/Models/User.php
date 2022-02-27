@@ -20,6 +20,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property mixed $id
  * @method static find(int $id)
  * @method static where(string $string, string $string1, string $string2)
+ * @method static findOrFail($id)
  */
 class User extends Authenticatable
 {

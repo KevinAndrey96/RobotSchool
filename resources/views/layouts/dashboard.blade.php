@@ -48,8 +48,7 @@
                         <div class="app-utility-item app-user-dropdown dropdown">
                             <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="assets/images/user.png" alt="user profile"></a>
                             <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
-                                <li><a class="dropdown-item" href="account.html">Cuenta</a></li>
-                                <li><a class="dropdown-item" href="settings.html">Cambiar contraseña</a></li>
+                                <li><a class="dropdown-item" href="/changePassword">Cambiar contraseña</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">Cerrar sesión</a>
