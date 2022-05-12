@@ -20,22 +20,10 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return void
      */
     public function index()
     {
-        if (Auth::user()->role=='Administrator'){
-            return redirect('/projects?id=all');
-        }
-        if (Auth::user()->role=='Coordinator') {
-            return redirect('/classrooms');
-        }
-        if (Auth::user()->role=='Teacher') {
-            return redirect('/classrooms');
-        }
-        if (Auth::user()->role=='Student') {
-            return redirect('/myHomeworks');
-        }
-        //return view('home');
+        return view('home');
     }
 }
