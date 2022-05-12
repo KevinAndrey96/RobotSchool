@@ -23,8 +23,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css"/>-->
 
     <!-- BOOTSTRAP TOOGLE -->
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/assets/Magnific-Popup-master/dist/magnific-popup.css">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/assets/Magnific-Popup-master/dist/magnific-popup.css" />
 
 </head>
 <body class="g-sidenav-show   bg-gray-100">
@@ -290,7 +290,7 @@
             <img class="w-50 mx-auto" src="assets/images/robotschool-logo.png" alt="logo">
             <div class="card-body text-center p-3 w-100 pt-0">
                 <div class="docs-info">
-                    <h6 class="mb-0">Need help?</h6>
+                    <h6 class="mb-0"></h6>
                     <p class="text-xs font-weight-bold mb-0"></p>
                 </div>
             </div>
@@ -310,13 +310,6 @@
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             </div>
             <ul class="navbar-nav  justify-content-end">
-                <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                    <a class="avatar avatar-sm  me-0 " id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="assets/images/user.png" alt="user profile"></a>
-                    <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-                        <a href="/changePassword" target="_blank" class="btn btn-sm  mb-3">Cambiar contraseña </a>
-                    </ul>
-                </li>
-
                 <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                     <a href="#sidenav-main;" class="nav-link text-white p-0" id="iconNavbarSidenav">
                         <div class="sidenav-toggler-inner">
@@ -331,17 +324,22 @@
         </div>
     </div>
 </nav>
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            @yield('content')
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 
-<div class="app-wrapper">
-
-
-    <div class="app-content pt-3 p-md-3 p-lg-4">
-        <div class="container-xl">
-            @yield('content')
-        </div><!--//container-fluid-->
-    </div><!--//app-content-->
 
     <footer class="app-footer">
         <div class="container text-center py-3">
@@ -349,7 +347,7 @@
         </div>
     </footer>
 
-</div><!--//app-wrapper-->
+
 
 
 <!-- Javascript -->
