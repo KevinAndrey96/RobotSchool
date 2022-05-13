@@ -9,15 +9,15 @@
         Miel - ROBOTSchool
     </title>
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Nucleo Icons -->
-    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet">
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="/assets/css/nucleo-svg.css" rel="stylesheet">
     <!-- CSS Files -->
-    <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.0.2" rel="stylesheet" />
+    <link id="pagestyle" href="/assets/css/argon-dashboard.css?v=2.0.2" rel="stylesheet">
     <!-- Datatable CSS
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css"/>-->
@@ -287,7 +287,7 @@
     </div>
     <div class="sidenav-footer mx-3 ">
         <div class="card card-plain shadow-none" id="sidenavCard">
-            <img class="w-50 mx-auto" src="assets/images/robotschool-logo.png" alt="logo">
+            <img class="w-50 mx-auto" src="/assets/images/robotschool-logo.png" alt="logo">
             <div class="card-body text-center p-3 w-100 pt-0">
                 <div class="docs-info">
                     <h6 class="mb-0"></h6>
@@ -337,25 +337,31 @@
             </div>
         </div>
     </div>
+    <footer class="footer pt-2">
+        <div class="container-fluid">
+            <div class="row align-items-center justify-content-lg-between">
+              <div class="col-12">
+                  <div class="card mb-1 text-center">
+                      <div class="jumbotron jumbotron-fluid">
+                          <div class="container">
+                              <img class="text-center" src="/assets/images/robotschool-logo.png">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </footer>
 </main>
 
 
 
-    <footer class="app-footer">
-        <div class="container text-center py-3">
-
-        </div>
-    </footer>
-
-
-
-
 <!-- Javascript -->
-<script src="../assets/js/core/popper.min.js"></script>
-<script src="../assets/js/core/bootstrap.min.js"></script>
-<script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-<script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-<script src="../assets/js/plugins/chartjs.min.js"></script>
+<script src="/assets/js/core/popper.min.js"></script>
+<script src="/assets/js/core/bootstrap.min.js"></script>
+<script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script src="/assets/js/plugins/chartjs.min.js"></script>
 <script>
     var ctx1 = document.getElementById("chart-line").getContext("2d");
 
@@ -451,7 +457,7 @@
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="../assets/js/argon-dashboard.min.js?v=2.0.2"></script>
+<script src="/assets/js/argon-dashboard.min.js?v=2.0.2"></script>
 
 <!--Datatables
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

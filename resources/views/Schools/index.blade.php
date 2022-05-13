@@ -20,8 +20,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="card mb-1">
-                    <div class="card-header pb-0">
-                        <h6>COLEGIOS</h6>
+                    <div class="card-header pb-0 text-center">
+                        <h6>Colegios</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-1">
                         <div class="table-responsive p-0">
@@ -35,12 +35,12 @@
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">País</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Estado</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Bloq/Desbl</th>
-                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Acción</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Acción</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($schools as $school)
-                                        <tr style="text-align: center; padding:10px;">
+                                        <tr class="align-middle text-center text-sm">
                                             <td class="align-middle text-center text-sm">
                                                 <a class="magnific" href="https://miel.robotschool.co/{{$school->icon_url}}">
                                                     <img style="width:100px; height:100px;"  class="img-thumbnail" src="https://miel.robotschool.co/{{$school->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
@@ -69,8 +69,9 @@
                                                         <input style="border: gray solid 1px; border-radius: 15px; width: 25px; height: 25px;" data-toggle="toggle"
                                                                id="togglestatus{{$school->id}}"  class="form-check-input" type="checkbox" onchange="getStatus({{$school->id}})">
                                                     @endif
-                                                </div> </td>
-                                            <td class="align-middle text-center text-sm">
+                                                </div>
+                                            </td>
+                                            <td class="align-middle text-center ps-0">
                                                 <div class="row">
                                                     <div class="col-sm-4">
                                                         <a href="/schools/edit/{{$school->id}}" style="margin:4px; width:40px; border-radius: 20px;" title="Editar" alt="Editar" class="btn btn-warning"><i style="color:white; margin-left: -6px" class="text-right far fa-edit"></i></a>
@@ -100,19 +101,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid py-4">
-        <div class="row">
-            <div class="col-12">
-                <div class="card mb-1">
-                    <div class="jumbotron jumbotron-fluid">
-                        <div class="container">
-                           <img class="text-center" src="/assets/images/robotschool-logo.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <script>
         function getStatus(id)
