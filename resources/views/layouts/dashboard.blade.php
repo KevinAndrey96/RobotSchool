@@ -76,7 +76,7 @@
                 <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-3" aria-expanded="false" aria-controls="submenu-3">
 						        <span class="nav-icon">
 						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-						        <i style="width:30px" class="fab fa-contao"></i>
+						        <i style="width:30px" class="fas fa-folder"></i>
 						         </span>
                     <span class="nav-link-text">Categorías</span>
                     <span class="submenu-arrow">
@@ -234,7 +234,7 @@
                 <a class="nav-link " href="/myHomeworks" >
 						        <span class="nav-icon">
 						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                                    <i style="width:30px" class="fas fa-child"></i>
+                                    <i style="width:30px" class="fas fa-book"></i>
 						         </span>
                     <span class="nav-link-text ms-1" >Mis tareas</span>
                 </a><!--//nav-link-->

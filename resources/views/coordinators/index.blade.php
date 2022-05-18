@@ -68,7 +68,7 @@
                                         <td class="align-middle text-center ps-0">
                                           <div class="row">
                                               <div class="col-sm-4">
-                                                <a href="/coordinators/edit/{{$coordinator->id}}" style="margin:4px; width:40px; border-radius: 20px;" alt="Editar" title="Borrar" class="btn btn-block btn-warning form-control"><i style="margin-left: -6px;" class="far fa-edit"></i></a>
+                                                <a href="/coordinators/edit/{{$coordinator->id}}" style="margin:4px; width:40px; border-radius: 20px;" alt="Editar" title="Editar" class="btn btn-block btn-warning form-control"><i style="margin-left: -6px;" class="far fa-edit"></i></a>
                                               </div>
                                               <div class="col-sm-4">
                                                   <form method="POST" action="/coordinators/delete">
@@ -112,19 +112,6 @@
                 form.submit();
             }
         </script>
-    </div>
-    <div class="container-fluid py-4">
-        <div class="row">
-            <div class="col-12">
-                <div class="card mb-1">
-                    <div class="jumbotron jumbotron-fluid">
-                        <div class="container">
-                            <img class="text-center" src="/assets/images/robotschool-logo.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 @endsection
