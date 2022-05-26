@@ -20,88 +20,94 @@
             {{ Session::get('transfersSuccess') }}
         </div>
     @endif
-
-    <div class="card">
-        <div class="card-header">
-            Estudiantes
-        </div>
-        <div class="card-body container-fluid">
-            <div class="justify-content-center" >
-                <div style="width: 100%; padding-left: -10px;">
-                    <div class="col-auto mt-5">
-                        <div class="table-responsive">
-                            <table id="datatable" class="table table-striped table-hover dt-responsive display nowrap" width="100%" cellspacing="0">
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-1">
+                    <div class="card-header pb-0 text-center">
+                        <h6>Estudiantes</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-1">
+                        <div class="table-responsive p-0">
+                            <table id="datatable" class="table align-items-center mb-0">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th style="text-align: center; padding:10px;">Nombre</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre</th>
                                     @hasrole('Coordinator')
-                                    <th style="text-align: center; padding:10px;">Curso</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Curso</th>
                                     @endhasrole
-                                    <th style="text-align: center; padding:10px;">Email</th>
-                                    <th style="text-align: center; padding:10px;">Teléfono</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Teléfono</th>
                                     @hasrole('Coordinator')
-                                    <th style="text-align: center; padding:10px;">Estado</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Estado</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Bloq/Desblo</th>
                                     @endhasrole
-                                    <th style="text-align: center; padding:10px;">Acción</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Acción</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach ($students as $student)
-                                    <tr style="text-align: center; padding:10px;">
-                                        <td>{{$student->name}}</td>
+                                    <tr class="align-middle text-center text-sm">
+                                        <td class="align-middle text-center text-sm">{{$student->name}}</td>
                                         <!--
                                         <td>{{$student->student->school->name}}</td>
                                         -->
                                         @hasrole('Coordinator')
                                         @if (isset($student->student->classroom))
-                                            <td>{{$student->student->classroom->name}}</td>
+                                            <td class="align-middle text-center text-sm">{{$student->student->classroom->name}}</td>
                                         @else
-                                            <td></td>
+                                            <td class="align-middle text-center text-sm"></td>
                                         @endif
                                         @endhasrole
-                                        <td>{{$student->email}}</td>
-                                        <td>{{$student->phone}}</td>
+                                        <td class="align-middle text-center text-sm">{{$student->email}}</td>
+                                        <td class="align-middle text-center text-sm">{{$student->phone}}</td>
                                         @hasrole('Coordinator')
-                                        <td>
+                                        <td class="align-middle text-center text-sm">
                                             @if($student->is_enable == 1)
                                                 Habilitado
                                             @else
                                                 Deshabilitado
                                             @endif
                                         </td>
-                                        @endhasrole
-                                        <td>
-                                            @hasrole('Coordinator')
+                                        <td class="align-middle text-center text-sm">
                                             <div style="display:block !important; margin-bottom: 3px;" class="row checkbox">
                                                 @if($student->is_enable == 1)
-                                                    <input style="width: 50px; height:30px;" data-toggle="toggle"
+                                                    <p style="margin-bottom: -3px;" class="align-middle text-center text-xxs font-weight-bolder opacity-7">ON</p>
+                                                    <input style="border: gray solid 1px; border-radius: 15px; width: 25px; height: 25px;" data-toggle="toggle"
                                                            id="togglestatus{{$student->id}}" class="form-check-input" type="checkbox" checked onchange="getStatus({{$student->id}})">
-                                                @else
-                                                    <input style="width: 50px; height:30px;" data-toggle="toggle"
-                                                           id="togglestatus{{$student->id}}"  class="form-check-input" type="checkbox" onchange="getStatus({{$student->id}})">
+                                                    @else
+                                                        <p style="margin-bottom: -3px;" class="align-middle text-center text-xxs font-weight-bolder opacity-7">OFF</p>
+                                                        <input style="border: gray solid 1px; border-radius: 15px; width: 25px; height: 25px;" data-toggle="toggle"
+                                                               id="togglestatus{{$student->id}}"  class="form-check-input" type="checkbox" onchange="getStatus({{$student->id}})">
                                                 @endif
                                             </div>
-                                            <div style="display: inline-block" class="justify-content-center btn-group" role="group">
-                                                <div style="display: inline-block" >
-                                                    <a href="/academicHistories/{{$student->id}}" style="margin:3px; width:40px;" title="Historial académico" class="btn btn-block btn-success form-control"><i class='fas fa-h-square'></i></a>
+                                        </td>
+                                        @endhasrole
+                                        <td class="align-middle text-center text-sm">
+                                            <div class="row">
+                                            @hasrole('Coordinator')
+                                                <div style="display: inline-block" class="justify-content-center btn-group" role="group">
+                                                    <div style="display: inline-block" >
+                                                        <a href="/academicHistories/{{$student->id}}" style="margin:4px; width:40px; border-radius: 20px;" title="Historial académico" class="btn btn-block btn-success form-control"><i style="margin-left: -6px;" class='fas fa-history'></i></a>
+                                                    </div>
+                                                    <div style="display: inline-block" >
+                                                        <a href="/students/edit/{{$student->id}}" style="margin:4px; width:40px; border-radius: 20px;" title="Editar" class="btn btn-block btn-warning form-control"><i style="margin-left: -6px;" class="far fa-edit"></i></a>
+                                                    </div>
+                                                    <div style="display: inline-block">
+                                                        <form method="POST" action="/students/delete">
+                                                            @csrf
+                                                            <input type="hidden" name="user_id" value={{ $student->id }}>
+                                                            <button style="margin:4px; width:40px; border-radius: 20px;" class="btn btn-block btn-danger" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este estudiante?');"><i style="margin-left: -6px;" class="fas fa-trash"></i></button>
+                                                        </form>
+                                                    </div>
                                                 </div>
-                                                <div style="display: inline-block" >
-                                                    <a href="/students/edit/{{$student->id}}" style="margin:3px; width:40px;" title="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
-                                                </div>
-                                                <div style="display: inline-block">
-                                                    <form method="POST" action="/students/delete">
-                                                        @csrf
-                                                        <input type="hidden" name="user_id" value={{ $student->id }}>
-                                                        <button style="margin:3px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este estudiante?');"><i class="fas fa-exclamation-triangle"></i></button>
-                                                    </form>
-                                                </div>
-                                            </div>
                                             @endhasrole
                                             @hasrole('Teacher')
-                                            <div style="display: inline-block" class="row justify-content-center" class="btn-group" role="group">
-                                                <a href="/uploadedHomeworks/{{$student->id}}" style="margin:4px; width:40px;" title="Tareas" class="btn btn-block btn-success form-control"><i class="fas fa-tasks"></i></a>
-                                            </div>
+                                                <div style="display: inline-block" class="row justify-content-center" class="btn-group" role="group">
+                                                    <a href="/uploadedHomeworks/{{$student->id}}" style="margin:4px; width:40px; border-radius: 20px;" title="Tareas" class="btn btn-block btn-success form-control"><i style="margin-left: -6px;" class="fas fa-tasks"></i></a>
+                                                </div>
                                             @endhasrole
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach

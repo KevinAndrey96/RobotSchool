@@ -5,7 +5,7 @@
             <div class="col-12">
                 <div class="card mb-1">
                     <div class="card-header pb-0">
-                        <h5 class="text-center">Editar coordinador</h5>
+                        <h6 class="text-center">Editar coordinador</h5>
                     </div>
                     <div class="card-body px-0 pt-0 pb-1">
                         <div class="table-responsive p-0">

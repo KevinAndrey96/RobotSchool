@@ -16,7 +16,6 @@
             {{ Session::get('storecoordinatorsuccess') }}
         </div>
     @endif
-
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
@@ -82,7 +81,6 @@
                                     </tr>
                                 @endforeach
                                 </tbody>
-
                             </table>
                             <form id="form-status" name="form-status" method="POST" action="/changeStatusCoordinator">
                                 @csrf
@@ -93,7 +91,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <script>
             function getStatus(id)
@@ -113,6 +110,5 @@
             }
         </script>
     </div>
-
 @endsection
 

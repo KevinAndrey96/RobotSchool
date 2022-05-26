@@ -43,15 +43,15 @@
                                         <tr class="align-middle text-center text-sm">
                                             <td class="align-middle text-center text-sm">
                                                 <a class="magnific" href="https://miel.robotschool.co/{{$school->icon_url}}">
-                                                    <img style="width:100px; height:100px;"  class="img-thumbnail" src="https://miel.robotschool.co/{{$school->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
+                                                    <img style="width:50px; height:50px;"  class="img-thumbnail" src="https://miel.robotschool.co/{{$school->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
                                                 </a>
                                             </td>
-                                            <td class="align-middle text-center text-sm">{{$school->name}}</td>
-                                            <td class="align-middle text-center text-sm">{{$school->address}}</td>
-                                            <td class="align-middle text-center text-sm">{{$school->city}}</td>
-                                            <td class="align-middle text-center text-sm">{{$school->country}}</td>
+                                            <td class="align-middle text-center text-xs">{{$school->name}}</td>
+                                            <td class="align-middle text-center text-xs">{{$school->address}}</td>
+                                            <td class="align-middle text-center text-xs">{{$school->city}}</td>
+                                            <td class="align-middle text-center text-xs">{{$school->country}}</td>
 
-                                            <td class="align-middle text-center text-sm">
+                                            <td class="align-middle text-center text-xs">
                                                 @if($school->is_enable == 1)
                                                     Habilitado
                                                 @else
@@ -72,18 +72,13 @@
                                                 </div>
                                             </td>
                                             <td class="align-middle text-center ps-0">
-                                                <div class="row">
-                                                    <div class="col-sm-4">
                                                         <a href="/schools/edit/{{$school->id}}" style="margin:4px; width:40px; border-radius: 20px;" title="Editar" alt="Editar" class="btn btn-warning"><i style="color:white; margin-left: -6px" class="text-right far fa-edit"></i></a>
-                                                    </div>
-                                                    <div class="col-sm-4">
+
                                                         <form method="POST" action="/schools/delete">
                                                             @csrf
                                                             <input type="hidden" name="school_id" value={{ $school->id }}>
                                                             <button style="margin:4px; width:40px; border-radius: 20px;" class="btn btn-danger " title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este colegio?');"><i style="margin-left: -6px;" class="fas fa-trash"></i></button>
                                                         </form>
-                                                    </div>
-                                                </div>
                                             </td>
                                         </tr>
                                         @endforeach

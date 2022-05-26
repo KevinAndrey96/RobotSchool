@@ -26,13 +26,11 @@
                    @foreach($categories as $category)
                         <div class="col-md-4">
                             <div class="card card-profile">
-                                <img src="/assets/images/bg-profile.jpg" alt="Image placeholder" class="card-img-top">
+                                <img src="/assets/images/bannerC.jpg" alt="Image placeholder" class="card-img-top">
                                 <div class="row justify-content-center">
                                     <div class="col-4 col-lg-4 order-lg-2">
                                         <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
-                                            <a href="https://miel.robotschool.co/{{$category->icon_url}}">
-                                                <img src="https://miel.robotschool.co/{{$category->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';" class="rounded-circle img-fluid border border-2 border-white">
-                                            </a>
+                                            <img src="https://miel.robotschool.co/{{$category->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';" class="rounded-circle img-fluid border border-2 border-white">
                                         </div>
                                     </div>
                                 </div>

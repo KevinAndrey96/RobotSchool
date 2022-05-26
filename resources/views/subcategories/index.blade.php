@@ -33,9 +33,7 @@
                                     <div class="row justify-content-center">
                                         <div class="col-4 col-lg-4 order-lg-2">
                                             <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
-                                                <a class="magnific" href="https://miel.robotschool.co/{{$subcategory->icon_url}}">
-                                                    <img src="https://miel.robotschool.co/{{$subcategory->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';" class="rounded-circle img-fluid border border-2 border-white">
-                                                </a>
+                                               <img src="https://miel.robotschool.co/{{$subcategory->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';" class="rounded-circle img-fluid border border-2 border-white">
                                             </div>
                                         </div>
                                     </div>

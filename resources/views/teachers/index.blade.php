@@ -15,65 +15,67 @@
             {{ Session::get('storeteachersuccess') }}
         </div>
     @endif
-
-    <div class="card">
-        <div class="card-header">
-            Profesores
-        </div>
-        <div class="card-body container-fluid">
-            <div class="justify-content-center" >
-                <div style="width: 100%; padding-left: -10px;">
-                    <div class="col-auto mt-5">
-                        <div class="table-responsive">
-                            <table id="datatable" class="table table-striped table-hover dt-responsive display nowrap" width="100%" cellspacing="0">
-                                <thead class="thead-light">
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-1">
+                    <div class="card-header pb-0 text-center">
+                        <h6>Profesores</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-1">
+                        <div class="table-responsive p-0">
+                            <table id="datatable" class="table align-items-center mb-0">
+                                <thead>
                                 <tr>
-                                    <th style="text-align: center; padding:10px;">Nombre</th>
-                                    <th style="text-align: center; padding:10px;">Colegio</th>
-                                    <th style="text-align: center; padding:10px;">Email</th>
-                                    <th style="text-align: center; padding:10px;">Teléfono</th>
-                                    <th style="text-align: center; padding:10px;">Estado</th>
-                                    <th style="text-align: center; padding:10px;">Acción</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Colegio</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Teléfono</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Estado</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Bloq/Desbl</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Acción</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($teachers as $teacher)
-                                    <tr style="text-align: center; padding:10px;">
-                                        <td>{{$teacher->name}}</td>
-                                        <td>{{$teacher->teacher->school->name}}</td>
-                                        <td>{{$teacher->email}}</td>
-                                        <td>{{$teacher->phone}}</td>
-                                        <td>
+                                    <tr class="align-middle text-center text-sm">
+                                        <td class="align-middle text-center text-sm">{{$teacher->name}}</td>
+                                        <td class="align-middle text-center text-sm">{{$teacher->teacher->school->name}}</td>
+                                        <td class="align-middle text-center text-sm">{{$teacher->email}}</td>
+                                        <td class="align-middle text-center text-sm">{{$teacher->phone}}</td>
+                                        <td class="align-middle text-center text-sm">
                                             @if($teacher->is_enable == 1)
                                                 Habilitado
                                             @else
                                                 Deshabilitado
                                             @endif
                                         </td>
-
-                                        <td>
-                                            <div style="display:block !important; margin-bottom: 3px;" class="row checkbox">
+                                        <td class="align-middle text-center text-sm">
+                                            <div>
                                                 @if($teacher->is_enable == 1)
-                                                    <input style="width: 50px; height:30px;" data-toggle="toggle"
+                                                    <p style="margin-bottom: -3px;" class="align-middle text-center text-xxs font-weight-bolder opacity-7">ON</p>
+                                                    <input style="border: gray solid 1px; border-radius: 15px; width: 25px; height: 25px;" data-toggle="toggle"
                                                            id="togglestatus{{$teacher->id}}" class="form-check-input" type="checkbox" checked onchange="getStatus({{$teacher->id}})">
                                                 @else
-                                                    <input style="width: 50px; height:30px;" data-toggle="toggle"
+                                                    <p style="margin-bottom: -3px;" class="align-middle text-center text-xxs font-weight-bolder opacity-7">OFF</p>
+                                                    <input style="border: gray solid 1px; border-radius: 15px; width: 25px; height: 25px;" data-toggle="toggle"
                                                            id="togglestatus{{$teacher->id}}"  class="form-check-input" type="checkbox" onchange="getStatus({{$teacher->id}})">
                                                 @endif
                                             </div>
-                                            <div style="display: inline-block" class="row justify-content-center" class="btn-group" role="group">
-                                                <a href="/teachers/edit/{{$teacher->id}}" style="margin:4px; width:40px;" alt="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
+                                        </td>
+                                        <td class="align-middle text-center text-sm">
+                                            <div style="display: inline-block" class="justify-content-center btn-group" role="group">
+                                                <a href="/teachers/edit/{{$teacher->id}}" style="margin:4px; width:40px; border-radius: 20px;" title="Editar" alt="Editar" class="btn btn-block btn-warning form-control"><i style="margin-left: -6px;" class="far fa-edit"></i></a>
                                                 <form method="POST" action="/teachers/delete">
                                                     @csrf
                                                     <input type="hidden" name="user_id" value={{ $teacher->id }}>
-                                                    <button style="margin:4px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este profesor?');"><i class="fas fa-exclamation-triangle"></i></button>
+                                                    <button style="margin:4px; width:40px; border-radius: 20px;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este profesor?');"><i style="margin-left: -6px;" class="fas fa-trash"></i></button>
                                                 </form>
                                             </div>
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
-
                             </table>
                             <form id="form-status" name="form-status" method="POST" action="/changeStatusTeacher">
                                 @csrf
