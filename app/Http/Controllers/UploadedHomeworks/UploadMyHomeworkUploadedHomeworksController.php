@@ -4,6 +4,7 @@ namespace App\Http\Controllers\UploadedHomeworks;
 
 use App\Http\Controllers\Controller;
 use App\Models\Uploaded_homework;
+use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -16,6 +17,7 @@ class UploadMyHomeworkUploadedHomeworksController extends Controller
      */
     public function uploadMyHomework(Request $request)
     {
+        date_default_timezone_set('America/Bogota');
         $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $randomString = substr(str_shuffle($permitted_chars), 0, 10);
         $file = $_FILES['homeworkFile']['name'];
@@ -52,7 +54,10 @@ class UploadMyHomeworkUploadedHomeworksController extends Controller
                     ]
                 ]);
                 $uploadedHomework->path = 'storage/homework_files/' . $randomString . '.pdf';
+                $uploadedHomework->status = 'send';
+                $uploadedHomework->delivery_at = Carbon::now();
                 $uploadedHomework->save();
+
             } elseif ($extension == 'docx') {
                 $client->request(RequestAlias::METHOD_POST, $url, [
                     'multipart' => [
@@ -71,6 +76,8 @@ class UploadMyHomeworkUploadedHomeworksController extends Controller
                     ]
                 ]);
                 $uploadedHomework->path = 'storage/homework_files/' . $randomString . '.docx';
+                $uploadedHomework->status = 'send';
+                $uploadedHomework->delivery_at = Carbon::now();
                 $uploadedHomework->save();
             } elseif ($extension == 'zip') {
                 $client->request(RequestAlias::METHOD_POST, $url, [
@@ -90,12 +97,14 @@ class UploadMyHomeworkUploadedHomeworksController extends Controller
                     ]
                 ]);
                 $uploadedHomework->path = 'storage/homework_files/' . $randomString . '.zip';
+                $uploadedHomework->status = 'send';
+                $uploadedHomework->delivery_at = Carbon::now();
                 $uploadedHomework->save();
             }
             $path = substr($uploadedHomework->path, 8);
             unlink(storage_path('app/public/'.$path));
         }
 
-        return back()->with('upMyHomeworkSuccess','Tarea subida');
+        return redirect('/myHomeworks')->with('upMyHomeworkSuccess','Tarea subida');
     }
 }

@@ -22,8 +22,12 @@
                             <h2><p  class="text-center">{{$homework->title}}</p></h2>
                             <h4><p style="margin-top:50px">Descripción:</p></h4>
                             <p style="text-align:justify">{{$homework->description}}</p>
+                            @if (isset($homework->due_date) && isset($homework->due_time))
+                            <h4><p style="margin-top:50px">Fecha límite de entrega:</p></h4>
+                            <p style="text-align:justify">{{$homework->due_date.' '.$homework->due_time}}</p>
+                            @endif
                             <br/>
-                            @if ($homework->requiredFile == 'yes')
+                            @if ($homework->requiredFile == 'yes' && $value == false)
                                 <form method="POST" action="/uploadMyHomework" enctype="multipart/form-data">
                                     @csrf
                                     <h4><p style="text-align:justify">Añadir entrega:</p></h4>

@@ -10,7 +10,6 @@
                     <div class="card-body px-0 pt-0 pb-1">
                         <div class="table-responsive p-0">
                             <div class="card-body">
-
                                 <form action="/coordinators/store" method="POST" enctype="multipart/form-data">
                                   <div class="row">
                                     {{csrf_field()}}

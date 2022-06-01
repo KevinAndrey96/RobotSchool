@@ -20,6 +20,8 @@ class Uploaded_homework extends Model
     protected $fillable = [
         'path',
         'score',
+        'status',
+        'delivery_at',
         'homework_id',
         'user_id'
     ];

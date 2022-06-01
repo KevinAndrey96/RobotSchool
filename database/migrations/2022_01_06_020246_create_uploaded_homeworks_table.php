@@ -17,6 +17,7 @@ class CreateUploadedHomeworksTable extends Migration
             $table->engine = 'InnoDB';
             $table->id();
             $table->string('path')->nullable();
+            $table->string('status')->default('notUploaded');
             $table->integer('score');
             $table->unsignedBigInteger('homework_id');
             $table->unsignedBigInteger('user_id');

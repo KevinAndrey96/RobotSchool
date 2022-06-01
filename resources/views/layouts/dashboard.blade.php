@@ -58,6 +58,21 @@
                 </div>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-9" aria-expanded="false" aria-controls="submenu-2">
+						        <span class="nav-icon">
+						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+						        <i style="width:30px" class="fas fa-user-tie"></i>
+						         </span>
+                    <span class="nav-link-text">Administradores</span>
+                </a>
+                <div id="submenu-9" class="collapse " data-bs-parent="#menu-accordion">
+                    <ul class="submenu-list list-unstyled">
+                        <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/administrators/create">Crear administrador</a></li>
+                        <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/administrators">Ver administradores</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-2" aria-expanded="false" aria-controls="submenu-2">
 						        <span class="nav-icon">
 						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
@@ -168,6 +183,20 @@
                         <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/students/create">Crear estudiante</a></li>
                         <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/students/all">Ver estudiantes</a></li>
                         <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/transfers">Traslados de aula</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-5" aria-expanded="false" aria-controls="submenu-5">
+						        <span class="nav-icon">
+						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+						         <i style="width:30px" class="fas fa-file-upload"></i>
+						         </span>
+                    <span class="nav-link-text">Importar</span>
+                </a><!--//nav-link-->
+                <div id="submenu-5" class="collapse submenu submenu-5" data-bs-parent="#menu-accordion">
+                    <ul class="submenu-list list-unstyled">
+                        <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/chooseUserList">Importar usuarios</a></li>
                     </ul>
                 </div>
             </li>

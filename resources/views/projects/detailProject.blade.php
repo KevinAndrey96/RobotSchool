@@ -41,7 +41,7 @@
                                 @endif
                             </p>
                             <br/>
-                            <a style="width:160px" class="btn btn-primary" href="/showDocument/{{$project->id}}">Ver documento</a>
+                            <a style="width:160px" class="btn btn-primary" target="_blank" href="/showDocument/{{$project->id}}">Ver documento</a>
                         </div>
                     </div>
                 </div>
