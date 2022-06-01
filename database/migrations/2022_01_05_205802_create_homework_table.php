@@ -20,8 +20,8 @@ class CreateHomeworkTable extends Migration
             $table->longText('description')->nullable();
             $table->integer('percent');
             $table->string('requiredFile');
-            $table->date('due_date');
-            $table->time('due_time');
+            $table->date('due_date')->nullable();
+            $table->time('due_time')->nullable();
             $table->unsignedBigInteger('classroom_id');
             $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
             $table->timestamps();

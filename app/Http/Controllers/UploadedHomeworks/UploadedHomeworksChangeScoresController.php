@@ -10,13 +10,13 @@ class UploadedHomeworksChangeScoresController extends Controller
 {
     public function changeScores(Request $request)
     {
-        //return $request;
         $ids = explode(',', $request->input('ids'));
         $scores = explode(',', $request->input('scores'));
         for ($i=0; $i<count($ids); $i++) {
-            if ($scores[$i] != "") {
+            if ($scores[$i] != "" && $scores[$i] >= 0 && $scores[$i] <= 50) {
                $uphomework =  Uploaded_homework::find($ids[$i]);
                $uphomework->score = $scores[$i];
+               $uphomework->status = 'graded';
                $uphomework->save();
             }
         }

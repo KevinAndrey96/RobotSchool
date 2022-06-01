@@ -44,6 +44,9 @@
                                                     <a href="/subcategories/description/{{$subcategory->id}}" style="margin:4px; width:40px; border-radius: 20px;" title="Descripción" class="btn btn-block btn-primary form-control"><i style="margin-left: -6px;" class="fas fa-plus"></i></a>
                                                 </div>
                                                 <div style="display: inline-block">
+                                                    <a href="/projects?id={{$subcategory->id}}" style="margin:4px; width:40px; border-radius: 20px; background-color: #1FADD6 !important" alt="Themes" title="Themes" class="btn btn-block btn-success form-control"><i style="margin-left: -6px;" class="fab fa-tumblr"></i></a>
+                                                </div>
+                                                <div style="display: inline-block">
                                                     <a href="/subcategories/edit/{{$subcategory->id}}" style="margin:4px; width:40px; border-radius: 20px;" alt="Editar" title="Editar" class="btn btn-block btn-warning form-control"><i style="margin-left: -6px;" class="far fa-edit"></i></a>
                                                 </div>
                                                 <div style="display: inline-block">
@@ -69,7 +72,6 @@
                                                         <span class="text-lg font-weight-bolder">Descripción</span>
                                                         <span class="text-sm opacity-8">{{$subcategory->description}}</span>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>

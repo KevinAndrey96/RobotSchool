@@ -33,11 +33,11 @@
                                                     @if (! is_null($uphomework->path))
                                                         <a href="https://miel.robotschool.co/{{$uphomework->path}}" target="_blank">
                                                             @if (strpos($uphomework->path, '.pdf'))
-                                                                <img style="width:50px" src="https://miel.robotschool.co/assets/images/fileTypes/pdf.png">
+                                                                <img style="width:50px" src="https://miel.robotschool.co/storage/fileTypes/pdf.png">
                                                             @elseif (strpos($uphomework->path, '.docx'))
-                                                                <img style="width:100px" src="https://miel.robotschool.co/assets/images/fileTypes/docx.png">
+                                                                <img style="width:50px" src="https://miel.robotschool.co/storage/fileTypes/docx.png">
                                                             @elseif (strpos($uphomework->path, '.zip'))
-                                                                <img style="width:100px" src="https://miel.robotschool.co/assets/images/fileTypes/zip.png">
+                                                                <img style="width:50px" src="https://miel.robotschool.co/storage/fileTypes/compressed.png">
                                                             @endif
                                                         </a>
                                                     @elseif ($uphomework->homework->requiredFile == 'no')
@@ -49,7 +49,7 @@
                                                 <td>{{$uphomework->score}}</td>
                                                 <td>
                                                     <div class="form-group">
-                                                        <input class="form-control" type="number" min="0" name="score" id="score{{ $uphomework->id }}" style="width:80px; text-align:center; margin:0px auto;"  onclick="scoreChange({{ $uphomework->id }})">
+                                                        <input class="form-control" type="number" min="0" max="50" name="score" id="score{{ $uphomework->id }}" style="width:80px; text-align:center; margin:0px auto;"  onclick="scoreChange({{ $uphomework->id }})">
                                                     </div>
                                                 </td>
                                             </tr>
