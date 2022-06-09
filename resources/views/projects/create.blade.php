@@ -1,38 +1,59 @@
 @extends('layouts.dashboard')
 @section('content')
-    <div class="card">
-        <div class="card-header">
-            Crear tema
-        </div>
-        <div class="card-body">
-            <form method="POST" action="/project/store" enctype="multipart/form-data">
-                @csrf
-                <div class="form-group">
-                    <label for="name"><p style="font-weight:bold">Nombre:</p></label>
-                    <input class="form-control" type="text" name="name" id="name" required>
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-1">
+                    <div class="card-header pb-0">
+                        <h6 class="text-center">Nueva tema</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-1">
+                        <div class="table-responsive p-0">
+                            <div class="card-body">
+                                <form method="POST" action="/project/store" enctype="multipart/form-data">
+                                    @csrf
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label for="name">Nombre</label>
+                                              <input class="form-control" type="text" name="name" id="name" required>
+                                          </div>
+                                      </div>
+                                      @if (Auth::user()->role == 'Administrator')
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label for="theme_type">Tipo</label>
+                                              <select class="form-control" name="theme_type">
+                                                  <option value="theme">Tema</option>
+                                                  <option value="project">Proyecto</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                      @endif
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label for="image">Seleccione una imagen</label>
+                                              <input class="form-control" type="file" name="image" id="image" required>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-12">
+                                          <div class="form-group">
+                                              <label for="description">Descripción</label>
+                                              <textarea class="form-control" name="description" id="projectDesc"required>
+                                        </textarea>
+                                          </div>
+                                      </div>
+                                      <div style="margin-top: 15px;" class="col-md-12 text-center">
+                                        <input type="hidden" name="subcategory_id" value="{{$id}}">
+                                        <input type="submit" style="width:100px; color: white;;" class="btn btn-primary rounded-circle" value="Crear">
+                                      </div>
+                                  </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                @if (Auth::user()->role == 'Administrator')
-                <div style="margin-top:20px" class="form-group">
-                    <label for="theme_type"><p style="font-weight:bold">Tipo:</p></label>
-                    <select class="form-control" name="theme_type">
-                        <option value="theme">Tema</option>
-                        <option value="project">Proyecto</option>
-                    </select>
-                </div>
-                @endif
-                <div style="margin-top:20px" class="form-group">
-                    <label for="image"><p style="font-weight:bold">Seleccione una imagen:</p></label>
-                    <input class="form-control" type="file" name="image" id="image" required>
-                </div>
-                <div style="margin-top:20px" class="form-group">
-                    <label for="description"><p style="font-weight:bold">Descripción:</p></label>
-                    <textarea class="form-control" name="description" id="projectDesc"required>
-                    </textarea>
-                </div>
-                <input type="hidden" name="subcategory_id" value="{{$id}}">
-                <input type="submit" style="width:160px; color: white; margin-top:20px; float:right;" class="btn btn-primary" value="Crear">
-            </form>
-
+            </div>
         </div>
     </div>
 @endsection

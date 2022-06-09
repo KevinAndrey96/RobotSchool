@@ -23,11 +23,17 @@ class HomeworksStoreController extends Controller
             return redirect('/homeworks/'.$request->input('classroom_id'))->with('PercentHomeworkError', 'Supero el 100%, tiene '.$freePercent.'% para usar');
         }
         $homework = new Homework();
+        $dueDate = $request->input('due_date');
+        $dueTime = $request->input('due_time');
+        //return var_dump($inputDueDate);
         $homework->title = $request->input('title');
         $homework->description = $request->input('description');
         $homework->percent = $request->input('percent');
         $homework->requiredFile = $request->input('requiredFile');
-        $homework->due_date = $request->input('due_date');
+        if (isset($dueDate) && isset($dueTime)) {
+            $homework->due_date = $dueDate;
+            $homework->due_time = $dueTime;
+        }
         $homework->due_time = $request->input('due_time');
         $homework->classroom_id = $request->input('classroom_id');
         $homework->save();

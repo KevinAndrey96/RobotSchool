@@ -9,22 +9,22 @@
         Miel - ROBOTSchool
     </title>
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Nucleo Icons -->
-    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet">
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="/assets/css/nucleo-svg.css" rel="stylesheet">
     <!-- CSS Files -->
-    <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.0.2" rel="stylesheet" />
+    <link id="pagestyle" href="/assets/css/argon-dashboard.css?v=2.0.2" rel="stylesheet">
     <!-- Datatable CSS
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css"/>-->
 
     <!-- BOOTSTRAP TOOGLE -->
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/assets/Magnific-Popup-master/dist/magnific-popup.css">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/assets/Magnific-Popup-master/dist/magnific-popup.css" />
 
 </head>
 <body class="g-sidenav-show   bg-gray-100">
@@ -58,6 +58,21 @@
                 </div>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-9" aria-expanded="false" aria-controls="submenu-2">
+						        <span class="nav-icon">
+						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+						        <i style="width:30px" class="fas fa-user-tie"></i>
+						         </span>
+                    <span class="nav-link-text">Administradores</span>
+                </a>
+                <div id="submenu-9" class="collapse " data-bs-parent="#menu-accordion">
+                    <ul class="submenu-list list-unstyled">
+                        <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/administrators/create">Crear administrador</a></li>
+                        <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/administrators">Ver administradores</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-2" aria-expanded="false" aria-controls="submenu-2">
 						        <span class="nav-icon">
 						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
@@ -76,7 +91,7 @@
                 <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-3" aria-expanded="false" aria-controls="submenu-3">
 						        <span class="nav-icon">
 						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-						        <i style="width:30px" class="fab fa-contao"></i>
+						        <i style="width:30px" class="fas fa-folder"></i>
 						         </span>
                     <span class="nav-link-text">Categorías</span>
                     <span class="submenu-arrow">
@@ -171,6 +186,20 @@
                     </ul>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-5" aria-expanded="false" aria-controls="submenu-5">
+						        <span class="nav-icon">
+						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+						         <i style="width:30px" class="fas fa-file-upload"></i>
+						         </span>
+                    <span class="nav-link-text">Importar</span>
+                </a><!--//nav-link-->
+                <div id="submenu-5" class="collapse submenu submenu-5" data-bs-parent="#menu-accordion">
+                    <ul class="submenu-list list-unstyled">
+                        <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/chooseUserList">Importar usuarios</a></li>
+                    </ul>
+                </div>
+            </li>
             @endhasrole
             @hasrole('Teacher')
             <li class="nav-item ">
@@ -234,7 +263,7 @@
                 <a class="nav-link " href="/myHomeworks" >
 						        <span class="nav-icon">
 						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                                    <i style="width:30px" class="fas fa-child"></i>
+                                    <i style="width:30px" class="fas fa-book"></i>
 						         </span>
                     <span class="nav-link-text ms-1" >Mis tareas</span>
                 </a><!--//nav-link-->
@@ -287,10 +316,10 @@
     </div>
     <div class="sidenav-footer mx-3 ">
         <div class="card card-plain shadow-none" id="sidenavCard">
-            <img class="w-50 mx-auto" src="assets/images/robotschool-logo.png" alt="logo">
+            <img class="w-50 mx-auto" src="/assets/images/robotschool-logo.png" alt="logo">
             <div class="card-body text-center p-3 w-100 pt-0">
                 <div class="docs-info">
-                    <h6 class="mb-0">Need help?</h6>
+                    <h6 class="mb-0"></h6>
                     <p class="text-xs font-weight-bold mb-0"></p>
                 </div>
             </div>
@@ -310,13 +339,6 @@
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             </div>
             <ul class="navbar-nav  justify-content-end">
-                <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                    <a class="avatar avatar-sm  me-0 " id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="assets/images/user.png" alt="user profile"></a>
-                    <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-                        <a href="/changePassword" target="_blank" class="btn btn-sm  mb-3">Cambiar contraseña </a>
-                    </ul>
-                </li>
-
                 <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                     <a href="#sidenav-main;" class="nav-link text-white p-0" id="iconNavbarSidenav">
                         <div class="sidenav-toggler-inner">
@@ -331,33 +353,44 @@
         </div>
     </div>
 </nav>
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            @yield('content')
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer pt-2">
+        <div class="container-fluid">
+            <div class="row align-items-center justify-content-lg-between">
+              <div class="col-12">
+                  <div class="card mb-1 text-center">
+                      <div class="jumbotron jumbotron-fluid">
+                          <div class="container">
+                              <img class="text-center" src="/assets/images/robotschool-logo.png">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </footer>
 </main>
 
 
-<div class="app-wrapper">
-
-
-    <div class="app-content pt-3 p-md-3 p-lg-4">
-        <div class="container-xl">
-            @yield('content')
-        </div><!--//container-fluid-->
-    </div><!--//app-content-->
-
-    <footer class="app-footer">
-        <div class="container text-center py-3">
-
-        </div>
-    </footer>
-
-</div><!--//app-wrapper-->
-
 
 <!-- Javascript -->
-<script src="../assets/js/core/popper.min.js"></script>
-<script src="../assets/js/core/bootstrap.min.js"></script>
-<script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-<script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-<script src="../assets/js/plugins/chartjs.min.js"></script>
+<script src="/assets/js/core/popper.min.js"></script>
+<script src="/assets/js/core/bootstrap.min.js"></script>
+<script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script src="/assets/js/plugins/chartjs.min.js"></script>
 <script>
     var ctx1 = document.getElementById("chart-line").getContext("2d");
 
@@ -453,7 +486,7 @@
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="../assets/js/argon-dashboard.min.js?v=2.0.2"></script>
+<script src="/assets/js/argon-dashboard.min.js?v=2.0.2"></script>
 
 <!--Datatables
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

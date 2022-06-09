@@ -17,7 +17,7 @@ class StudentSeeder extends Seeder
     {
         $user = new User();
         $user->name = 'Andrea Ospina';
-        $user->email = 'andreaos@gmail.com';
+        $user->email = 'student@student.com';
         $user->phone = '5674314';
         $user->is_enable = 1;
         $user->role = 'Student';

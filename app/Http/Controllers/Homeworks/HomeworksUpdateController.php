@@ -11,6 +11,8 @@ class HomeworksUpdateController extends Controller
     public function update(Request $request)
     {
         $homework = Homework::find($request->input('homework_id'));
+        $dueDate = $request->input('due_date');
+        $dueTime = $request->input('due_time');
         $percentAcum = 0;
         $homeworks = Homework::where('classroom_id',$request->input('classroom_id'))->get();
         foreach ($homeworks as $value) {

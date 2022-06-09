@@ -16,89 +16,96 @@
         </div>
     @endif
     <div class="card">
-        <div class="card-header">
-            @if (isset($id))
-                Temas
-            @else
-                Mis temas
-            @endif
+        <div class="card-header pb-0 text-center">
+            <h6>
+                @if (isset($id))
+                    Temas
+                @else
+                    Mis temas
+                @endif
+            </h6>
         </div>
         <div class="card-body container-fluid">
             <div class="justify-content-center">
-                <div style="width: 100%; padding-left: -10px;">
-                    <div class="col-auto mt-5">
-                        <div class="table-responsive">
-                            <table id="datatable" style="overflow-x:auto;" class="table table-striped table-hover dt-responsive display nowrap" width="100%" cellspacing="0">
-                                <thead class="thead-light">
-                                <tr style="text-align: center; padding:10px;">
-                                    <th>Imagen</th>
-                                    <th>Nombre</th>
-                                    <th>Estado</th>
-                                    <th>Acción</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($projects as $project)
-                                    <tr style="text-align: center; padding:10px;">
-                                        <td>
-                                            <a class="magnific" href="https://miel.robotschool.co/{{$project->icon_url}}">
-                                                <img style="width:200px" class="img-thumbnail" src="https://miel.robotschool.co/{{$project->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
-                                            </a>
-                                        </td>
-                                        <td>{{$project->name}}</td>
-                                        <td>
+                <div class="row">
+                    @foreach($projects as $project)
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <img src="/assets/images/bannerT.jpg" alt="Image placeholder" class="card-img-top">
+                            <div class="row justify-content-center">
+                                <div class="col-4 col-lg-4 order-lg-2">
+                                    <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
+                                        <img src="https://miel.robotschool.co/{{$project->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';" class="rounded-circle img-fluid border border-2 border-white">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
+                                <div class="d-flex justify-content-center">
+                                    <div style="display: inline-block" class="btn-group" role="group">
+                                    @if (isset($id))
+                                        <div style="display:block !important; margin-bottom: 3px;" class="row checkbox">
                                             @if ($project->is_enable == 1)
-                                                Habilitado
+                                                <p style="margin-bottom: -3px;" class="align-middle text-center text-xxs font-weight-bolder opacity-7">ON</p>
+                                                <input style="border: gray solid 1px; border-radius: 15px; width: 25px; height: 25px;" data-toggle="toggle"
+                                                       id="togglestatus{{$project->id}}" class="form-check-input" type="checkbox" checked onchange="getStatus({{$project->id}})">
                                             @else
-                                                Deshabilitado
+                                                <p style="margin-bottom: -3px;" class="align-middle text-center text-xxs font-weight-bolder opacity-7">OFF</p>
+                                                <input style="border: gray solid 1px; border-radius: 15px; width: 25px; height: 25px;" data-toggle="toggle"
+                                                       id="togglestatus{{$project->id}}"  class="form-check-input" type="checkbox" onchange="getStatus({{$project->id}})">
                                             @endif
-                                        </td>
-                                        <td>
-                                            @if (isset($id))
-                                            <div style="display:block !important; margin-bottom: 3px;" class="row checkbox">
+                                        </div>
+                                    @endif
+                                    </div>
+                                    <div style="display: inline-block" class="btn-group ps-2" role="group">
+                                        <div style="display: inline-block">
+                                            <a href="detailProject/{{$project->id}}" style="margin:4px; width:40px; border-radius: 20px;" title="Detalles" class="btn btn-block btn-primary form-control"><i style="margin-left: -6px;" class="fas fa-plus"></i></a>
+                                        </div>
+                                        @if (! isset($id))
+                                        <div style="display: inline-block">
+                                            <a href="/project/edit/{{$project->id}}" style="margin:4px; width:40px; border-radius: 20px;" alt="Editar" title="Editar" class="btn btn-block btn-warning form-control"><i style="margin-left: -6px;" class="far fa-edit"></i></a>
+                                        </div>
+                                        <div style="display: inline-block">
+                                            <form method="POST" action="/project/delete">
+                                                @csrf
+                                                <input type="hidden" name="category_id" value={{ $project->id }}>
+                                                <button style="margin:4px; width:40px; border-radius: 20px;" class="btn btn-block btn-danger" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este tema?');"><i style="margin-left: -6px;" class="fas fa-trash"></i></button>
+                                            </form>
+                                        </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-1">
+                                <h5>
+                                    {{$project->name}}<span class="font-weight-light"></span>
+                                </h5>
+                            </div>
+                            <div class="card-body mt-2 pt-0">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="d-flex justify-content-center">
+                                            <div class="d-grid text-center">
                                                 @if ($project->is_enable == 1)
-                                                    <input style="width: 50px; height:30px;" data-toggle="toggle"
-                                                           id="togglestatus{{$project->id}}" class="form-check-input" type="checkbox" checked onchange="getStatus({{$project->id}})">
+                                                    Habilitado
                                                 @else
-                                                    <input style="width: 50px; height:30px;" data-toggle="toggle"
-                                                           id="togglestatus{{$project->id}}"  class="form-check-input" type="checkbox" onchange="getStatus({{$project->id}})">
+                                                    Deshabilitado
                                                 @endif
                                             </div>
-                                            @endif
-                                            <div style="display: inline-block" class="justify-content-center" class="btn-group" role="group">
-                                                <div style="display:inline-block">
-                                                    <a href="detailProject/{{$project->id}}" class="btn btn-success" title="Detalle" style="margin:4px; width:40px;"><i class="fas fa-plus"></i></a>
-                                                </div>
-                                                @if (! isset($id))
-                                                    <div style="display: inline-block">
-                                                        <a href="/project/edit/{{$project->id}}" style="margin:3px; width:40px;" alt="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
-                                                    </div>
-                                                    <div style="display: inline-block">
-                                                        <form method="POST" action="/project/delete">
-                                                            @csrf
-                                                            <input type="hidden" name="project_id" value={{ $project->id }}>
-                                                            <button style="margin:3px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este tema?');"><i class="fas fa-exclamation-triangle"></i></button>
-                                                        </form>
-                                                    </div>
-                                                @endif
-                                            </div>
-                                        </td>
 
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                            <form id="form-status" name="form-status" method="POST" action="/changeStatusProject">
-                                @csrf
-                                <input type="hidden" name="id" id="id">
-                                <input type="hidden" name="status" id="status">
-                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
+                        <form id="form-status" name="form-status" method="POST" action="/changeStatusProject">
+                            @csrf
+                            <input type="hidden" name="id" id="id">
+                            <input type="hidden" name="status" id="status">
+                        </form>
                 </div>
             </div>
-
-
         </div>
         <script>
             function getStatus(id)

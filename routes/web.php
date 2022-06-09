@@ -138,3 +138,12 @@ Route::post('/importUsers', [App\Http\Controllers\Users\ImportUsersController::c
 Route::get('/changePassword', [App\Http\Controllers\Users\ChangePasswordUsersController::class, 'changePassword'])->middleware('auth');
 Route::post('/updatePassword', [App\Http\Controllers\Users\UpdatePasswordUsersController::class, 'updatePassword'])->middleware('auth');
 
+//ADMINISTRATORS
+Route::get('/administrators/create', [App\Http\Controllers\Administrators\CreateAdiministratorsController::class, 'create'])->middleware('auth');
+Route::post('/administrators/store', [App\Http\Controllers\Administrators\StoreAdiministratorsController::class, 'store'])->middleware('auth');
+Route::get('/administrators', [App\Http\Controllers\Administrators\IndexAdiministratorsController::class, 'index'])->middleware('auth');
+Route::get('/administrators/edit/{id}', [App\Http\Controllers\Administrators\EditAdiministratorsController::class, 'edit'])->middleware('auth');
+Route::post('/administrators/update', [App\Http\Controllers\Administrators\UpdateAdiministratorsController::class, 'update'])->middleware('auth');
+Route::post('/administrators/delete', [App\Http\Controllers\Administrators\DeleteAdiministratorsController::class, 'delete'])->middleware('auth');
+
+

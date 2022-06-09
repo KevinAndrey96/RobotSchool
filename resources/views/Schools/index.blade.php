@@ -16,65 +16,69 @@
             {{ Session::get('deleschoolsuccess') }}
         </div>
     @endif
-    <div class="card">
-        <div class="card-header">
-            Colegios
-        </div>
-        <div class="card-body container-fluid">
-            <div class="justify-content-center" >
-                <div style="width: 100%; padding-left: -10px;">
-                    <div class="col-auto mt-5">
-                        <div class="table-responsive">
-                            <table id="datatable" class="table table-striped table-hover dt-responsive display nowrap" width="100%" cellspacing="0">
-                                <thead class="thead-light">
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-1">
+                    <div class="card-header pb-0 text-center">
+                        <h6>Colegios</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-1">
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center mb-0">
+                                <thead>
                                     <tr>
-                                        <th style="text-align: center; padding:10px;">Logo</th>
-                                        <th style="text-align: center; padding:10px;">Nombre</th>
-                                        <th style="text-align: center; padding:10px;">Dirección</th>
-                                        <th style="text-align: center; padding:10px;">Ciudad</th>
-                                        <th style="text-align: center; padding:10px;">País</th>
-                                        <th style="text-align: center; padding:10px;">Estado</th>
-                                        <th style="text-align: center; padding:10px;">Acción</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Logo</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Dirección</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ciudad</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">País</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Estado</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Bloq/Desbl</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Acción</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($schools as $school)
-                                        <tr style="text-align: center; padding:10px;">
-                                            <td>
+                                        <tr class="align-middle text-center text-sm">
+                                            <td class="align-middle text-center text-sm">
                                                 <a class="magnific" href="https://miel.robotschool.co/{{$school->icon_url}}">
-                                                    <img style="width:150px; height:150px;"  class="img-thumbnail" src="https://miel.robotschool.co/{{$school->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
+                                                    <img style="width:50px; height:50px;"  class="img-thumbnail" src="https://miel.robotschool.co/{{$school->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
                                                 </a>
                                             </td>
-                                            <td>{{$school->name}}</td>
-                                            <td>{{$school->address}}</td>
-                                            <td>{{$school->city}}</td>
-                                            <td>{{$school->country}}</td>
-                                            <td>
+                                            <td class="align-middle text-center text-xs">{{$school->name}}</td>
+                                            <td class="align-middle text-center text-xs">{{$school->address}}</td>
+                                            <td class="align-middle text-center text-xs">{{$school->city}}</td>
+                                            <td class="align-middle text-center text-xs">{{$school->country}}</td>
+
+                                            <td class="align-middle text-center text-xs">
                                                 @if($school->is_enable == 1)
                                                     Habilitado
                                                 @else
                                                     Deshabilitado
                                                 @endif
                                             </td>
-
-                                            <td>
-                                                <div style="display:block !important; margin-bottom: 3px;" class="row checkbox">
+                                            <td class="align-middle text-center text-sm">
+                                                <div >
                                                     @if($school->is_enable == 1)
-                                                        <input style="width: 50px; height:30px;" data-toggle="toggle"
-                                                               id="togglestatus{{$school->id}}" class="form-check-input" type="checkbox" checked onchange="getStatus({{$school->id}})">
+                                                        <p style="margin-bottom: -3px;" class="align-middle text-center text-xxs font-weight-bolder opacity-7">ON</p>
+                                                        <input style="border: gray solid 1px; border-radius: 15px; width: 25px; height: 25px;" data-toggle="toggle"
+                                                               id="togglestatus{{$school->id}}" class="form-check-input bg-black" type="checkbox" checked onchange="getStatus({{$school->id}})" >
                                                     @else
-                                                        <input style="width: 50px; height:30px;" data-toggle="toggle"
+                                                        <p style="margin-bottom: -3px;" class="align-middle text-center text-xxs font-weight-bolder opacity-7">OFF</p>
+                                                        <input style="border: gray solid 1px; border-radius: 15px; width: 25px; height: 25px;" data-toggle="toggle"
                                                                id="togglestatus{{$school->id}}"  class="form-check-input" type="checkbox" onchange="getStatus({{$school->id}})">
                                                     @endif
                                                 </div>
-                                                <div style="display: inline-block" class="row justify-content-center" class="btn-group" role="group">
-                                                    <a href="/schools/edit/{{$school->id}}" style="margin:4px; width:40px;" alt="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
+                                            </td>
+                                            <td class="align-middle text-center ps-0">
+                                                        <a href="/schools/edit/{{$school->id}}" style="margin:4px; width:40px; border-radius: 20px;" title="Editar" alt="Editar" class="btn btn-warning"><i style="color:white; margin-left: -6px" class="text-right far fa-edit"></i></a>
+
                                                         <form method="POST" action="/schools/delete">
-                                                                @csrf
-                                                                <input type="hidden" name="school_id" value={{ $school->id }}>
-                                                                <button style="margin:4px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este colegio?');"><i class="fas fa-exclamation-triangle"></i></button>
+                                                            @csrf
+                                                            <input type="hidden" name="school_id" value={{ $school->id }}>
+                                                            <button style="margin:4px; width:40px; border-radius: 20px;" class="btn btn-danger " title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este colegio?');"><i style="margin-left: -6px;" class="fas fa-trash"></i></button>
                                                         </form>
-                                                </div>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -92,6 +96,7 @@
             </div>
         </div>
     </div>
+
 
     <script>
         function getStatus(id)

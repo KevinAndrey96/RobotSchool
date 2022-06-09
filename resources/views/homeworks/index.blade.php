@@ -46,8 +46,16 @@
                                     <tr style="text-align: center; padding:10px;">
                                         <td>{{$homework->title}}</td>
                                         <td>{{$homework->percent}}%</td>
-                                        <td>{{$homework->due_date}}</td>
-                                        <td>{{$homework->due_time}}</td>
+                                        <td>
+                                            @if (! is_null($homework->due_date))
+                                                {{$homework->due_date}}
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if (! is_null($homework->due_time))
+                                                {{$homework->due_time}}
+                                            @endif
+                                        </td>
                                         <td>
                                             <div class="justify-content-center" class="btn-group" role="group">
                                                 <div style="display: inline-block">

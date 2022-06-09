@@ -28,7 +28,7 @@ class Homework extends Model
         'requiredFile',
         'due_date',
         'due_time',
-        'classroom_id'
+        'classroom_id',
     ];
 
     public function uploadedHomework(): \Illuminate\Database\Eloquent\Relations\HasMany
