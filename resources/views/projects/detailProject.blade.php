@@ -2,7 +2,6 @@
 @section('content')
     <div class="card">
         <div class="card-body container-fluid">
-<<<<<<< HEAD
             <div class="justify-content-center">
                 <div class="row">
                     <div class="col-md-2"></div>

@@ -27,14 +27,14 @@
     <link rel="stylesheet" type="text/css" href="/assets/Magnific-Popup-master/dist/magnific-popup.css" />
 
 </head>
-<body class="g-sidenav-show   bg-gray-100">
+<body class="g-sidenav-show  bg-gray-100">
 <div class="min-height-300 bg-primary position-absolute w-100"></div>
 
 <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="/home">
-            <img style="margin-top:10px; margin-left: 10px;" width="150px" height="150px" class="align-middle ps-3" src="/assets/images/robotschool-logo.png" alt="logo"><span class="logo-text"></span>
+            <img style="margin-top:5px; margin-left: 10px;" width="150px" height="150px" class="align-middle ps-3" src="/assets/images/robotschool-logo.png" alt="logo"><span class="logo-text"></span>
         </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -331,6 +331,10 @@
             @csrf
         </form>
     </div>
+    <div class="sidenav-footer p-3 text-center">
+        <p class="text-xs text-dack text-center" style="margin-top: 15px;"><i style="width:30px" class="fas fa-user"></i> {{ Auth::user()->role}}</p>
+        <p class="text-sm text-bold text-dack ps-2" style="margin-top: -15px;"> {{ Auth::user()->name}}</p>
+    </div>
 </aside>
 <main class="main-content position-relative border-radius-lg ">
 <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
@@ -373,7 +377,7 @@
                   <div class="card mb-1 text-center">
                       <div class="jumbotron jumbotron-fluid">
                           <div class="container">
-                              <img class="text-center" src="/assets/images/robotschool-logo.png">
+                              <img class="text-center img-responsive img-thumbnail" src="/assets/images/robotschool-logo.png">
                           </div>
                       </div>
                   </div>

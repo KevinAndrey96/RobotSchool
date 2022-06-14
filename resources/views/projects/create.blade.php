@@ -5,7 +5,7 @@
             <div class="col-12">
                 <div class="card mb-1">
                     <div class="card-header pb-0">
-                        <h6 class="text-center">Nueva tema</h6>
+                        <h6 class="text-center">Nuevo tema</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-1">
                         <div class="table-responsive p-0">
@@ -23,7 +23,8 @@
                                       <div class="col-md-4">
                                           <div class="form-group">
                                               <label for="theme_type">Tipo</label>
-                                              <select class="form-control" name="theme_type">
+                                              <select class="form-control" name="theme_type" required>
+                                                  <option></option>
                                                   <option value="theme">Tema</option>
                                                   <option value="project">Proyecto</option>
                                               </select>
@@ -32,14 +33,14 @@
                                       @endif
                                       <div class="col-md-4">
                                           <div class="form-group">
-                                              <label for="image">Seleccione una imagen</label>
+                                              <label for="image">Seleccionar una imagen</label>
                                               <input class="form-control" type="file" name="image" id="image" required>
                                           </div>
                                       </div>
                                       <div class="col-md-12">
                                           <div class="form-group">
                                               <label for="description">Descripción</label>
-                                              <textarea class="form-control" name="description" id="projectDesc"required>
+                                              <textarea class="form-control" name="description" id="projectDesc" required>
                                         </textarea>
                                           </div>
                                       </div>
