@@ -332,7 +332,20 @@
         </form>
     </div>
     <div class="sidenav-footer p-3 text-center">
-        <p class="text-xs text-dack text-center" style="margin-top: 15px;"><i style="width:30px" class="fas fa-user"></i> {{ Auth::user()->role}}</p>
+        <p style="margin-top: 15px;">
+            @if(Auth::user()->role == 'Administrator')
+                <p class="text-xs text-dack text-center"><i style="width:30px" class="fas fa-user"></i>Administrador</p>
+            @endif
+            @if(Auth::user()->role == 'Coordinator')
+                <p class="text-xs text-dack text-center"><i style="width:30px" class="fas fa-user"></i>Coordinador</p>
+            @endif
+            @if(Auth::user()->role == 'Teacher')
+                <p class="text-xs text-dack text-center"><i style="width:30px" class="fas fa-user"></i>Profesor</p>
+            @endif
+            @if(Auth::user()->role == 'Student')
+                <p class="text-xs text-dack text-center"><i style="width:30px" class="fas fa-user"></i>Estudiante</p>
+            @endif
+        </p>
         <p class="text-sm text-bold text-dack ps-2" style="margin-top: -15px;"> {{ Auth::user()->name}}</p>
     </div>
 </aside>
