@@ -26,11 +26,11 @@
                    @foreach($categories as $category)
                         <div class="col-md-4">
                             <div class="card card-profile">
-                                <img src="/assets/images/bannerC.jpg" alt="Image placeholder" class="card-img-top">
+                                <a href="/categories/description/{{$category->id}}"><img src="/assets/images/bannerC.jpg" alt="Image placeholder" class="card-img-top"></a>
                                 <div class="row justify-content-center">
                                     <div class="col-4 col-lg-4 order-lg-2">
                                         <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
-                                            <img src="https://miel.robotschool.co/{{$category->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';" class="rounded-circle img-fluid border border-2 border-white">
+                                            <a href="/categories/description/{{$category->id}}"><img src="https://miel.robotschool.co/{{$category->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';" class="rounded-circle img-fluid border border-2 border-white"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -38,7 +38,7 @@
                                     <div class="d-flex justify-content-center">
                                         <div style="display: inline-block" class="btn-group" role="group">
                                             <div style="display: inline-block">
-                                                <a href="/categories/description/{{$category->id}}" style="margin:4px; width:40px; border-radius: 20px;" title="Descripción" class="btn btn-block btn-primary form-control"><i style="margin-left: -6px;" class="fas fa-plus"></i></a>
+                                                <a href="/categories/description/{{$category->id}}" style="margin:4px; width:40px; border-radius: 20px;" title="Descripción" class="btn btn-block btn-primary form-control"><i style="margin-left: -7px;" class="fas fa-eye"></i></a>
                                             </div>
                                             <div style="display: inline-block">
                                                 <a href="/subcategories/{{$category->id}}" style="margin:4px; width:40px; border-radius: 20px;" alt="Subcategorías" title="Subcategorías" class="btn btn-block btn-success form-control"><i style="margin-left: -6px;" class="fab fa-stripe-s"></i></a>

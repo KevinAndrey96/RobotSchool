@@ -20,38 +20,36 @@
             {{ Session::get('PercentHomeworkError') }}
         </div>
     @endif
-
-    <div class="card">
-        <div class="card-header">
-            Tareas para {{$classroom->name}}
-        </div>
-        <div class="card-body container-fluid">
-            <div class="justify-content-center" >
-                <div style="width: 100%; padding-left: -10px;">
-                    <div class="col-auto mt-5">
-                        <a style="margin-bottom:30px; width:160px;" class="btn btn-primary" href="/homeworks/create/{{$id}}">Crear tarea</a>
-                        <div class="table-responsive">
-                            <table id="datatable" class="table table-striped table-hover dt-responsive display nowrap" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr style="text-align: center; padding:10px;">
-                                        <th>Título</th>
-                                        <th>Porcentaje</th>
-                                        <th>Fecha</th>
-                                        <th>Hora</th>
-                                        <th>Acción</th>
-                                    </tr>
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-1">
+                    <div class="card-header pb-0 text-center">
+                        <h6>Tareas para {{$classroom->name}}</h6> <a style="margin-bottom:5px; width:120px; border-radius: 25px;" class="btn btn-primary" href="/homeworks/create/{{$id}}">Crear tarea</a>
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-1">
+                        <div class="table-responsive p-0">
+                            <table id="datatable" class="table align-items-center mb-0">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Título</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Porcentaje</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fecha</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Hora</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Acción</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($homeworks as $homework)
-                                    <tr style="text-align: center; padding:10px;">
-                                        <td>{{$homework->title}}</td>
-                                        <td>{{$homework->percent}}%</td>
-                                        <td>
+                                @foreach ($homeworks as $homework)
+                                    <tr class="align-middle text-center text-sm">
+                                        <td class="align-middle text-center text-sm">{{$homework->title}}</td>
+                                        <td class="align-middle text-center text-sm">{{$homework->percent}}%</td>
+                                        <td class="align-middle text-center text-sm">
                                             @if (! is_null($homework->due_date))
                                                 {{$homework->due_date}}
                                             @endif
                                         </td>
-                                        <td>
+                                        <td class="align-middle text-center text-sm">
                                             @if (! is_null($homework->due_time))
                                                 {{$homework->due_time}}
                                             @endif
@@ -59,13 +57,13 @@
                                         <td>
                                             <div class="justify-content-center" class="btn-group" role="group">
                                                 <div style="display: inline-block">
-                                                    <a href="/homeworks/edit/{{$homework->id}}/{{$classroom->id}}" style="margin:3px; width:40px;" alt="Editar" class="btn btn-block btn-warning form-control"><i style="color:white" class="far fa-edit"></i></a>
+                                                    <a href="/homeworks/edit/{{$homework->id}}/{{$classroom->id}}" style="margin:4px; width:40px; border-radius: 20px;" title="Editar" alt="Editar" class="btn btn-warning form-control"><i style="margin-left: -6px;" class="far fa-edit"></i></a>
                                                 </div>
                                                 <div style="display: inline-block">
                                                     <form method="POST" action="/homeworks/delete">
                                                         @csrf
                                                         <input type="hidden" name="homework_id" value={{ $homework->id }}>
-                                                        <button style="margin:3px; width:40px !important;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar esta tarea?');"><i class="fas fa-exclamation-triangle"></i></button>
+                                                        <button style="margin:4px; width:40px; border-radius: 20px;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar esta tarea?');"><i style="margin-left: -5px;" class="fas fa-trash"></i></button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -80,6 +78,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

@@ -10,33 +10,47 @@
             {{ Session::get('extensionError') }}
         </div>
     @endif
-    <div class="card">
-        <div class="card-header">
-            Detalle de tarea
-        </div>
-        <div class="card-body container-fluid">
-            <div class="justify-content-center" >
-                <div style="width: 100%; padding-left: -10px;">
-                    <div class="col-auto mt-5">
-                        <div style="display:block; width: 80%; margin: 0px auto;">
-                            <h2><p  class="text-center">{{$homework->title}}</p></h2>
-                            <h4><p style="margin-top:50px">Descripción:</p></h4>
-                            <p style="text-align:justify">{{$homework->description}}</p>
-                            @if (isset($homework->due_date) && isset($homework->due_time))
-                            <h4><p style="margin-top:50px">Fecha límite de entrega:</p></h4>
-                            <p style="text-align:justify">{{$homework->due_date.' '.$homework->due_time}}</p>
-                            @endif
-                            <br/>
-                            @if ($homework->requiredFile == 'yes' && $value == false)
-                                <form method="POST" action="/uploadMyHomework" enctype="multipart/form-data">
-                                    @csrf
-                                    <h4><p style="text-align:justify">Añadir entrega:</p></h4>
-                                    <p style="text-align:justify">Por favor seleccione un archivo (las extensiones permitidas son .pdf, .docx y .zip):</p>
-                                    <input class="form-control" type="file" name="homeworkFile" required>
-                                    <input type="hidden" name="uploadedHomework_id" value="{{$uploadedHomework->id}}">
-                                    <input style="width:160px; color: white; margin-top:20px; float:right;" class="btn btn-primary" type="submit" value="Subir entrega">
-                                </form>
-                            @endif
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-0">
+                    <div class="card-header pb-0 text-center">
+                        <h6>Detalle de tarea</h6>
+                    </div>
+                    <div class="card-body container-fluid">
+                        <div class="card-body px-0 pt-0 pb-1">
+                            <div class="col-auto">
+                                <div style="display:block; width: 80%; margin: 0px auto;">
+                                    <h4 class="text-center mb-5">{{$homework->title}}</h4>
+                                  <div class="row">
+                                      <div class="col-sm-3">
+                                          @if (isset($homework->due_date) && isset($homework->due_time))
+                                              <h6 class="text-sm mt-6">Fecha límite de entrega</h6>
+                                              <p class="text-danger text-bold text-sm">{{$homework->due_date.' - '.$homework->due_time}}</p>
+                                          @endif
+                                      </div>
+                                      <div class="col-sm-9">
+                                          <h6 class="text-center">Descripción</h6>
+                                          <p style="text-align:justify" class="border-start ps-4 text-dark">{{$homework->description}}</p>
+                                      </div>
+                                      <div class="col-sm-2"></div>
+                                      <div class="col-sm-8">
+                                          @if ($homework->requiredFile == 'yes' && $value == false)
+                                              <form method="POST" action="/uploadMyHomework" enctype="multipart/form-data">
+                                                  @csrf
+                                                  <h6 class="text-center mt-3">Añadir entrega</h6>
+                                                  <input class="form-control" type="file" name="homeworkFile" required>
+                                                  <input type="hidden" name="uploadedHomework_id" value="{{$uploadedHomework->id}}">
+                                                  <p style="text-align:justify" class="text-xs mt-1">Por favor seleccione un archivo (las extensiones permitidas son .pdf, .docx y .zip):</p>
+                                                  <div class="text-center">
+                                                    <input style="width:120px;" class="btn btn-primary mt-2 rounded-circle" type="submit" value="Subir entrega">
+                                                  </div>
+                                              </form>
+                                          @endif
+                                      </div>
+                                  </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
