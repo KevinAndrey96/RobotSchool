@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    if (Auth::check()) {
+
+        return redirect('/home');
+    }
+
     return view('auth.login');
 });
 
@@ -107,7 +112,7 @@ Route::post('/uploadMyHomework', [App\Http\Controllers\UploadedHomeworks\UploadM
 //PROJECTS
 Route::get('/myCategories', [App\Http\Controllers\Projects\MyCategoriesProjectsController::class, 'myCategories'])->middleware('auth');
 Route::get('/mySubcategories/{id}', [App\Http\Controllers\Projects\MySubcategoriesProjectsController::class, 'mySubcategories'])->middleware('auth');
-Route::get('/project/create/{id}', [App\Http\Controllers\Projects\CreateProjectsController::class, 'create'])->middleware('auth');
+Route::post('/project/create', [App\Http\Controllers\Projects\CreateProjectsController::class, 'create'])->middleware('auth');
 Route::post('/project/store', [App\Http\Controllers\Projects\StoreProjectsController::class, 'store'])->middleware('auth');
 Route::get('/projects', [App\Http\Controllers\Projects\indexProjectsController::class, 'index'])->middleware('auth');
 Route::get('/detailProject/{id}', [App\Http\Controllers\Projects\DetailProjectProjectsController::class, 'detailProject'])->middleware('auth');
@@ -116,6 +121,7 @@ Route::post('/changeStatusProject', [App\Http\Controllers\Projects\ChangeStatusP
 Route::get('/project/edit/{id}', [App\Http\Controllers\Projects\EditProjectsController::class, 'edit'])->middleware('auth');
 Route::post('/project/update', [App\Http\Controllers\Projects\UpdateProjectsController::class, 'update'])->middleware('auth');
 Route::post('/project/delete', [App\Http\Controllers\Projects\DeleteProjectsController::class, 'delete'])->middleware('auth');
+Route::get('/project/creation-type/{id}', [App\Http\Controllers\Projects\CreationTypeProjectsController::class, 'creationType'])->middleware('auth');
 
 //SYLLABUS
 Route::get('/syllabus', [App\Http\Controllers\Syllabuses\IndexSyllabusesController::class, 'index'])->middleware('auth');

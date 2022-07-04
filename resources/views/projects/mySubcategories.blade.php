@@ -14,7 +14,7 @@
                                 @foreach ($subcategories as $subcategory)
                                     <div class="col-md-3 card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
                                         <p class="text-uppercase text-secondary text-xxs font-weight-bolder" >{{$subcategory->name}}</p>
-                                        <a  href="/project/create/{{$subcategory->id}}">
+                                        <a  href="/project/creation-type/{{$subcategory->id}}">
                                             <img class="rounded-circle bg-gray-200" style="width:100px; height:100px; box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;"  src="https://miel.robotschool.co/{{$subcategory->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
                                         </a>
                                     </div>

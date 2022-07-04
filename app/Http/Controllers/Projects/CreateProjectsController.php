@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 
 class CreateProjectsController extends Controller
 {
-    public function create($id)
+    public function create(Request $request)
     {
-        return view('projects.create', compact('id'));
+        $id = $request->input('subcategory_id');
+        $creationType = $request->input('creation_type');
+        return view('projects.create', compact('id', 'creationType'));
     }
 }

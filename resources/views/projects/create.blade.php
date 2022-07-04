@@ -32,10 +32,11 @@
                                       @endif
                                       <div class="col-md-4">
                                           <div class="form-group">
-                                              <label for="image">Seleccione una imagen</label>
+                                              <label for="image">Seleccione una imagen (En formato jpg, jpeg o png)</label>
                                               <input class="form-control" type="file" name="image" id="image" required>
                                           </div>
                                       </div>
+                                      @if ($creationType == 'text')
                                       <div class="col-md-12">
                                           <div class="form-group">
                                               <label for="description">Descripción</label>
@@ -43,6 +44,15 @@
                                         </textarea>
                                           </div>
                                       </div>
+                                      @endif
+                                      @if ($creationType == 'import')
+                                          <div class="col-md-12">
+                                              <div class="form-group">
+                                                  <p style="text-align:justify">Por favor seleccione un archivo PDF:</p>
+                                                  <input class="form-control" type="file" name="themeFile" required>
+                                              </div>
+                                          </div>
+                                      @endif
                                       <div style="margin-top: 15px;" class="col-md-12 text-center">
                                         <input type="hidden" name="subcategory_id" value="{{$id}}">
                                         <input type="submit" style="width:100px; color: white;;" class="btn btn-primary rounded-circle" value="Crear">

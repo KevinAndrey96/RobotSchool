@@ -15,9 +15,27 @@ class StoreProjectsController extends Controller
     public function store(Request $request)
     {
         //return $request;
+        if (isset($_FILES['themeFile'])) {
+            $fileThemeName = $_FILES['themeFile']['name'];
+            $themeExtension = pathinfo($fileThemeName, PATHINFO_EXTENSION);
+            if ($themeExtension != 'pdf') {
+
+                return redirect('/project/creation-type/'.$request->input('subcategory_id'))->with('invalidFormat','Formato de archivo erróneo');
+            }
+        }
+        $fileImageName = $_FILES['image']['name'];
+        $imageExtension = pathinfo($fileImageName, PATHINFO_EXTENSION);
+        if ($imageExtension != 'jpg' && $imageExtension != 'jpeg' && $imageExtension != 'png') {
+
+            return redirect('/project/creation-type/'.$request->input('subcategory_id'))->with('invalidFormat','Formato de archivo erróneo');
+        }
+        $description = $request->input('description');
         $project = new Project();
         $project->name = $request->input('name');
-        $project->description = $request->input('description');
+        $project->description = '';
+        if (isset($description)) {
+            $project->description = $description;
+        }
         $project->theme_type = 'project';
         if (Auth::user()->role == 'Administrator') {
             $project->theme_type = $request->input('theme_type');
@@ -27,6 +45,32 @@ class StoreProjectsController extends Controller
         $project->user_id = Auth::user()->id;
         $project->subcategory_id = $request->input('subcategory_id');
         $project->save();
+        if ($request->hasFile('themeFile')) {
+            $pathName = Sprintf('theme_files/%s.pdf', $project->id);
+            Storage::disk('public')->put($pathName, file_get_contents($request->file('themeFile')));
+            $client = new Client();
+            $url = "https://miel.robotschool.co/upload.php";
+            $client->request(RequestAlias::METHOD_POST, $url, [
+                'multipart' => [
+                    [
+                        'name' => 'image',
+                        'contents' => fopen(
+                            Storage::disk('public')
+                                ->getDriver()
+                                ->getAdapter()
+                                ->getPathPrefix() . 'theme_files/' . $project->id . '.pdf', 'r'),
+                    ],
+                    [
+                        'name' => 'path',
+                        'contents' => 'theme_files'
+                    ]
+                ]
+            ]);
+            $project->is_file = 1;
+            $project->description = '/storage/theme_files/' . $project->id . '.pdf';
+            $project->save();
+        }
+
         if ($request->hasFile('image')) {
             $pathName = Sprintf('project_images/%s.png', $project->id);
             Storage::disk('public')->put($pathName, file_get_contents($request->file('image')));

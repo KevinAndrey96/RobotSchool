@@ -25,8 +25,11 @@
     <!-- BOOTSTRAP TOOGLE -->
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="/assets/Magnific-Popup-master/dist/magnific-popup.css" />
-
+    <!--BOOTSTRAP SELECT CSS-->
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
 </head>
+
 <body class="g-sidenav-show   bg-gray-100">
 <div class="min-height-300 bg-primary position-absolute w-100"></div>
 
@@ -487,9 +490,9 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="/assets/js/argon-dashboard.min.js?v=2.0.2"></script>
-
-<!--Datatables
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<!--Datatables
+
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
 <script>
@@ -514,7 +517,12 @@
         } );
     } );
 </script>-->
-
+<script src="/assets/Magnific-Popup-master/dist/jquery.magnific-popup.js"></script>
+<script>
+    $('.magnific').magnificPopup({
+        type: 'image'
+    });
+</script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <script>
     $(function() {
@@ -527,6 +535,14 @@
 <script src="//cdn.ckeditor.com/4.17.1/full/ckeditor.js"></script>
 <script>
     CKEDITOR.replace( 'projectDesc' );
+</script>
+<!--BOOTSTRAP SELECT JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.5/cjs/enums.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.my-select').selectpicker();
+    });
 </script>
 </body>
 </html>
