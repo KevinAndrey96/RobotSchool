@@ -22,10 +22,13 @@
                                                         Proyecto
                                                     @endif
                                                 </span></span>
-                                            <span class="mb-2 text-xs">Categoría: <span class="text-dark ms-sm-2 font-weight-bold">{{$project->subcategory->category->name}}</span></span>
-                                            <span class="mb-2 text-xs">Subcategoría: <span class="text-dark ms-sm-2 font-weight-bold">{{$project->subcategory->name}}</span></span>
-                                            <span class="mb-2 text-xs">Autor: <span class="text-dark ms-sm-2 font-weight-bold">{{$project->user->name}}</span></span>
-                                            <span class="mb-2 text-xs">Rol del autor: <span class="text-dark ms-sm-2 font-weight-bold">
+                                            @if (isset($project->subcategory->category) && isset($project->subcategory))
+                                                <span class="mb-2 text-xs">Categoría: <span class="text-dark ms-sm-2 font-weight-bold">{{$project->subcategory->category->name}}</span></span>
+                                                <span class="mb-2 text-xs">Subcategoría: <span class="text-dark ms-sm-2 font-weight-bold">{{$project->subcategory->name}}</span></span>
+                                            @endif
+                                            @if (isset($project->user))
+                                                <span class="mb-2 text-xs">Autor: <span class="text-dark ms-sm-2 font-weight-bold">{{$project->user->name}}</span></span>
+                                                <span class="mb-2 text-xs">Rol del autor: <span class="text-dark ms-sm-2 font-weight-bold">
                                                     @if ($project->user->role == 'Administrator')
                                                         Administrador
                                                     @elseif ($project->user->role == 'Teacher')
@@ -34,13 +37,29 @@
                                                         Estudiante
                                                     @endif
                                                 </span></span>
+                                            @endif
                                         </div>
                                         <div class="ms-auto text-end">
-                                           <a style="width:160px" class="btn btn-primary" href="/showDocument/{{$project->id}}">Ver documento</a>
+                                            @if ($project->is_file == 1)
+                                                <a style="width:160px" class="btn btn-primary" target="blank" href="https://miel.robotschool.co{{$project->description}}">Ver documento</a>
+                                            @else
+                                                <a style="width:160px" class="btn btn-primary" target="blank" href="/showDocument/{{$project->id}}">Ver documento</a>
+                                            @endif
                                         </div>
                                     </li>
                                 </ul>
-                            </div>
+                                <br/>
+                                <br/>
+                                <h2 class="mb-3 text-lg ">Contenido del documento:</h2>
+                                @if (is_null($project->is_file))
+                                    <br/>
+                                    {!! $project->description !!}
+                                @endif
+                                @if ($project->is_file == 1)
+                                    <br/>
+                                    <iframe width="100%" height="900px" src="https://miel.robotschool.co{{$project->description}}"></iframe>
+                                @endif
+                             </div>
                         </div>
                     </div>
                 </div>

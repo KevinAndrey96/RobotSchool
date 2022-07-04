@@ -25,6 +25,7 @@ class Project extends Model
         'description',
         'is_enable',
         'theme_type',
+        'is_file',
         'user_id',
         'subcategory_id',
     ];
