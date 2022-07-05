@@ -72,7 +72,7 @@
                                                 <form method="POST" action="/administrators/delete">
                                                     @csrf
                                                     <input type="hidden" name="user_id" value={{ $administrator->id }}>
-                                                    <button style="margin:4px; width:40px; border-radius: 20px;" class="btn btn-block btn-danger" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este administrador?');"><i style="margin-left: -6px;" class="fas fa-trash"></i></button>
+                                                    <!--<button style="margin:4px; width:40px; border-radius: 20px;" class="btn btn-block btn-danger" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este administrador?');"><i style="margin-left: -6px;" class="fas fa-trash"></i></button>-->
                                                 </form>
                                             </div>
                                         </div>

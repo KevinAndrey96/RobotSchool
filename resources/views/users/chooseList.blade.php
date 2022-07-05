@@ -17,7 +17,7 @@
                             <table id="" class="table dt-responsive display nowrap" width="100%" cellspacing="0">
                                 <tbody>
                                     <tr style="text-align: center; padding:10px;">
-                                        @if (Auth::user()->role == 'Administrator')
+                                        @if ($id == 'cor')
                                         <td>
                                             <p style="font-weight:bold;">Formato coordinadores</p>
                                             <a href="/exportUsers/coord">
@@ -25,18 +25,22 @@
                                             </a>
                                         </td>
                                         @endif
+                                        @if ($id == 'teach')
                                         <td>
                                             <p style="font-weight:bold;">Formato profesores</p>
                                             <a href="/exportUsers/teach">
                                                 <img style="width:80px; margin-left:auto; margin-right:auto;" src="https://miel.robotschool.co/storage/fileTypes/excel.png">
                                             </a>
                                         </td>
-                                        <td>
-                                            <p style="font-weight:bold;">Formato estudiantes</p>
+                                            @endif
+                                            @if ($id == 'stu')
+                                            <td>
+                                                <p style="font-weight:bold;">Formato estudiantes</p>
                                             <a href="/exportUsers/stud">
                                                 <img style="width:80px; margin-left:auto; margin-right:auto;" src="https://miel.robotschool.co/storage/fileTypes/excel.png">
                                             </a>
-                                        </td>
+                                            </td>
+                                            @endif
                                     </tr>
                                 </tbody>
                             </table>

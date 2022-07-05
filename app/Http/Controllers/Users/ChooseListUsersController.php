@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 
 class ChooseListUsersController extends Controller
 {
-    public function chooseList()
+    public function chooseList(Request $request)
     {
-        return view('users.chooseList');
+        $id = $request->input('id');
+
+        return view('users.chooseList', compact('id'));
     }
 }

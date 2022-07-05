@@ -86,6 +86,7 @@
                     <ul class="submenu-list list-unstyled">
                         <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/coordinators/create">Crear coordinador</a></li>
                         <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/coordinators">Ver coordinadores</a></li>
+                        <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/chooseUserList?id=cor">Importar coordinadores</a></li>
                     </ul>
                 </div>
             </li>
@@ -122,20 +123,21 @@
                     </ul>
                 </div>
             </li>
+            <!--
             <li class="nav-item">
                 <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-5" aria-expanded="false" aria-controls="submenu-5">
 						        <span class="nav-icon">
-						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
 						         <i style="width:30px" class="fas fa-file-upload"></i>
 						         </span>
                     <span class="nav-link-text">Importar</span>
-                </a><!--//nav-link-->
+                </a>
                 <div id="submenu-5" class="collapse submenu submenu-5" data-bs-parent="#menu-accordion">
                     <ul class="submenu-list list-unstyled">
                         <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/chooseUserList">Importar usuarios</a></li>
                     </ul>
                 </div>
             </li>
+            -->
             @endhasrole
             @hasrole('Coordinator')
 
@@ -152,6 +154,27 @@
                     <ul class="submenu-list list-unstyled">
                         <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/teachers/create">Crear profesor</a></li>
                         <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/teachers">Ver profesores</a></li>
+                        <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/chooseUserList?id=teach">Importar profesores</a></li>
+
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-3" aria-expanded="false" aria-controls="submenu-3">
+						        <span class="nav-icon">
+						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                                    <i style="width:30px" class="fas fa-child"></i>
+						         </span>
+                    <span class="nav-link-text">Estudiantes</span>
+                </a><!--//nav-link-->
+                <div id="submenu-3" class="collapse submenu submenu-3" data-bs-parent="#menu-accordion">
+                    <ul class="submenu-list list-unstyled">
+                        <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/students/create">Crear estudiante</a></li>
+                        <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/students/all">Ver estudiantes</a></li>
+                        <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/transfers">Traslados de aula</a></li>
+                        <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/chooseUserList?id=stu">Importar estudiantes</a></li>
+
                     </ul>
                 </div>
             </li>
@@ -171,37 +194,21 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item ">
-                <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-3" aria-expanded="false" aria-controls="submenu-3">
-						        <span class="nav-icon">
-						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                                    <i style="width:30px" class="fas fa-child"></i>
-						         </span>
-                    <span class="nav-link-text">Estudiantes</span>
-                </a><!--//nav-link-->
-                <div id="submenu-3" class="collapse submenu submenu-3" data-bs-parent="#menu-accordion">
-                    <ul class="submenu-list list-unstyled">
-                        <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/students/create">Crear estudiante</a></li>
-                        <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/students/all">Ver estudiantes</a></li>
-                        <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/transfers">Traslados de aula</a></li>
-                    </ul>
-                </div>
-            </li>
+            <!--
             <li class="nav-item">
                 <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-5" aria-expanded="false" aria-controls="submenu-5">
 						        <span class="nav-icon">
-						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
 						         <i style="width:30px" class="fas fa-file-upload"></i>
 						         </span>
                     <span class="nav-link-text">Importar</span>
-                </a><!--//nav-link-->
+                </a>
                 <div id="submenu-5" class="collapse submenu submenu-5" data-bs-parent="#menu-accordion">
                     <ul class="submenu-list list-unstyled">
                         <li class="ms-1 ps-6"><a class="submenu-link text-xs" href="/chooseUserList">Importar usuarios</a></li>
                     </ul>
                 </div>
             </li>
+            -->
             @endhasrole
             @hasrole('Teacher')
             <li class="nav-item ">

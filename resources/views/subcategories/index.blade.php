@@ -53,7 +53,7 @@
                                                     <form method="POST" action="/subcategories/delete">
                                                         @csrf
                                                         <input type="hidden" name="subcategory_id" value={{ $subcategory->id }}>
-                                                        <button style="margin:4px; width:40px; border-radius: 20px;" class="btn btn-block btn-danger" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar esta subcategoría?');"><i style="margin-left: -6px;" class="fas fa-trash"></i></button>
+                                                        <!--<button style="margin:4px; width:40px; border-radius: 20px;" class="btn btn-block btn-danger" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar esta subcategoría?');"><i style="margin-left: -6px;" class="fas fa-trash"></i></button>-->
                                                     </form>
                                                 </div>
                                             </div>
