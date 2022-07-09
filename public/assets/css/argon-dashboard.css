@@ -109,6 +109,8 @@ h5,
 .h5,
 h6,
 .h6 {
+
+  font-family: 'Century Gothic';
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-weight: 400;
@@ -261,11 +263,13 @@ sup {
 }
 
 a {
+    font-family: 'Century Gothic';
   color: #5e72e4;
   text-decoration: none;
 }
 
 a:hover {
+    font-family: 'Century Gothic';
   color: #233dd2;
   text-decoration: none;
 }
@@ -280,7 +284,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: var(--bs-font-monospace);
+    font-family: 'Century Gothic';
   font-size: 1em;
   direction: ltr
     /* rtl:ignore */
@@ -348,6 +352,7 @@ caption {
 }
 
 th {
+    font-family: 'Century Gothic';
   text-align: inherit;
   text-align: -webkit-match-parent;
 }
@@ -381,7 +386,7 @@ select,
 optgroup,
 textarea {
   margin: 0;
-  font-family: inherit;
+  font-family: 'Century Gothic';
   font-size: inherit;
   line-height: inherit;
 }
@@ -7021,7 +7026,7 @@ fieldset:disabled .btn {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: var(--bs-font-sans-serif);
+  font-family: 'Century Gothic';
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -7148,7 +7153,7 @@ fieldset:disabled .btn {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: var(--bs-font-sans-serif);
+  font-family: 'Century Gothic';
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -20536,7 +20541,7 @@ fieldset:disabled .btn {
 }
 
 .card .card-body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Century Gothic';
   padding: 1.5rem;
 }
 
@@ -20797,7 +20802,7 @@ fieldset:disabled .btn {
   }
 
   .dropdown .dropdown-menu:before {
-    font-family: "FontAwesome";
+    font-family: 'Century Gothic';
     content: "\f0d8";
     position: absolute;
     top: 0;
@@ -20833,7 +20838,7 @@ fieldset:disabled .btn {
   }
 
   .navbar-toggler+.navbar-collapse .dropdown:not(.nav-item) .dropdown-menu:before {
-    font-family: "FontAwesome";
+    font-family: 'Century Gothic';
     content: "\f0d8";
     position: absolute;
     top: 0;
@@ -20878,7 +20883,7 @@ fieldset:disabled .btn {
   }
 
   .dropdown .dropdown-menu:before {
-    font-family: "FontAwesome";
+    font-family: 'Century Gothic';
     content: "\f0d8";
     position: absolute;
     top: 0;
@@ -21041,7 +21046,7 @@ fieldset:disabled .btn {
 }
 
 .dropup .dropdown-menu:after {
-  font-family: "FontAwesome";
+  font-family: 'Century Gothic';
   content: "\f0d7";
   position: absolute;
   z-index: -1;
@@ -21213,7 +21218,7 @@ fieldset:disabled .btn {
 
 .form-check:not(.form-switch) .form-check-input[type="checkbox"]:after {
   transition: opacity 0.25s ease-in-out;
-  font-family: "FontAwesome";
+  font-family: 'Century Gothic';
   content: "\f00c";
   width: 100%;
   height: 100%;
