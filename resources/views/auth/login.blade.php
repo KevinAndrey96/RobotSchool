@@ -35,7 +35,7 @@
                                 @csrf
                                 <div class="mb-2">
                                     <label class="" for="signin-email"></label>
-                                    <input id="signin-email" name="email" type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" for="signin-email" placeholder="Correo electrónico" value="{{ old('email') }}" aria-label="Email" required="required" autocomplete="email" autofocus>
+                                    <input id="signin-email" name="email" type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" for="signin-email" placeholder="Correo electrónico" value="{{ old('email') }}" aria-label="Email"  autocomplete="email" required="required" autofocus>
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -44,13 +44,14 @@
                                 </div><!--//form-group-->
                                 <div class="mb-2">
                                     <label class="sr-only" for="signin-password">Password</label>
-                                    <input id="signin-password" name="password" type="password" class="form-control form-control-ls signin-password @error('password') is-invalid @enderror" placeholder="Contraseña" required="required" autocomplete="current-password">
+                                    <input id="signin-password" name="password" type="password" class="form-control form-control-ls signin-password @error('password') is-invalid @enderror" placeholder="Contraseña"  autocomplete="current-password" required="required">
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                     @enderror
                                     <div class="extra mt-3 row justify-content-between">
+                                        <!--
                                         <div class="col-6">
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox" value="" id="RememberPassword" name="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -58,8 +59,9 @@
                                                     Recordarme
                                                 </label>
                                             </div>
-                                        </div><!--//col-6-->
-                                        <div class="col-6">
+                                        </div>
+                                        -->
+                                        <div class="col-12">
                                             <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                                 @if (Route::has('password.request'))
                                                     <p class="mb-4 text-xs mx-auto">

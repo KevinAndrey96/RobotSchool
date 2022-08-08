@@ -644,6 +644,7 @@ class ComposerStaticInit045ba9ac56bf43499b45004b1bd7c7d6
         'App\\Http\\Controllers\\Homeworks\\HomeworksUpdateController' => __DIR__ . '/../..' . '/app/Http/Controllers/Homeworks/HomeworksUpdateController.php',
         'App\\Http\\Controllers\\Projects\\ChangeStatusProjectsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Projects/ChangeStatusProjectsController.php',
         'App\\Http\\Controllers\\Projects\\CreateProjectsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Projects/CreateProjectsController.php',
+        'App\\Http\\Controllers\\Projects\\CreationTypeProjectsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Projects/CreationTypeProjectsController.php',
         'App\\Http\\Controllers\\Projects\\DeleteProjectsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Projects/DeleteProjectsController.php',
         'App\\Http\\Controllers\\Projects\\DetailProjectProjectsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Projects/DetailProjectProjectsController.php',
         'App\\Http\\Controllers\\Projects\\EditProjectsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Projects/EditProjectsController.php',

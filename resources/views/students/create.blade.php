@@ -1,5 +1,36 @@
 @extends('layouts.dashboard')
 @section('content')
+    @if(Session::has('existingEmail'))
+        <div class="alert alert-danger" role="alert">
+            {{ Session::get('existingEmail') }}
+        </div>
+    @endif
+    @if(count($errors)>0)
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach($errors->all() as $error)
+                    @if ($error == 'name es requerido')
+                        <li>El nombre es requerido</li>
+                    @endif
+                    @if ($error == 'email es requerido')
+                        <li>El email es requerido</li>
+                    @endif
+                    @if ($error == 'phone es requerido')
+                        <li>El teléfono es requerido</li>
+                    @endif
+                        @if ($error == 'classroom id es requerido')
+                            <li>La aula es requerida</li>
+                        @endif
+                    @if ($error == 'password es requerido')
+                        <li>La contraseña es requerida</li>
+                    @endif
+                    @if ($error == 'The email must be a valid email address.')
+                        <li>Email inválido</li>
+                    @endif
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
@@ -16,19 +47,19 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="name">Nombre</label>
-                                                <input class="form-control" type="text" name="name" id="name" required>
+                                                <input class="form-control" type="text" name="name" id="name">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="email">Email</label>
-                                                <input class="form-control" type="email" name="email" id="email" required>
+                                                <input class="form-control" type="email" name="email" id="email">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="phone">Teléfono</label>
-                                                <input class="form-control" type="text" name="phone" id="phone" required>
+                                                <input class="form-control" type="text" name="phone" id="phone">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -45,7 +76,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="password">Contraseña</label>
-                                                <input class="form-control" type="password" name="password" id="password" required>
+                                                <input class="form-control" type="password" name="password" id="password">
                                             </div>
                                         </div>
                                         <div class="col-md-12 text-center">

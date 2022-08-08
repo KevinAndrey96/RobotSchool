@@ -13,7 +13,15 @@ class SubcategoriesUpdateController extends Controller
 {
     public function update(Request $request)
     {
-
+        $fields = [
+            'name'=>'required|string',
+            'description'=>'required|string',
+            'icon_url'=>'mimes:jpg,jpeg,png',
+        ];
+        $message = [
+            'required'=>':attribute es requerido',
+        ];
+        $this->validate($request, $fields, $message);
         $subcategory =  Subcategory::find($request->input('subcategory_id'));
         $subcategory->name = $request->input('name');
         $subcategory->description = $request->input('description');

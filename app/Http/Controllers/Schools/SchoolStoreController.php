@@ -41,6 +41,18 @@ class SchoolStoreController extends Controller
      */
     public function store(Request $request)
     {
+        $fields = [
+            'name'=>'required|string',
+            'address'=>'required|string',
+            'city'=>'required|string',
+            'country'=>'required|string',
+            'icon_url'=>'required|mimes:jpg,jpeg,png',
+        ];
+        $message = [
+            'required'=>':attribute es requerido',
+        ];
+        $this->validate($request, $fields, $message);
+
         $this->storeSchoolsUseCase->handle(
             $request->input('name'),
             $request->input('address'),

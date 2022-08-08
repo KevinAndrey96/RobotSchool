@@ -16,6 +16,15 @@ class TeachersUpdateController extends Controller
     }
     public function update(Request $request)
     {
+        $fields = [
+            'name'=>'required|string',
+            'email'=>'required|string|email|max:255',
+            'phone'=>'required|string',
+        ];
+        $message = [
+            'required'=>':attribute es requerido',
+        ];
+        $this->validate($request, $fields, $message);
         $this->updateTeachersUseCase->handle(
             $request->input('name'),
             $request->input('email'),

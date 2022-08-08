@@ -31,8 +31,8 @@
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Teléfono</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Estado</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Bloq/Desbl</th>
+                                <!--<th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Estado</th>-->
+                                <!--<th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Bloq/Desbl</th>-->
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Acción</th>
                             </tr>
                             </thead>
@@ -42,6 +42,7 @@
                                     <td class="align-middle text-center text-sm">{{$administrator->name}}</td>
                                     <td class="align-middle text-center text-sm">{{$administrator->email}}</td>
                                     <td class="align-middle text-center text-sm">{{$administrator->phone}}</td>
+                                    <!--
                                     <td class="align-middle text-center text-sm">
                                         @if($administrator->is_enable == 1)
                                             Habilitado
@@ -49,7 +50,8 @@
                                             Deshabilitado
                                         @endif
                                     </td>
-
+                                    -->
+                                    <!--
                                     <td class="align-middle text-center text-sm">
                                         <div style="display:block !important; margin-bottom: 3px;" class="row checkbox">
                                             @if($administrator->is_enable == 1)
@@ -63,6 +65,7 @@
                                             @endif
                                         </div>
                                     </td>
+                                    -->
                                     <td class="align-middle text-center ps-0">
                                         <div class="row">
                                             <div class="col-sm-4">

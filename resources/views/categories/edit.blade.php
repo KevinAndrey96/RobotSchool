@@ -1,17 +1,34 @@
 @extends('layouts.dashboard')
 @section('content')
+    @if(count($errors)>0)
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach($errors->all() as $error)
+                    @if ($error == 'name es requerido')
+                        <li>EL nombre es requerido</li>
+                    @endif
+                    @if ($error == 'description es requerido')
+                        <li>La descripción es requerida</li>
+                    @endif
+                    @if ($error == 'The icon url must be a file of type: jpg, jpeg, png.')
+                        <li>El formato de imagen debe ser jpg, jpeg o png</li>
+                    @endif
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="card">
         <div class="card-header">
-            Crear categoría
+            Editar categoría
         </div>
         <div class="card-body">
             <form method="POST" action="/categories/update" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="name"><p style="font-weight:bold">Nombre:</p></label>
-                    <input class="form-control" type="text" name="name" id="name" value="{{$category->name}}" required>
+                    <input class="form-control" type="text" name="name" id="name" value="{{$category->name}}">
                 </div>
-                <div style="margin-top:20px" class="form-group"><label for="description"><p style="font-weight:bold">Descripción:</p></label><textarea style="height: 100px;" class="form-control" name="description" id="description" required>{{$category->description}}</textarea></div>
+                <div style="margin-top:20px" class="form-group"><label for="description"><p style="font-weight:bold">Descripción:</p></label><textarea style="height: 100px;" class="form-control" name="description" id="description">{{$category->description}}</textarea></div>
                 <div style="margin-top:20px" class="form-group">
                     <label for="icon_url"><p style="font-weight:bold">Ícono:  </p></label>
                     <input class="form-control" type="file" name="icon_url" id="icon_url">

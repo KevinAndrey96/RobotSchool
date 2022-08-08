@@ -20,6 +20,20 @@ class ClassroomsStoreController extends Controller
 
     public function store(Request $request)
     {
+        $classroom = Classroom::where('code', '=', $request->input('code'))->first();
+        if (isset($classroom)) {
+
+            return back()->with('existingClassroom', 'Código insertado ya esta en uso');
+        }
+        $fields = [
+            'name'=>'required|string',
+            'code'=>'required|string',
+            'user_id'=>'required|string'
+        ];
+        $message = [
+            'required'=>':attribute es requerido',
+        ];
+        $this->validate($request, $fields, $message);
         $classroom = new Classroom();
         $classroom->name = $request->input('name');
         $classroom->code = $request->input('code');

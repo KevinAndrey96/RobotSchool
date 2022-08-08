@@ -11,6 +11,16 @@ class StudentsUpdateController extends Controller
 {
     public function update(Request $request)
     {
+        $fields = [
+            'name'=>'required|string',
+            'email'=>'required|string|email|max:255',
+            'phone'=>'required|string',
+            'classroom_id'=>'required|string',
+        ];
+        $message = [
+            'required'=>':attribute es requerido',
+        ];
+        $this->validate($request, $fields, $message);
         $user = User::find($request->input('user_id'));
         $user->name = $request->input('name');
         $user->email = $request->input('email');

@@ -30,7 +30,6 @@ class School extends Model
         'country',
         'icon_url',
         'is_enable',
-
     ];
 
     /**

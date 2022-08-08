@@ -10,6 +10,16 @@ class HomeworksUpdateController extends Controller
 {
     public function update(Request $request)
     {
+        $fields = [
+            'title'=>'required|string',
+            'percent'=>'required|string',
+            'description'=>'required|string',
+            'requiredFile'=>'required|string'
+        ];
+        $message = [
+            'required'=>':attribute es requerido',
+        ];
+        $this->validate($request, $fields, $message);
         $homework = Homework::find($request->input('homework_id'));
         $dueDate = $request->input('due_date');
         $dueTime = $request->input('due_time');

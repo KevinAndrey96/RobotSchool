@@ -15,6 +15,6 @@ class SchoolIndexController extends Controller
         $schools = School::all();
         return view('Schools.index', compact('schools'));
         }
-    abort(403);
+        abort(403);
     }
 }
