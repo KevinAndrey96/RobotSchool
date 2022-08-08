@@ -14,7 +14,6 @@ class StoreProjectsController extends Controller
 {
     public function store(Request $request)
     {
-        //return $request;
         if (isset($_FILES['themeFile'])) {
             $fileThemeName = $_FILES['themeFile']['name'];
             $themeExtension = pathinfo($fileThemeName, PATHINFO_EXTENSION);

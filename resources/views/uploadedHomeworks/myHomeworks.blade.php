@@ -33,11 +33,11 @@
                                                 @if (! is_null($myHomework->path))
                                                     <a href="https://miel.robotschool.co/{{$myHomework->path}}" target="_blank">
                                                         @if (strpos($myHomework->path, '.pdf'))
-                                                            <img class="img-fluid img-thumbnail" style="width: 100%; height: auto;" src="https://miel.robotschool.co/storage/fileTypes/pdf.png">
+                                                            <img class="img-fluid img-thumbnail" style="width: 100px; height: auto;" src="https://miel.robotschool.co/storage/fileTypes/pdf.png">
                                                         @elseif (strpos($myHomework->path, '.docx'))
-                                                            <img class="img-fluid img-thumbnail" style="width: 100%; height: auto;" src="https://miel.robotschool.co/storage/fileTypes/docx.png">
+                                                            <img class="img-fluid img-thumbnail" style="width: 100px; height: auto;" src="https://miel.robotschool.co/storage/fileTypes/docx.png">
                                                         @elseif (strpos($myHomework->path, '.zip'))
-                                                            <img class="img-fluid img-thumbnail" style="width: 100%; height: auto;" src="https://miel.robotschool.co/storage/fileTypes/compressed.png">
+                                                            <img class="img-fluid img-thumbnail" style="width: 100px; height: auto;" src="https://miel.robotschool.co/storage/fileTypes/compressed.png">
                                                         @endif
                                                     </a>
                                                 @endif

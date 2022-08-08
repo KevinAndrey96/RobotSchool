@@ -13,6 +13,18 @@ class SchoolUpdateController extends Controller
 {
     public function update(Request $request)
     {
+        $fields = [
+            'name'=>'required|string',
+            'address'=>'required|string',
+            'city'=>'required|string',
+            'country'=>'required|string',
+            'icon_url'=>'mimes:jpg,jpeg,png',
+        ];
+        $message = [
+            'required'=>':attribute es requerido',
+        ];
+        $this->validate($request, $fields, $message);
+
         $school =  School::find($request->input('school_id'));
        $school->name = $request->input('name');
        $school->address = $request->input('address');
@@ -44,7 +56,7 @@ class SchoolUpdateController extends Controller
            $school->icon_url = 'storage/school_logos/'.$school->id.'.png';
            $school->save();
            unlink(storage_path('app/public/school_logos/'.$school->id.'.png'));
-       
+
            return redirect('/schools')->with('updaschoolsuccess', 'Colegio modificado');
        }
 

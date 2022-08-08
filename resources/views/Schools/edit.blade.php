@@ -1,5 +1,28 @@
 @extends('layouts.dashboard')
 @section('content')
+    @if(count($errors)>0)
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach($errors->all() as $error)
+                    @if ($error == 'name es requerido')
+                        <li>EL nombre es requerido</li>
+                    @endif
+                    @if ($error == 'address es requerido')
+                        <li>La dirección es requerida</li>
+                    @endif
+                    @if ($error == 'city es requerido')
+                        <li>La ciudad es requerida</li>
+                    @endif
+                    @if ($error == 'country es requerido')
+                        <li>El país es requerido</li>
+                    @endif
+                    @if ($error == 'The icon url must be a file of type: jpg, jpeg, png.')
+                        <li>El formato de imagen debe ser jpg, jpeg o png</li>
+                    @endif
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
@@ -16,19 +39,19 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="name">Nombre del colegio</label>
-                                                <input class="form-control" type="text" name="name" id="name" value="{{$school->name}}" required>
+                                                <input class="form-control" type="text" name="name" id="name" value="{{$school->name}}">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="address">Dirección</label>
-                                                <input class="form-control" type="text" name="address" id="address" value="{{$school->address}}" required>
+                                                <input class="form-control" type="text" name="address" id="address" value="{{$school->address}}">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="city">Ciudad</label>
-                                                <select class="form-control selectpicker" data-live-search="true" name="city" id="city" required>
+                                                <select class="form-control selectpicker" data-live-search="true" name="city" id="city">
                                                     <option value="{{$school->city}}" selected>{{$school->city}}</option>
                                                     <option value="Abejorral">Abejorral</option>
                                                     <option value="Abrego">Abrego</option>

@@ -1,5 +1,20 @@
 @extends('layouts.dashboard')
 @section('content')
+    @if(count($errors)>0)
+        <!--<p>{{ print_r($errors) }}</p>-->
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach($errors->all() as $error)
+                    @if ($error == 'user list es requerido')
+                        <li>Archivo excel es requerido</li>
+                    @endif
+                    @if ($error == 'The user list must be a file of type: xlsx, csv.')
+                        <li>Los tipos de archivos permitidos son xlsx y csv</li>
+                    @endif
+                @endforeach
+            </ul>
+        </div>
+    @endif
     @if(Session::has('UsersImportSuccess'))
         <div class="alert alert-success" role="alert">
             {{ Session::get('UsersImportSuccess') }}

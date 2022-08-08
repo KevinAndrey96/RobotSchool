@@ -1,5 +1,26 @@
 @extends('layouts.dashboard')
 @section('content')
+    @if(count($errors)>0)
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach($errors->all() as $error)
+                    @if ($error == 'title es requerido')
+                        <li>El título es requerido</li>
+                    @endif
+                    @if ($error == 'percent es requerido')
+                        <li>El porcentaje es requerido</li>
+                    @endif
+                    @if ($error == 'description es requerido')
+                        <li>La descripción es requerida</li>
+                    @endif
+                    @if ($error == 'required file es requerido')
+                        <li>No selecciono si requiere archivo</li>
+                    @endif
+
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
@@ -17,13 +38,13 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="title">Título:</label>
-                                                <input class="form-control" type="text" name="title" id="title" value="{{$homework->title}}" required>
+                                                <input class="form-control" type="text" name="title" id="title" value="{{$homework->title}}">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="percent">Porcentaje(%):</label>
-                                                <input class="form-control" type="number" name="percent" id="percent" value="{{$homework->percent}}" required>
+                                                <input class="form-control" type="number" name="percent" id="percent" value="{{$homework->percent}}">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -46,19 +67,17 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="description">Descripción:</label>
-                                                <textarea style="height: 100px;" class="form-control" name="description" id="description" required>{{ $homework->description }}</textarea>
+                                                <textarea style="height: 100px;" class="form-control" name="description" id="description">{{ $homework->description }}</textarea>
                                             </div>
                                         </div>
-                                        <div class="col-md-3" style="display: none;">
-                                            <div id="datetime" style="display: none">
-                                                <div class="form-group">
-                                                    <label for="due_date"><p style="font-weight:bold">Fecha de entrega:</p></label>
-                                                    <input class="form-control" type="date" name="due_date" id="due_date" value="{{$homework->due_date}}" disabled required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="due_time"><p style="font-weight:bold">Hora limite de entrega:</p></label>
-                                                    <input class="form-control" type="time" name="due_time" id="due_time" value="{{$homework->due_time}}" disabled  required>
-                                                </div>
+                                        <div id="datetime" class="col-md-3" style="display: none;">
+                                            <div class="form-group">
+                                                <label for="due_date"><p style="font-weight:bold">Fecha de entrega:</p></label>
+                                                <input class="form-control" type="date" name="due_date" id="due_date" value="{{$homework->due_date}}" disabled required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="due_time"><p style="font-weight:bold">Hora limite de entrega:</p></label>
+                                                <input class="form-control" type="time" name="due_time" id="due_time" value="{{$homework->due_time}}" disabled  required>
                                             </div>
                                         </div>
                                         <div class="col-md-12 text-center" style=" margin-top: 15px;">

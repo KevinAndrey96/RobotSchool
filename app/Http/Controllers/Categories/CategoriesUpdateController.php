@@ -13,6 +13,15 @@ class CategoriesUpdateController extends Controller
 {
     public function update(Request $request)
     {
+        $fields = [
+            'name'=>'required|string',
+            'description'=>'required|string',
+            'icon_url'=>'mimes:jpg,jpeg,png',
+        ];
+        $message = [
+            'required'=>':attribute es requerido',
+        ];
+        $this->validate($request, $fields, $message);
         $category = Category::find($request->input('category_id'));
         $category->name = $request->input('name');
         $category->description = $request->input('description');

@@ -1,5 +1,27 @@
 @extends('layouts.dashboard')
 @section('content')
+    @if(Session::has('existingClassroom'))
+        <div class="alert alert-danger" role="alert">
+            {{ Session::get('existingClassroom') }}
+        </div>
+    @endif
+    @if(count($errors)>0)
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach($errors->all() as $error)
+                    @if ($error == 'name es requerido')
+                        <li>EL nombre es requerido</li>
+                    @endif
+                    @if ($error == 'code es requerido')
+                        <li>El código es requerido</li>
+                    @endif
+                    @if ($error == 'user id es requerido')
+                        <li>El profesor es requerido</li>
+                    @endif
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
@@ -16,19 +38,19 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="name">Nombre</label>
-                                                <input class="form-control" type="text" name="name" id="name" required>
+                                                <input class="form-control" type="text" name="name" id="name">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="name">Código</label>
-                                                <input class="form-control" type="text" name="code" id="code" required>
+                                                <input class="form-control" type="text" name="code" id="code">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="user_id">Profesor a cargo</label>
-                                                <select class="form-control" name="user_id" required>
+                                                <select class="form-control" name="user_id">
                                                     @foreach ($teachers as $teacher)
                                                         @if ($teacher->teacher->school_id == $coordinator->coordinator->school_id)
                                                             <option value="{{$teacher->id}}">{{$teacher->name}}</option>

@@ -1,5 +1,22 @@
 @extends('layouts.dashboard')
 @section('content')
+    @if(count($errors)>0)
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach($errors->all() as $error)
+                    @if ($error == 'old pass es requerido')
+                        <li>La antigua contraseña es requerida</li>
+                    @endif
+                    @if ($error == 'new pass1 es requerido')
+                        <li>La nueva contraseña es requerida</li>
+                    @endif
+                    @if ($error == 'new pass2 es requerido')
+                        <li>La confirmación de la nueva contraseña es requerida</li>
+                    @endif
+                @endforeach
+            </ul>
+        </div>
+    @endif
     @if(Session::has('messageSuccess'))
         <div class="alert alert-success" role="alert">
             {{ Session::get('messageSuccess') }}
@@ -22,15 +39,15 @@
                             @csrf
                             <div class="form-group">
                                 <label for="oldPass"><p style="font-weight:bold">Digite su antigua contraseña:</p></label>
-                                <input class="form-control" name="oldPass" type="password" required>
+                                <input class="form-control" name="oldPass" type="password">
                             </div>
                             <div class="form-group" style="margin-top:20px">
                                 <label for="newPass1"><p style="font-weight:bold">Digite su nueva contraseña:</p></label>
-                                <input class="form-control" name="newPass1" type="password" required>
+                                <input class="form-control" name="newPass1" type="password">
                             </div>
                             <div class="form-group" style="margin-top:20px">
                                 <label for="newPass2"><p style="font-weight:bold">Digite otra vez su nueva contraseña:</p></label>
-                                <input class="form-control" name="newPass2" type="password" required>
+                                <input class="form-control" name="newPass2" type="password">
                             </div>
                             <input type="submit" style="width:160px; color: white; margin-top:20px !important; float:right;" class="btn btn-primary" value="Modificar">
                         </form>

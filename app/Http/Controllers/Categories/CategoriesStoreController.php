@@ -22,6 +22,17 @@ class CategoriesStoreController extends Controller
      */
     public function store(Request $request)
     {
+        $fields = [
+            'name'=>'required|string',
+            'description'=>'required|string',
+            'icon_url'=>'required|mimes:jpg,jpeg,png',
+        ];
+        $message = [
+            'required'=>':attribute es requerido',
+        ];
+        $this->validate($request, $fields, $message);
+
+
         $category = new Category();
         $category->name = $request->input('name');
         $category->icon_url = '';

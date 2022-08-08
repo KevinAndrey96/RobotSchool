@@ -52,6 +52,7 @@ return array(
     'App\\Http\\Controllers\\Homeworks\\HomeworksUpdateController' => $baseDir . '/app/Http/Controllers/Homeworks/HomeworksUpdateController.php',
     'App\\Http\\Controllers\\Projects\\ChangeStatusProjectsController' => $baseDir . '/app/Http/Controllers/Projects/ChangeStatusProjectsController.php',
     'App\\Http\\Controllers\\Projects\\CreateProjectsController' => $baseDir . '/app/Http/Controllers/Projects/CreateProjectsController.php',
+    'App\\Http\\Controllers\\Projects\\CreationTypeProjectsController' => $baseDir . '/app/Http/Controllers/Projects/CreationTypeProjectsController.php',
     'App\\Http\\Controllers\\Projects\\DeleteProjectsController' => $baseDir . '/app/Http/Controllers/Projects/DeleteProjectsController.php',
     'App\\Http\\Controllers\\Projects\\DetailProjectProjectsController' => $baseDir . '/app/Http/Controllers/Projects/DetailProjectProjectsController.php',
     'App\\Http\\Controllers\\Projects\\EditProjectsController' => $baseDir . '/app/Http/Controllers/Projects/EditProjectsController.php',

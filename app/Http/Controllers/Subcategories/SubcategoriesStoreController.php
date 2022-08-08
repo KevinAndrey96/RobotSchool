@@ -13,6 +13,15 @@ class SubcategoriesStoreController extends Controller
 {
     public function store(Request $request)
     {
+        $fields = [
+            'name'=>'required|string',
+            'description'=>'required|string',
+            'icon_url'=>'required|mimes:jpg,jpeg,png',
+        ];
+        $message = [
+            'required'=>':attribute es requerido',
+        ];
+        $this->validate($request, $fields, $message);
         $subcategory = new Subcategory();
         $subcategory->name = $request->input('name');
         $subcategory->icon_url = '';

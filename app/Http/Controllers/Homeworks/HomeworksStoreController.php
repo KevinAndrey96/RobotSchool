@@ -12,6 +12,16 @@ class HomeworksStoreController extends Controller
 {
     public function store(Request $request)
     {
+        $fields = [
+            'title'=>'required|string',
+            'percent'=>'required|string',
+            'description'=>'required|string',
+            'requiredFile'=>'required|string'
+        ];
+        $message = [
+            'required'=>':attribute es requerido',
+        ];
+        $this->validate($request, $fields, $message);
         $percentAcum = 0;
         $homeworks = Homework::where('classroom_id',$request->input('classroom_id'))->get();
         foreach ($homeworks as $homework) {
