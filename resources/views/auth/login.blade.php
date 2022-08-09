@@ -61,6 +61,7 @@
                                             </div>
                                         </div>
                                         -->
+                                            <!--
                                         <div class="col-12">
                                             <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                                 @if (Route::has('password.request'))
@@ -69,9 +70,10 @@
                                                     </p>
                                                 @endif
                                             </div>
-                                        </div><!--//col-6-->
+                                        </div>-->
                                     </div><!--//extra-->
                                 </div><!--//form-group-->
+                                <br/>
                                 <div class="text-center" style="margin-top: -25px;">
                                     <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mb-0">Ingresar</button>
                                 </div>
