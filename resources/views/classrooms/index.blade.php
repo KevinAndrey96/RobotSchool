@@ -46,7 +46,11 @@
                                             <td class="align-middle text-center text-sm">{{$classroom->name}}</td>
                                             <td class="align-middle text-center text-sm">{{$classroom->code}}</td>
                                             @hasrole('Coordinator')
-                                            <td class="align-middle text-center text-sm">{{$classroom->user->name}}</td>
+                                            <td class="align-middle text-center text-sm">
+                                                @if (isset($classroom->user->name))
+                                                    {{$classroom->user->name}}
+                                                @endif
+                                            </td>
                                             @endhasrole
                                             <td class="align-middle text-center text-sm">
                                                 <div class="justify-content-center btn-group" role="group">

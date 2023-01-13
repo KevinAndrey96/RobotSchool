@@ -52,7 +52,9 @@ class TeachersRepository implements TeachersRepositoryInterface
 
     public function deleteTeacher(int $user_id): bool
     {
-        User::destroy($user_id);
+        $user = User::find($user_id);
+        $user->delete();
+
         return true;
     }
 }

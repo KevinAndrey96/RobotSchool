@@ -28,7 +28,6 @@
                                 <thead>
                                 <tr>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Colegio</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Teléfono</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Estado</th>
@@ -40,7 +39,6 @@
                                 @foreach($teachers as $teacher)
                                     <tr class="align-middle text-center text-sm">
                                         <td class="align-middle text-center text-sm">{{$teacher->name}}</td>
-                                        <td class="align-middle text-center text-sm">{{$teacher->teacher->school->name}}</td>
                                         <td class="align-middle text-center text-sm">{{$teacher->email}}</td>
                                         <td class="align-middle text-center text-sm">{{$teacher->phone}}</td>
                                         <td class="align-middle text-center text-sm">

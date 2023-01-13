@@ -10,7 +10,10 @@ class DeleteAdiministratorsController extends Controller
 {
     public function delete(Request $request)
     {
-        User::destroy($request->input('user_id'));
+        $user = User::find($request->input('user_id'));
+        $user->delete();
+
+        //User::destroy($request->input('user_id'));
 
         return redirect('/administrators')->with('DeleteStudentSuccess', 'Administrador eliminado');
     }

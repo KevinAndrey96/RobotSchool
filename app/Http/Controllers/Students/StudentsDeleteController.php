@@ -10,7 +10,9 @@ class StudentsDeleteController extends Controller
 {
     public function delete(Request $request)
     {
-        User::destroy($request->input('user_id'));
+        $user = User::find($request->input('user_id'));
+        $user->delete();
+
         return redirect('/students')->with('DeleteStudentSuccess', 'Estudiante eliminado');
     }
 }

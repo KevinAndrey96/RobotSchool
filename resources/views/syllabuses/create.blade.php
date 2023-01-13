@@ -51,8 +51,10 @@
                                                         @if ($project->subcategory_id == $subcategory->id && $project->theme_type == 'theme' && $project->is_enable == 1)
                                                             <div>
                                                                 <p class="text-center text-black">{{$project->name}}</p>
-                                                                <img class="img-fluid img-thumbnail" style="height: auto; width: 100%;" src="https://miel.robotschool.co/{{$project->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
-                                                                <input class="form-check-input" type="checkbox" name="projectCheck[]" id="projectCheck{{$project->id}}" value="{{$project->id}}" onclick="getIDS({{$project->id}})">
+                                                                <label class="checkeable">
+                                                                    <input type="checkbox" name="projectCheck[]" id="projectCheck{{$project->id}}" value="{{$project->id}}" onclick="getIDS({{$project->id}})">
+                                                                    <img class="img-fluid img-thumbnail" style="height: auto; width: 100%;" src="https://miel.robotschool.co/{{$project->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
+                                                                </label>
                                                             </div>
                                                         @endif
                                                     @endforeach
@@ -61,10 +63,12 @@
                                                     <p class="text-center text-black text-bold">Proyectos:</p>
                                                     @foreach ($projects as $project)
                                                         @if ($project->subcategory_id == $subcategory->id && $project->theme_type == 'project' && $project->is_enable == 1)
-                                                            <div >
+                                                            <div>
                                                                 <p class="text-center text-black">{{$project->name}}</p>
-                                                                <img class="img-fluid img-thumbnail" style="height: auto; width: 100%;"  src="https://miel.robotschool.co/{{$project->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
-                                                                <input  class="form-check-input" type="checkbox" name="projectCheck[]" id="projectCheck{{$project->id}}" value="{{$project->id}}" onclick="getIDS({{$project->id}})">
+                                                                <label class="checkeable">
+                                                                    <input type="checkbox" name="projectCheck[]" id="projectCheck{{$project->id}}" value="{{$project->id}}" onclick="getIDS({{$project->id}})">
+                                                                    <img class="img-fluid img-thumbnail" style="height: auto; width: 100%;"  src="https://miel.robotschool.co/{{$project->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
+                                                                </label>
                                                             </div>
                                                         @endif
                                                     @endforeach

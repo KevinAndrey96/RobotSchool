@@ -10,7 +10,11 @@ class SchoolDeleteController extends Controller
 {
     public function delete(Request $request)
     {
-        School::destroy($request->input('school_id'));
+        $school = School::find($request->input('school_id'));
+        $school->is_deleted = 1;
+        $school->save();
+
+
         return back()->with('deleschoolsuccess', 'Colegio eliminado');
     }
 }

@@ -28,6 +28,21 @@
     <!--BOOTSTRAP SELECT CSS-->
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css">-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
+    <style>
+        .checkeable input {
+            display: none;
+        }
+        .checkeable img {
+            width: 100px;
+            border: 5px solid transparent;
+        }
+        .checkeable input {
+            display: none;
+        }
+        .checkeable input:checked  + img {
+            border-color: blue;
+        }
+    </style>
 </head>
 <body class="g-sidenav-show  bg-gray-100" style="font-family: 'Century Gothic';">
 <div class="min-height-300 bg-primary position-absolute w-100"></div>

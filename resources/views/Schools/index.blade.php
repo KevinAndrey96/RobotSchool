@@ -43,7 +43,7 @@
                                         <tr class="align-middle text-center text-sm">
                                             <td class="align-middle text-center text-sm">
                                                 <a class="magnific" href="https://miel.robotschool.co/{{$school->icon_url}}">
-                                                    <img class="img-fluid"  style="max-width: 130%; height: auto" src="https://miel.robotschool.co/{{$school->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
+                                                    <img class="img-fluid"  style="width: 75%; height: 75px" src="https://miel.robotschool.co/{{$school->icon_url}}" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';">
                                                 </a>
                                             </td>
                                             <td class="align-middle text-center text-xs px-sm-5">{{$school->name}}</td>
@@ -72,13 +72,18 @@
                                                 </div>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <a href="/schools/edit/{{$school->id}}" style="margin:4px; width:40px; border-radius: 20px;" title="Editar" alt="Editar" class="btn btn-warning"><i style="color:white; margin-left: -6px" class="text-right far fa-edit"></i></a>
-
-                                                <form method="POST" action="/schools/delete">
-                                                    @csrf
-                                                    <input type="hidden" name="school_id" value={{ $school->id }}>
-                                                    <!--<button style="margin:4px; width:40px; border-radius: 20px;" class="btn btn-danger " title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este colegio?');"><i style="margin-left: -6px;" class="fas fa-trash"></i></button>-->
-                                                </form>
+                                                <div class="d-flex">
+                                                    <div class="d-inline">
+                                                        <a href="/schools/edit/{{$school->id}}" style="margin:4px; width:40px; border-radius: 20px;" title="Editar" alt="Editar" class="btn btn-warning"><i style="color:white; margin-left: -6px" class="text-right far fa-edit"></i></a>
+                                                    </div>
+                                                    <div class="d-inline">
+                                                        <form method="POST" action="/schools/delete">
+                                                            @csrf
+                                                            <input type="hidden" name="school_id" value={{ $school->id }}>
+                                                            <button style="margin:4px; width:40px; border-radius: 20px;" class="btn btn-danger " title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este colegio?');"><i style="margin-left: -6px;" class="fas fa-trash"></i></button>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                         @endforeach

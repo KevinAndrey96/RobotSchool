@@ -37,8 +37,8 @@
                                     <tr class="align-middle text-center text-sm">
                                         <td class="align-middle text-center text-sm">
                                             @if (! is_null($syllabus))
-                                                <a href="/syllabus/show/{{$classroom_id}}">
-                                                    <img class="img-fluid img-thumbnail" style="width:100%; height: auto;" src="https://miel.robotschool.co/assets/images/fileTypes/pdf.png">
+                                                <a href="/syllabus/show/{{$classroom_id}}" target="_blank">
+                                                    <img class="img-fluid img-thumbnail" style="width:7%; height: auto;" src="https://miel.robotschool.co/assets/images/fileTypes/pdf.png">
                                                 </a>
                                             @endif
                                         </td>
@@ -49,7 +49,7 @@
                                                     <form method="POST" action="/syllabus/delete">
                                                         @csrf
                                                         <input type="hidden" name="classroom_id" value={{$classroom_id }}>
-                                                        <!--<button style="margin:4px; width:40px; border-radius: 20px;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este plan de estudios?');"><i style="margin-left: -5px;" class="fas fa-trash"></i></button>-->
+                                                        <button style="margin:4px; width:40px; border-radius: 20px;" class="btn btn-block btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('¿Está seguro que quiere eliminar este plan de estudios?');"><i style="margin-left: -5px;" class="fas fa-trash"></i></button>
                                                     </form>
                                                 </div>
                                             @endif
